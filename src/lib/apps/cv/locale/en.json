@@ -1,0 +1,10 @@
+{
+    "loginPage":
+    {
+        "form":
+        {
+            "title": "Sign In",
+            "description": "Login using an existing account or create a new account "
+        }
+    }
+}

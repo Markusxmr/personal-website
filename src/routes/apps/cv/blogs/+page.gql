@@ -1,0 +1,33 @@
+query AllBlogArticles(
+	$order_by: [blog_article_order_by!]
+	$where: blog_article_bool_exp
+	$filters: CvArticleFiltersInput
+) {
+	blog_article(order_by: $order_by, where: $where) {
+		id
+		rating
+		title
+		description
+		slug
+		author {
+			...BlogAuthorFields
+		}
+		created_at
+		updated_at
+	}
+
+	cms {
+		cvArticles(filters: $filters) {
+			data {
+				id
+				attributes {
+					rating
+					title
+					description
+					slug
+					createdAt
+				}
+			}
+		}
+	}
+}

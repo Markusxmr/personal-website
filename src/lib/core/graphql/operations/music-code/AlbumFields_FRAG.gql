@@ -1,0 +1,8 @@
+fragment AlbumFields on music_code_album {
+	album_id
+	created_at
+	title
+	artist {
+		name
+	}
+}

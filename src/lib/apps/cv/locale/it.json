@@ -1,0 +1,10 @@
+{
+    "loginPage":
+    {
+        "form":
+        {
+            "title": "Registrazione",
+            "description": "Accedi utilizzando un account esistente o crea un nuovo account "
+        }
+    }
+}

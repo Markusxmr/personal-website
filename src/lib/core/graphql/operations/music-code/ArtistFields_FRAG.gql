@@ -1,0 +1,6 @@
+fragment ArtistFields on music_code_artist {
+	artist_id
+	name
+	about
+}
+

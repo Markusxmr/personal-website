@@ -1,0 +1,19 @@
+[{
+  "product": {
+    "name": "MusicCode",
+    "description": "Subscription for unlimited listings and availability",
+    "id": "prod_MkJNL7hWoCSS4v"
+  },
+  "price": {
+    "currency": "eur",
+    "unit_amount": 10000,
+    "recurring": {
+      "interval": "year"
+    },
+    "id": "price_1M0okzETslJslqY6dvQA7tLO"
+  },
+  "includes": [
+    "Unlimited number of listings",
+    "Unlimited Availability"
+  ]
+}]

@@ -1,0 +1,182 @@
+@import './app.mobile.scss';
+@import './css/index';
+// @import './css/dark';
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.page-title-border {
+    border-bottom: 3px solid orange;
+}
+
+.bg-orange {
+    background-color: #ef9250 !important;
+}
+
+.under-hero {
+    margin-top: -3rem;
+    z-index: 1;
+    position: relative;
+    min-height: 20rem;
+}
+
+.banner {
+    width: 100%;
+    margin: 0 !important;
+    opacity: 0.5 !important;
+
+    .hero {
+        background-size: cover;
+        background-position: center;
+        height: 20rem;
+        position: relative;
+    }
+}
+
+.bg {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.66);
+}
+
+.section-title {
+    border-bottom-width: 1px;
+    border-color: rgb(6 182 212 / 1);
+    color: #999;
+}
+
+.light-grey {
+    color: #999;
+}
+
+.orange {
+    color: #ff724c;
+}
+
+.page-title {
+    font-size: 3.5rem;
+}
+
+.page-subtitle {
+    color: #999;
+}
+
+.vertical-center {
+    position: absolute;
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+.horizontal-center {
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+.section {
+    margin-bottom: 4rem !important;
+}
+
+#navigator {
+    padding-left: 20px;
+    width: inherit;
+    border-right: 1px solid #ddd;
+}
+
+.main-content {
+    height: 92vh !important;
+    overflow-y: scroll;
+}
+
+.page-content {
+    animation: 0.3s fadeIn;
+    animation-fill-mode: both;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+.search-header {
+    max-width: calc(100vw - 32px)
+}
+
+.container-wrapper {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+
+}
+
+.notification {
+    max-width: 500px !important;
+}
+
+.notification-content {
+    width: 500px !important;
+}
+
+.fadeIn {
+    animation: 0.1s fadeIn;
+    animation-fill-mode: backwards;
+}
+
+.fadeOut {
+    animation: 0.1s fadeOut;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        visibility: hidden;
+        opacity: 0.5;
+    }
+
+    50% {
+        visibility: visible;
+        opacity: 0.8;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    50% {
+        visibility: hidden;
+        opacity: 0.5;
+    }
+
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+}

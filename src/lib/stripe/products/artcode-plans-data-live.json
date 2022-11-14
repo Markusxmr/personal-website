@@ -1,0 +1,19 @@
+[{
+  "product": {
+    "name": "ArtCode Bussiness",
+    "description": "Subscription for unlimited listings and availability",
+    "id": "prod_Lm9nSsaLiLaGjf"
+  },
+  "price": {
+    "currency": "eur",
+    "unit_amount": 10000,
+    "recurring": {
+      "interval": "year"
+    },
+    "id": "price_1L4bTeETslJslqY6JU927RPa"
+  },
+  "includes": [
+    "Unlimited number of listings",
+    "Unlimited Availability"
+  ]
+}]

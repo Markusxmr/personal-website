@@ -1,0 +1,53 @@
+.plan-card,
+.plan-info-card {
+	border: 2px solid #00c746;
+	border-radius: .5rem
+}
+
+#footer {
+	margin: 0 -2rem;
+	padding: 2rem 2rem 8rem;
+	text-align: center;
+	background-image: url(/music-code/images/background/footer.jpg);
+	position: relative
+}
+
+#footer:after,
+#footer:before {
+	content: '';
+	display: block;
+	z-index: 1
+}
+
+#footer:before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, .7)
+}
+
+#footer:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 15rem;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), to(rgba(255, 255, 255, 0)));
+	background: -webkit-linear-gradient(top, #fff 0, rgba(255, 255, 255, 0) 100%);
+	background: -o-linear-gradient(top, #fff 0, rgba(255, 255, 255, 0) 100%);
+	background: linear-gradient(to bottom, #fff 0, rgba(255, 255, 255, 0) 100%)
+}
+
+#footer .footer-content {
+	position: relative;
+	z-index: 2
+}
+
+#footer .email {
+	font-weight: 300;
+	font-size: 3rem;
+	display: inline-block;
+	margin-bottom: 2rem
+}

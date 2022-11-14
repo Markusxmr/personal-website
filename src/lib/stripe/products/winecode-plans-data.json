@@ -1,0 +1,19 @@
+[{
+  "product": {
+    "name": "WineCode",
+    "description": "Subscription for unlimited listings and availability",
+    "id": "prod_MkJN5i5SWSdogV"
+  },
+  "price": {
+    "currency": "eur",
+    "unit_amount": 10000,
+    "recurring": {
+      "interval": "year"
+    },
+    "id": "price_1M0ol8ETslJslqY6IXdr1cMN"
+  },
+  "includes": [
+    "Unlimited number of listings",
+    "Unlimited Availability"
+  ]
+}]

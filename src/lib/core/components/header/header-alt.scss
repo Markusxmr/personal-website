@@ -1,0 +1,45 @@
+.auth li a i.fa {
+    margin-right: 10px;
+    color: grey;
+}
+
+.header-select {
+    margin-top: 10px !important;
+}
+
+@media only screen and (max-width: 650px) {
+    .nav-item {
+        border: none !important;
+    }
+}
+
+.navbar {
+    height: 75px;
+}
+
+.search-container {
+    height: 40px !important;
+}
+
+.menu-notification {
+    color: gray;
+}
+
+.notification {
+    cursor: pointer;
+    margin: 8px;
+    margin-right: 15px;
+}
+
+.nav-item {
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 650px) {
+    .nav-item {
+        text-align: center;
+        border-top: 1px solid #ddd;
+        height: 35px;
+        z-index: 10;
+    }
+}

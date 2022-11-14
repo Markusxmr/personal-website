@@ -1,0 +1,19 @@
+query BlogArticle($where: blog_article_bool_exp, $filters: CvArticleFiltersInput) {
+	blog_article(where: $where) {
+		...BlogArticleFields
+	}
+
+	cms {
+		cvArticles(filters: $filters) {
+			data {
+				id
+				attributes {
+					rating
+					title
+					description
+					content
+				}
+			}
+		}
+	}
+}

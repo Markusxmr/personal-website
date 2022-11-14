@@ -1,0 +1,550 @@
+{
+    "loginPage":
+    {
+        "form":
+        {
+            "title": "Sign In",
+            "description": "Login using an existing account or create a new account "
+        }
+    },
+    "registerPage":
+    {
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+        "form":
+        {
+            "title": "Register"
+        }
+    },
+    "explorePage":
+    {
+        "title": "Explore",
+        "categoriesFilter":
+        {
+            "title": "Select Categories"
+        },
+        "statusFilter":
+        {
+            "title": "Status"
+        },
+        "itemsTypeFilter":
+        {
+            "title": "Items Type"
+        },
+        "collectionsFilter":
+        {
+            "title": "Collections"
+        }
+    },
+    "homePage":
+    {
+        "categorySection":
+        {
+            "title": "Browse by category"
+        },
+        "itemsSection":
+        {
+            "title": "New Items"
+        },
+        "collectionsSection":
+        {
+            "title": "Hot Collections"
+        },
+        "sellersSection":
+        {
+            "title": "Top Sellers"
+        },
+        "callToActionSection":
+        {
+            "title": "Create and Sell Now",
+            "wallet":
+            {
+                "title": "Set up your wallet",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem."
+            },
+            "add":
+            {
+                "title": "Add your Item or NFT",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem."
+            },
+            "sell":
+            {
+                "title": "Sell your Item's or NFT's",
+                "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem."
+            }
+        }
+    },
+    "artistsPage":
+    {
+        "title": "Artists"
+    },
+    "auctionsPage":
+    {
+        "title": "Auctions",
+        "auctionsLivePage":
+        {
+            "title": "Live Auctions"
+        },
+        "auctionsUpcomingPage":
+        {
+            "title": "Upcoming Auctions"
+        }
+    },
+    "collectionsPage":
+    {
+        "title": "Collections"
+    },
+    "dashboardPage":
+    {
+        "title": "Dashboard",
+        "collectionsCard":
+        {
+            "title": "Collections"
+        },
+        "itemsCard":
+        {
+            "title": "Items"
+        },
+        "eventsCard":
+        {
+            "title": "Events"
+        },
+        "collectionsPage":
+        {
+            "title": "My Collections"
+        },
+        "itemsPage":
+        {
+            "title": "My Items"
+        },
+        "eventsPage":
+        {
+            "title": "My Events"
+        }
+    },
+    "eventDomain":
+    {
+        "eventsPage":
+        {
+            "title": "Events"
+        },
+        "createEventPage":
+        {
+            "title": "Create Event"
+        },
+        "updateEventPage":
+        {
+            "title": "Update Event"
+        },
+        "eventForm":
+        {
+            "title":
+            {
+                "input":
+                {
+                    "label": "Title",
+                    "placeholder": "Title"
+                }
+            },
+            "description":
+            {
+                "input":
+                {
+                    "label": "Description",
+                    "placeholder": "Description"
+                }
+            },
+            "venue":
+            {
+                "input":
+                {
+                    "label": "Venue",
+                    "placeholder": "Venue"
+                }
+            },
+            "eventImage":
+            {
+                "input":
+                {
+                    "label": "Event image",
+                    "placeholder": "Event image"
+                }
+            },
+            "allDayEvent":
+            {
+                "title": "All Day Event"
+            },
+            "startDate":
+            {
+                "input":
+                {
+                    "label": "Start Date",
+                    "placeholder": "Start Date"
+                }
+            },
+            "startTime":
+            {
+                "input":
+                {
+                    "label": "Start Time",
+                    "placeholder": "Start Time"
+                }
+            },
+            "endDate":
+            {
+                "input":
+                {
+                    "label": "End Date",
+                    "placeholder": "End Date"
+                }
+            },
+            "endTime":
+            {
+                "input":
+                {
+                    "label": "End Time",
+                    "placeholder": "End Time"
+                }
+            },
+            "createEventButton":
+            {
+                "input":
+                {
+                    "label": "Create Event"
+                }
+            },
+            "updateEventButton":
+            {
+                "input":
+                {
+                    "label": "Update Event"
+                }
+            }
+        }
+    },
+    "collectionDomain":
+    {
+        "eventsPage":
+        {
+            "title": "Collections"
+        },
+        "createCollectionPage":
+        {
+            "title": "Create Collection"
+        },
+        "updateCollectionPage":
+        {
+            "title": "Update Collection"
+        },
+        "collectionForm":
+        {
+            "title":
+            {
+                "input":
+                {
+                    "label": "Title",
+                    "placeholder": "Title"
+                }
+            },
+            "description":
+            {
+                "input":
+                {
+                    "label": "Description",
+                    "placeholder": "Description"
+                }
+            },
+            "venue":
+            {
+                "input":
+                {
+                    "label": "Venue",
+                    "placeholder": "Venue"
+                }
+            },
+            "collectionImage":
+            {
+                "input":
+                {
+                    "label": "Collection image",
+                    "placeholder": "Collection image"
+                }
+            },
+            "submitCollectionButton":
+            {
+                "input":
+                {
+                    "label": "Submit"
+                }
+            }
+        }
+    },
+    "collectibleDomain":
+    {
+        "notForSale":
+        {
+            "title": "Not for sale"
+        },
+        "auctionNotStarted":
+        {
+            "title": "Auction has not started"
+        },
+        "auctionEnded":
+        {
+            "title": "Auction has ended"
+        },
+        "minimumBid":
+        {
+            "title": "Minimum bid price"
+        },
+        "collectibleDetailPage":
+        {
+            "auctionStarts":
+            {
+                "title": "Auctions starts in"
+            },
+            "auctionEnds":
+            {
+                "title": "Auctions ends in"
+            },
+            "creator":
+            {
+                "title": "Creator"
+            },
+            "collection":
+            {
+                "title": "Collection"
+            },
+            "owner":
+            {
+                "title": "Owner"
+            },
+            "properties":
+            {
+                "title": "Properties"
+            },
+            "price":
+            {
+                "title": "Price"
+            },
+            "buyButton":
+            {
+                "title": "Buy Now"
+            },
+            "bidButton":
+            {
+                "title": "Place a Bid"
+            },
+            "editButton":
+            {
+                "title": "Edit"
+            },
+            "deleteButton":
+            {
+                "title": "Delete"
+            }
+        },
+        "collectibleCard":
+        {
+            "buyButton":
+            {
+                "title": "Buy now"
+            },
+            "share":
+            {
+                "title": "Share"
+            },
+            "bid":
+            {
+                "title": "Place a bid"
+            }
+        },
+        "createPage":
+        {
+            "title": "Create Collectible",
+            "description": "Choose \"Single\" if you want your collectible to be one of a kind or \"Multiple\" if you want to sell one collectible times",
+            "singleButton":
+            {
+                "title": "Single"
+            },
+            "multipleButton":
+            {
+                "title": "Multiple"
+            }
+        },
+        "createSingleCollectiblePage":
+        {
+            "title": "Create Single Collectible"
+        },
+        "createMultipleCollectiblePage":
+        {
+            "title": "Create Multiple Collectible"
+        },
+        "editSingleCollectiblePage":
+        {
+            "title": "Edit item"
+        },
+        "editMultipleCollectiblePage":
+        {
+            "title": "Edit item"
+        },
+        "collectibleForm":
+        {
+            "uploadFile":
+            {
+                "title": "Upload file",
+                "input":
+                {
+                    "button": "No file chosen"
+                }
+            },
+            "selectMethod":
+            {
+                "title": "Select method",
+                "methods":
+                [
+                    "Fixed price",
+                    "Timed auction",
+                    "Open for bids"
+                ]
+            },
+            "unlockOnPurchase":
+            {
+                "title": "Unlock once purchased",
+                "description": "Unlock content after successful transaction.",
+                "input":
+                {
+                    "placeholder": "Access key, code to redeem or link to a file..."
+                }
+            },
+            "collection":
+            {
+                "title": "Choose collection",
+                "description": "This is the collection where your item will appear.",
+                "input":
+                {
+                    "placeholder": "Select Collection"
+                }
+            },
+            "category":
+            {
+                "title": "Choose category",
+                "description": "",
+                "input":
+                {
+                    "placeholder": "Select category"
+                }
+            },
+            "subCategory":
+            {
+                "title": "Subcategory",
+                "description": "",
+                "input":
+                {
+                    "placeholder": "Subcategory"
+                }
+            },
+            "minimumBid":
+            {
+                "title": "Minimum bid",
+                "input":
+                {
+                    "placeholder": "Minimum bid is optional"
+                }
+            },
+            "startingDate":
+            {
+                "input":
+                {
+                    "label": "Starting Date",
+                    "placeholder": "Starting Date"
+                }
+            },
+            "expirationDate":
+            {
+                "input":
+                {
+                    "label": "Expiration date",
+                    "placeholder": "Expiration date"
+                }
+            },
+            "price":
+            {
+                "title": "Price",
+                "input":
+                {
+                    "placeholder": "Enter price for one item (EUR)"
+                }
+            },
+            "title":
+            {
+                "title": "Title",
+                "input":
+                {
+                    "placeholder": "Title"
+                }
+            },
+            "description":
+            {
+                "title": "Description",
+                "input":
+                {
+                    "placeholder": "Description"
+                }
+            },
+            "royalties":
+            {
+                "title": "Royalties",
+                "input":
+                {
+                    "placeholder": "Royalties"
+                }
+            },
+            "preview":
+            {
+                "title": "Preview item",
+                "card":
+                {
+                    "bid": "Place a bid"
+                }
+            },
+            "createItemButton":
+            {
+                "input":
+                {
+                    "label": "Create Item"
+                }
+            }
+        }
+    },
+    "profilePage":
+    {
+        "title": "Edit Profile"
+    },
+    "header":
+    {
+        "search":
+        {
+            "input":
+            {
+                "placeholder": "Search"
+            }
+        },
+        "createButton":
+        {
+            "title": "Create"
+        },
+        "notifications":
+        {
+            "title": "Notifications"
+        },
+        "accountMenu":
+        {
+            "setDisplayName": "Set display name",
+            "myProfile": "My profile",
+            "myGallery": "My gallery",
+            "editProfile": "Edit profile",
+            "membership": "Membership",
+            "signOut": "Sign out"
+        }
+    }
+}

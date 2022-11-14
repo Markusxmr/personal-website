@@ -1,0 +1,90 @@
+$box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 30%) !important;
+
+body.dark {
+    color: $white;
+    background-color: $gray-900;
+
+    .studio {
+        .songs-list {
+            border-radius: 10px !important;
+            border-color: grey !important;
+        }
+
+        #song-title {
+            color: $white;
+            background-color: $gray-900;
+        }
+
+        .selected-song {
+            color: #fff !important;
+        }
+
+        .song {
+            color: #ccc !important;
+        }
+    }
+
+    .border-bottom {
+        border-bottom: none !important;
+    }
+
+    .border-end {
+        border-right: none !important;
+    }
+
+    nav.navbar {
+        color: $white;
+        background-color: $gray-900;
+        border: none !important;
+        box-shadow: $box-shadow;
+
+        .navbar.header-select {
+            color: $white;
+        }
+    }
+
+    .event {
+        box-shadow: $box-shadow;
+
+        .event-title {
+            font-size: 1.2rem;
+            color: $white;
+            font-weight: 400;
+            padding-bottom: 5px;
+        }
+
+        .event-type {
+            color: $gray-300
+        }
+
+        .collection {
+            color: $gray-300 !important;
+        }
+
+        .event-active {
+            color: #111;
+            border-left: 3px solid teal !important;
+        }
+    }
+
+    #sidebar {
+        color: $white;
+        background-color: $gray-900;
+        box-shadow: $box-shadow;
+
+        .list-group,
+        .list-group-item {
+            color: $white;
+            background-color: $gray-900;
+            border: none !important;
+        }
+
+        .list-group-item {
+            border-radius: 0px;
+        }
+    }
+
+    .active-sidebar-item {
+        background-color: grey !important;
+    }
+}
