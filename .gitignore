@@ -5,8 +5,8 @@ node_modules
 /.svelte-kit
 /package
 /static/*
-!/static/favicon.png
-!/static/favicon.ico
+!/static/cv
+!/static/favicon.*
 !.env.example
 .env
 .env.*
@@ -14,17 +14,8 @@ vite.config.js.*
 
 $houdini
 
-/src/lib/apps/admin
-/src/routes/apps/admin
+!/src/lib/apps/cv
+!/src/routes/apps/cv
 
-/src/lib/apps/art-code
-/src/routes/apps/art-code
-
-/src/lib/apps/music-code
-/src/routes/apps/music-code
-
-/src/lib/apps/sandbox
-/src/routes/apps/sandbox
-
-/src/lib/apps/wine-code
-/src/routes/apps/wine-code
+/src/lib/apps/*
+/src/routes/apps/*
