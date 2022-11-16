@@ -20,8 +20,9 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$houdini: './$houdini',
-			$graphql: './src/lib/core/graphql',
+			$graphql: './src/graphql',
   			$lib: './src/lib',
+  			$stores: './src/stores',
 		},
 		prerender: {
 			enabled: false

@@ -14,8 +14,12 @@ vite.config.js.*
 
 $houdini
 
+!/src/graphql/operations/cv
 !/src/lib/apps/cv
 !/src/routes/apps/cv
+!/src/routes/api/cv
 
+/src/graphql/operations/*
 /src/lib/apps/*
 /src/routes/apps/*
+/src/routes/api/*

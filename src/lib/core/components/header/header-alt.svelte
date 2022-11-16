@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CartOffCanvasButton from '../offcanvas/cart/cart-offcanvas-button.svelte';
 	import { logout } from '$lib/core/auth/authorizer';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { setApplication } from '$lib/core/utils/http.utils';
 	import { goto } from '$app/navigation';
 	import Icon from '@smui/select/icon';
@@ -17,13 +17,10 @@
 	$: BASE_URI = $store.meta.baseUri;
 	let accountValue = 'Account';
 	let selectedLoggedAccountItem = '';
-	let selectedLanguage = 'EN';
-	let valueHelperText = '';
-	let valueLeadingIcon = '';
-	let valueInvalid = '';
-	let languages = ['EN', 'IT', 'HR'];
+	let selectedLanguage = 'English';
+	let languages = ['English', 'Italian', 'Croatian'];
 	let accountItems = [
-		{ name: 'Signin', url: `/auth/login`, icon: 'fa fa-user' },
+		{ name: 'Signin', url: `/auth/signin`, icon: 'fa fa-user' },
 		{ name: 'Signup', url: `/auth/signup`, icon: 'fa fa-user' }
 	];
 	let apps = Object.values(App);
@@ -37,7 +34,7 @@
 	$: if (accountValue) {
 		switch (accountValue) {
 			case 'Signin':
-				goto(`/${BASE_URI}/auth/login`);
+				goto(`/${BASE_URI}/auth/signin`);
 				break;
 			case 'Signup':
 				goto(`/${BASE_URI}/auth/signup`);
@@ -112,6 +109,9 @@
 					<button class="btn btn-outline-success" type="submit">Search</button>
 				</form>
 				<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+					<li>
+						<br />
+					</li>
 					{#if $store.meta.app === App.CV}
 						<li>
 							<div class="flex justify-center">
@@ -240,20 +240,6 @@
 									</li>
 								{/each}
 							</ul>
-						</li>
-						<li
-							class="nav-item notification"
-							style="
-						display: grid;
-						grid-template-columns: 1fr 1fr;"
-						>
-							<span id="click-menu-notification" class="menu-notification">
-								<IconButton style="position: relative;">
-									<Icon class="material-icons">message</Icon>
-									<Badge aria-label="unread content count" style="margin-top: 10px;">0</Badge>
-								</IconButton>
-							</span>
-							<CartOffCanvasButton />
 						</li>
 						<li class="nav-item dropdown" style="z-index: 1003 !important">
 							<a

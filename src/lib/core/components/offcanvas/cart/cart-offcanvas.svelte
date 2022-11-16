@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { addToCart, removeFromCart } from '$lib/core/shop/actions';
 	import { store as cartStore } from '$lib/core/shop/cart.store';
 

@@ -3,7 +3,7 @@
 	import { beforeNavigate } from '$app/navigation';
 	import type { Authorizer, ValidateJWTTokenResponse } from '$lib/core/auth/authorizer.lib';
 	import { authorizer, getProfile, logout } from '$lib/core/auth/authorizer';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { getLocalAuth } from '$lib/core/utils/auth.utils';
 	import { App } from '$lib/core/enums';
 	import { setApplication } from '$lib/core/utils/http.utils';

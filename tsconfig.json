@@ -22,10 +22,16 @@
                 "src/lib/*"
             ],
             "$graphql": [
-                "src/lib/core/graphql"
+                "src/graphql"
             ],
             "$graphql/*": [
-                "src/lib/core/graphql/*"
+                "src/graphql/*"
+            ],
+            "$stores": [
+                "src/stores"
+            ],
+            "$stores/*": [
+                "src/stores/*"
             ],
             "$houdini": [
                 "$houdini"

@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 
 	onMount(async () => {
 		if (!browser) return;

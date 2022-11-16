@@ -1,7 +1,7 @@
 import { browser } from "$app/environment";
 import { BASE_ROUTE } from "../constants";
 import { App } from "../enums";
-import { store } from "../store";
+import { store } from "../../../stores/core";
 
 export function app(appName: string) {
     return appName.toLowerCase().replace('_', '-')

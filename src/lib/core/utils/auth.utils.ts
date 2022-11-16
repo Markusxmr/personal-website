@@ -1,5 +1,5 @@
 import { browser } from "$app/environment";
-import { store } from "$lib/core/store";
+import { store } from "$stores/core";
 import type { AuthToken } from "@authorizerdev/authorizer-js";
 import { validateToken } from "../auth/authorizer";
 

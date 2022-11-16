@@ -6,7 +6,7 @@
 	import Notifications from 'svelte-notifications';
 	import Modal from 'svelte-simple-modal';
 	import Auth from '$lib/core/auth/components/auth.svelte';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import GlobalSubscription from '$lib/core/components/global-subscription.svelte';
 	import Logger from '$lib/core/components/logger.svelte';
 	import { getAppCtxByUrl, setApplication, app } from '$lib/core/utils/app-context.utils';
@@ -16,6 +16,7 @@
 	import { getLocalAuth } from '$lib/core/utils/auth.utils';
 	import PreloadingIndicator from '$lib/core/components/preloading-indicator.svelte';
 	import StripeProvider from '$lib/stripe/stripe-provider.svelte';
+	import ScrollTopButton from '$lib/core/components/scroll-top-button.svelte';
 
 	let nc: any;
 	let outerWidth = 0;
@@ -101,6 +102,8 @@
 {#if $navigating}
 	<PreloadingIndicator />
 {/if}
+
+<ScrollTopButton />
 
 <a id="top" />
 

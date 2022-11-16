@@ -1,4 +1,0 @@
-fragment BlogAuthorFields on blog_author {
-	id
-	name
-}

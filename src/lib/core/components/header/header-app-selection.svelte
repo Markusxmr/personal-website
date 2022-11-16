@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import { setApplication } from '$lib/core/utils/app-context.utils';
@@ -41,6 +41,7 @@
 		<div>
 			<a
 				on:click={() => (show = !show)}
+				on:mouseenter={() => (show = true)}
 				href={HREF_VOID}
 				class="menu block rounded py-2 pt-4 pr-4 pl-3 text-gray-800 dark:text-gray-800 md:bg-transparent md:p-0 md:text-blue-700"
 				aria-expanded="false"
@@ -65,6 +66,7 @@
 
 			{#if show}
 				<ul
+					on:mouseleave={() => (show = false)}
 					in:scale={{ duration: 100, start: 0.95 }}
 					out:scale={{ duration: 75, start: 0.95 }}
 					class="

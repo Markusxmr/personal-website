@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SearchComponent from '$lib/apps/cv/components/search-component.svelte';
 	import { articleShortDescription } from './[slug]/components/article';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 
 	export let data: any;
 	$: BASE_URI = $store.meta.baseUri;
@@ -48,7 +48,7 @@
 				All Posts ({articles?.data?.cms?.cvArticles?.data?.length})
 			</h3>
 			<div class="flex items-center gap-2">
-				<a href="{`/${BASE_URI}/blogs/bookmark`}" style="opacity: 1; transform: none;"
+				<a href={`/${BASE_URI}/blogs/bookmark`} style="opacity: 1; transform: none;"
 					><svg
 						stroke="currentColor"
 						fill="currentColor"

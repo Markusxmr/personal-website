@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { goto } from '$app/navigation';
 	import { login } from '$lib/core/auth/authorizer';
-
-	$: BASE_URI = $store.meta.baseUri;
 
 	let error: any = [];
 	let loginData = {
@@ -19,21 +17,42 @@
 	async function handleLogin(event: any) {
 		event.preventDefault();
 		await login(loginData, handleError).then((data) => {
-			goto(`/${BASE_URI}`);
+			goto(`/${$store.meta.baseUri}`);
 		});
 	}
 </script>
 
-<div class="page-content page container mx-auto mt-5 p-5 sm:w-[100%] md:w-[50%]">
-	<div id="login" />
-	<h2>Login</h2>
+<div
+	class="
+		mx-auto
+		mt-5
+		grid
+		grid-cols-2
+		gap-4
+		p-5
+		sm:w-[100%]
+		md:w-[75%]"
+>
+	<div class="relative h-full rounded-md bg-gray-200">
+		<span />
+	</div>
 
-	<form on:submit|preventDefault={handleLogin}>
-		<div class="mb-3">
-			<label for="email" class="form-label">Email</label>
-			<input
-				name="email"
-				class="
+	<div>
+		<div id="login" />
+		<h2 class="mb-4">Login</h2>
+
+		<div class="mb-3 w-[100%]">
+			Login using an existing account or create a new account
+			<a href={`/${$store.meta.baseUri}/auth/signup`}>
+				<strong>here</strong>.
+			</a>
+		</div>
+		<form on:submit|preventDefault={handleLogin}>
+			<div class="mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input
+					name="email"
+					class="
 					form-control
 					h-10
 					w-full
@@ -45,16 +64,16 @@
 					py-1
 					text-sm
 					outline-none"
-				type="email"
-				bind:value={loginData.email}
-				placeholder="Email"
-			/>
-		</div>
-		<div class="mb-3">
-			<label for="password" class="form-label">Password</label>
-			<input
-				name="password"
-				class="
+					type="email"
+					bind:value={loginData.email}
+					placeholder="Email"
+				/>
+			</div>
+			<div class="mb-3">
+				<label for="password" class="form-label">Password</label>
+				<input
+					name="password"
+					class="
 					form-control
 					h-10
 					w-full
@@ -66,14 +85,14 @@
 					py-1
 					text-sm
 					outline-none"
-				type="password"
-				bind:value={loginData.password}
-				placeholder="Password"
-			/>
-		</div>
+					type="password"
+					bind:value={loginData.password}
+					placeholder="Password"
+				/>
+			</div>
 
-		<button
-			class="
+			<button
+				class="
 				btn
 				btn-secondary
 				mt-3
@@ -85,11 +104,12 @@
 				text-white
 				hover:bg-gray-500
 		"
-			type="submit">Submit</button
-		>
-	</form>
+				type="submit">Submit</button
+			>
+		</form>
 
-	<div>
-		{error}
+		<div>
+			{error}
+		</div>
 	</div>
 </div>

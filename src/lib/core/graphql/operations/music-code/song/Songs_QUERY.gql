@@ -1,5 +1,0 @@
-query Song($name: String!) {
-	song(name: $name) {
-		...SongFields
-	}
-}

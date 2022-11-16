@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { beforeNavigate } from '$app/navigation';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { getAppCtxByUrl } from '$lib/core/utils/app-context.utils';
-	import HeaderApplicationSelection from './header-application-selection.svelte';
+	import HeaderApplicationSelection from './header-app-selection.svelte';
 	import { App } from '$lib/core/enums';
+	import HeaderAccount from './header-account.svelte';
 
 	export let meta = {
 		brandImage: '/cv/user/Marko.jpeg',
@@ -123,6 +124,7 @@
 						<HeaderApplicationSelection />
 					</li>
 				{/if}
+
 				{#each menus as menu}
 					<li class="nav-item">
 						<a
@@ -131,12 +133,18 @@
 							}}
 							href={menu.url}
 							class={active(menu)
-								? 'block font-bold rounded bg-blue-400 py-2 pr-4 pl-3 text-gray-900 dark:text-gray-900 md:bg-transparent md:p-0 md:text-blue-700'
+								? 'block font-bold rounded bg-gray-100 py-2 pr-4 pl-3 text-gray-900 dark:text-gray-900 md:bg-transparent md:p-0 md:text-blue-700'
 								: 'block rounded py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-800 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover: dark:text-gray-800'}
 							aria-current={active(menu) ? 'page' : 'false'}>{menu.name}</a
 						>
 					</li>
 				{/each}
+
+				{#if $store.meta.app !== App.CV}
+					<li class="nav-item">
+						<HeaderAccount />
+					</li>
+				{/if}
 			</ul>
 		</div>
 	</div>

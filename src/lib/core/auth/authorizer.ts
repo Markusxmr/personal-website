@@ -2,7 +2,7 @@ import type { AuthToken } from '$lib/core/auth/authorizer.lib';
 import { Authorizer } from '$lib/core/auth/authorizer.lib';
 import { browser } from '$app/environment';
 import { errorHandler } from '$lib/core/error';
-import { store } from '$lib/core/store';
+import { store } from '$stores/core';
 import { clearStorageAuth, setStorageAuth } from '$lib/core/utils/auth.utils';
 import { AUTHORIZER_CLIENT_ID, AUTHORIZER_URL } from '../config';
 

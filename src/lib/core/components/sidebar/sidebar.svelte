@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { beforeNavigate } from '$app/navigation';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import { closeSidebarHandler, sideBarToggle } from '$lib/core/utils/sidebar.utils';
 	import { onMount } from 'svelte';
 	import SideBarFooter from './sidebar-footer.svelte';
@@ -89,7 +89,7 @@
 	}
 
 	.fa {
-		color: #777;
+		color: #555;
 	}
 
 	.list-group-item {

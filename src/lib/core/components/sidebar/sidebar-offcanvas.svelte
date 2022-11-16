@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 	import SideBarFooter from './sidebar-footer.svelte';
 	import AppName from './app-name.svelte';
 
@@ -20,16 +20,19 @@
 
 <div
 	class:show={$store.sidebar.showingOffCanvas}
-	class="mobile-offcanvas navbar navbar-expand-lg navbar-dark bg-primary border-end bg-white"
+	class="offcanvas offcanvas-start navbar navbar-expand-lg navbar-dark bg-primary border-end bg-white"
 	style="height: 100vh;"
+	tabindex="-1"
+	id="offcanvasLeftSidebar"
+	aria-labelledby="offcanvasLeftSidebar"
 >
-	<div class="border-bottom bg-light sidebar-header p-2">
+	<div class="offcanvas-header border-bottom bg-light p-2" style="width: 100%">
 		<h3>&nbsp;&nbsp; <AppName /></h3>
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<i class="fa fa-close icon-close" on:click={closeMobileOffCanvas} />
+		<i class="fa fa-close icon-close" data-bs-dismiss="offcanvas" on:click={closeMobileOffCanvas} />
 	</div>
 
-	<div class="list-group list-group-flush">
+	<div class="list-group list-group-flush offcanvas-body" style="width: 100%">
 		{#each $store.sidebar.apps.menus[$store.meta.app] as menu}
 			<a
 				class:selected-sidebar-item={$store.sidebar.selectedMenuId === menu.id}
@@ -46,12 +49,6 @@
 </div>
 
 <style global>
-	.sidebar-header {
-		display: grid;
-		grid-template-columns: 1fr 30px;
-		justify-content: end;
-	}
-
 	.icon-close {
 		font-size: 1.5rem;
 	}

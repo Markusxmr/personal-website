@@ -1,5 +1,5 @@
 import type { AuthToken, User } from "@authorizerdev/authorizer-js";
-import type { App } from "./enums";
+import type { App } from "../lib/core/enums";
 
 export type Profile = {
     notifications: {

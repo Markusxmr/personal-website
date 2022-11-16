@@ -210,14 +210,14 @@ export const menus = {
                 id: `${BASE_ROUTE}/wine-code/listings`
             }
         },
-        {
-            url: `/${BASE_ROUTE}/wine-code/auth/signin`,
-            name: 'Signin',
-            icon: 'fa fa-user',
-            id: `${BASE_ROUTE}/wine-code/auth/signin`,
-            detailPage: {
-                id: `${BASE_ROUTE}/wine-code/auth/signin`
-            }
-        },
+        // {
+        //     url: `/${BASE_ROUTE}/wine-code/auth/signin`,
+        //     name: 'Signin',
+        //     icon: 'fa fa-user',
+        //     id: `${BASE_ROUTE}/wine-code/auth/signin`,
+        //     detailPage: {
+        //         id: `${BASE_ROUTE}/wine-code/auth/signin`
+        //     }
+        // },
     ]
 }

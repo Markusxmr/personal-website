@@ -1,5 +1,5 @@
-const CLIENT = "./src/lib/core/graphql/client";
-const SCHEMA_PATH = "./src/lib/core/graphql/schema.json";
+const CLIENT = "./src/graphql/client";
+const SCHEMA_PATH = "./src/graphql/schema.json";
 
 /** @type {import('houdini').ConfigFile} */
 const config = {

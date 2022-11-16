@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { App } from '$lib/core/enums';
-	import { store } from '$lib/core/store';
+	import { store } from '$stores/core';
 </script>
 
 <div style="margin-top: 10px;">

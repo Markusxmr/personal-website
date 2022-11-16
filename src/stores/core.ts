@@ -1,8 +1,8 @@
 import { writable, type Writable } from "svelte/store";
-import type { Store } from "../store.types";
-import { App } from "../enums";
-import { APPLICATION, BASE_ROUTE } from "../constants";
-import { menus } from "../menus";
+import type { Store } from "./store.types";
+import { App } from "../lib/core/enums";
+import { APPLICATION, BASE_ROUTE } from "../lib/core/constants";
+import { menus } from "../lib/core/menus";
 
 const BASE_URI = `${BASE_ROUTE}/${(APPLICATION() ?? App.MUSIC_CODE).toLowerCase().replace('_', '-')}`;
 

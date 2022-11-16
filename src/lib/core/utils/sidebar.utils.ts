@@ -1,4 +1,4 @@
-import { store } from "../store";
+import { store } from "../../../stores/core";
 
 function getSidebarWrapper() {
     return document.body.querySelector('#sidebar');

@@ -4,7 +4,7 @@
 	import { articleShortDescription } from './components/article';
 	import Blog from './components/blog.svelte';
 	import SharePost from './components/share-post.svelte';
-	import { store as coreStore } from '$lib/core/store';
+	import { store as coreStore } from '$stores/core';
 	import { scrollTop } from '$lib/core/utils/scroll.utils';
 
 	$: BASE_URI = $coreStore.meta.baseUri;

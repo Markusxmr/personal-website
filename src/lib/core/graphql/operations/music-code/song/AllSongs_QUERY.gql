@@ -1,5 +1,0 @@
-query AllSongs {
-	songs {
-		...SongFields
-	}
-}

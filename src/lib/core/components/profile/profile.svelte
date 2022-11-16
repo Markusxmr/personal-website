@@ -2,15 +2,15 @@
 	import { authorizer } from '$lib/core/auth/authorizer';
 	import { DEFAULT_PROFILE_IMAGE } from '$lib/core/constants';
 	import { errorHandler } from '$lib/core/error';
-	import { store } from '$lib/core/store';
-	import type { Profile } from '$lib/core/store.types';
+	import { store } from '$stores/core';
+	import type { Profile } from '$stores.types';
 	import type { Authorizer, AuthorizerUser } from '$lib/core/auth/authorizer.lib';
 	import FormField from '@smui/form-field';
 	import Switch from '@smui/switch';
 	import { onMount } from 'svelte';
 	import { getNotificationsContext } from 'svelte-notifications';
 	import './profile.scss';
-	import { store as coreStore } from '$lib/core/store';
+	import { store as coreStore } from '$stores/core';
 
 	$: BASE_URI = $coreStore.meta.baseUri;
 
@@ -80,8 +80,8 @@
 		<div class="hero" style="background-image: url(/music-code/images/banner/event.jpg);" />
 	</div>
 
-	<div class="under-hero container">
-		<div class="row mt-5">
+	<div class="under-hero profile-container container">
+		<div class="row profile-content mt-5">
 			<div class="col-sm-3 col-md-2">
 				<div class="list-group list-tab" id="list-tab" role="tablist">
 					<a

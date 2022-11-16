@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { store } from './store';
+import { store } from '$stores/core';
 
 export function errorHandler(error: any) {
     if (browser) {

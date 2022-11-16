@@ -1,6 +1,6 @@
 import { goto } from "$app/navigation";
 import { host } from "$lib/apps/art-code/axios.client";
-import { store } from "$lib/core/store";
+import { store } from "$stores/core";
 import { get } from "svelte/store";
 
 

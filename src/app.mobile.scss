@@ -4,11 +4,6 @@
         transition: opacity 0.15s linear;
     }
 
-    #wrapper {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
     .wrapper {
         height: 100%;
         grid-template-areas:
