@@ -182,6 +182,15 @@ export const menus = {
             }
         },
         {
+            url: `/${BASE_ROUTE}/music-code/platforms`,
+            name: 'Platforms',
+            icon: 'fa fa-globe',
+            id: `${BASE_ROUTE}/music-code/platforms`,
+            detailPage: {
+                id: `${BASE_ROUTE}/music-code/platforms`
+            }
+        },
+        {
             url: `/${BASE_ROUTE}/music-code/contact`,
             name: 'Contact',
             icon: 'fa fa-phone',
@@ -208,6 +217,24 @@ export const menus = {
             id: `${BASE_ROUTE}/wine-code/listings`,
             detailPage: {
                 id: `${BASE_ROUTE}/wine-code/listings`
+            }
+        },
+        {
+            url: `/${BASE_ROUTE}/wine-code/plans`,
+            name: 'Plans',
+            icon: 'fa fa-user',
+            id: `${BASE_ROUTE}/wine-code/plans`,
+            detailPage: {
+                id: `${BASE_ROUTE}/wine-code/plans`
+            }
+        },
+        {
+            url: `/${BASE_ROUTE}/wine-code/platforms`,
+            name: 'Platforms',
+            icon: 'fa fa-user',
+            id: `${BASE_ROUTE}/wine-code/platforms`,
+            detailPage: {
+                id: `${BASE_ROUTE}/wine-code/platforms`
             }
         },
         // {

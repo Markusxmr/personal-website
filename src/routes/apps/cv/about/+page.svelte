@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { customTransition } from '$lib/core/animations';
 	import About from '$lib/apps/cv/components/about.svelte';
 	import { post } from '$lib/core/utils/http.utils';
 
@@ -31,7 +32,7 @@
 	}
 </script>
 
-<section>
+<section transition:customTransition>
 	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">About</h1>
 	<div
 		class="mb-20 grid gap-4 sm:grid-cols-1 md:grid-cols-2"

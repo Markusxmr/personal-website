@@ -28,6 +28,7 @@
 	let loggedInAccountItems = [
 		{ name: 'Profile', url: `/profile`, icon: 'fa fa-user' },
 		{ name: 'Plans', url: `/plans`, icon: 'fa fa-map' },
+		{ name: 'Dashboard', url: `/dashboard`, icon: 'fa fa-map' },
 		{ name: 'Logout', url: `/`, icon: 'fa fa-signout' }
 	];
 

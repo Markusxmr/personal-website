@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { signup } from '$lib/core/auth/authorizer';
 	import { store } from '$stores/core';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -8,7 +9,7 @@
 	let authorizerRef: Authorizer;
 	let message = '';
 
-	let signup = {
+	let user = {
 		email: '',
 		password: '',
 		confirm_password: '',
@@ -27,10 +28,7 @@
 
 	async function handleSignup() {
 		errors = null;
-		signup.redirect_uri = `${window.location.origin}/${$store.meta.baseUri}}/auth/confirm-email`;
-		console.log(signup);
-		await authorizerRef
-			.signup(signup)
+		await signup(user)
 			.then((response) => {
 				message = response?.message ?? '';
 				goto(`/${$store.meta.baseUri}/auth/confirm-email`);
@@ -83,7 +81,7 @@
 					text-sm
 					outline-none"
 					type="email"
-					bind:value={signup.email}
+					bind:value={user.email}
 					placeholder="Email"
 				/>
 			</div>
@@ -104,7 +102,7 @@
 					text-sm
 					outline-none"
 					type="password"
-					bind:value={signup.password}
+					bind:value={user.password}
 					placeholder="Password"
 				/>
 			</div>
@@ -125,7 +123,7 @@
 					text-sm
 					outline-none"
 					type="password"
-					bind:value={signup.confirm_password}
+					bind:value={user.confirm_password}
 					placeholder="Repeat password"
 				/>
 			</div>

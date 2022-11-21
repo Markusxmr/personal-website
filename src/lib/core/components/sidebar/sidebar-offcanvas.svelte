@@ -87,32 +87,6 @@
 		.offcanvas-header {
 			display: block;
 		}
-
-		.mobile-offcanvas {
-			visibility: hidden;
-			transform: translateX(-100%);
-			border-radius: 0;
-			display: block;
-			position: fixed;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 80%;
-			z-index: 1200;
-			overflow-y: scroll;
-			overflow-x: hidden;
-			transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
-		}
-
-		.mobile-offcanvas.show {
-			visibility: visible;
-			transform: translateX(0);
-		}
-
-		.mobile-offcanvas .container,
-		.mobile-offcanvas .container-fluid {
-			display: block;
-		}
 	}
 
 	/* ============ mobile view .end// ============ */

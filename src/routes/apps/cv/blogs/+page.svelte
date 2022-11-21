@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { customTransition } from '$lib/core/animations';
 	import SearchComponent from '$lib/apps/cv/components/search-component.svelte';
 	import { articleShortDescription } from './[slug]/components/article';
 	import { store } from '$stores/core';
@@ -36,7 +37,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div>
+<div transition:customTransition>
 	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">Blogs</h1>
 	<div class="mt-16">
 		<SearchComponent />

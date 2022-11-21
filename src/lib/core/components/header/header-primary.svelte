@@ -12,7 +12,7 @@
 	export let meta = {
 		brandImage: '/cv/user/Marko.jpeg',
 		siteName: 'Marko Rendulić',
-		siteUrl: 'https://markorendulic.com/'
+		siteUrl: 'https://markorendulic.com/apps/cv'
 	};
 	export let brandImage = '/cv/user/Marko.jpeg';
 	export let siteName = 'Marko Rendulić';

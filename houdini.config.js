@@ -19,6 +19,12 @@ const config = {
 		uuid: {
 			type: "String"
 		},
+		jsonb: {
+			type: "Object"
+		},
+		bigint: {
+			type: "Number"
+		},
     },
     plugins: {
         "houdini-svelte": {

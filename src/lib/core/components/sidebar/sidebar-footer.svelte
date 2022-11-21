@@ -26,7 +26,7 @@
 				<div><span class="mr-2">Album</span><i class="fa fa-plus" /></div>
 			</a>
 			<a
-				href="/apps/music-code/music/new"
+				href="/apps/music-code/tracks/new"
 				class="btn btn-sm btn-block btn-primary btn-air btn-bold mb-2"
 				on:click={() => {
 					if (outerWidth <= 650) closeSidebarHandler();

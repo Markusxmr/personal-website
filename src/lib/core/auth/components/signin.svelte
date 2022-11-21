@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { store } from '$stores/core';
 	import { goto } from '$app/navigation';
-	import { login } from '$lib/core/auth/authorizer';
+	import { signin } from '$lib/core/auth/authorizer';
 
 	let error: any = [];
-	let loginData = {
+	let user = {
 		email: '',
 		password: ''
 	};
@@ -16,7 +16,7 @@
 
 	async function handleLogin(event: any) {
 		event.preventDefault();
-		await login(loginData, handleError).then((data) => {
+		await signin(user, handleError).then((data) => {
 			goto(`/${$store.meta.baseUri}`);
 		});
 	}
@@ -65,7 +65,7 @@
 					text-sm
 					outline-none"
 					type="email"
-					bind:value={loginData.email}
+					bind:value={user.email}
 					placeholder="Email"
 				/>
 			</div>
@@ -86,7 +86,7 @@
 					text-sm
 					outline-none"
 					type="password"
-					bind:value={loginData.password}
+					bind:value={user.password}
 					placeholder="Password"
 				/>
 			</div>

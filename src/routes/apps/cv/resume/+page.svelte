@@ -1,4 +1,8 @@
-<div>
+<script lang="ts">
+	import { customTransition } from '$lib/core/animations';
+</script>
+
+<div transition:customTransition>
 	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">Resume</h1>
 	<div>
 		<div class="mt-3 mb-4">

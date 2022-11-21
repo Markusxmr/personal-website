@@ -1,228 +1,49 @@
 <script lang="ts">
+	import { customTransition } from '$lib/core/animations';
 	import Button from '$lib/apps/cv/components/button.svelte';
-
-	let stats = [
-		{
-			title: 'Front-end',
-			experience: 90,
-			hype: 85,
-			details: false,
-			skills: [
-				{
-					tool: 'HTML',
-					description: 'HTML',
-					experience: 100
-				},
-				{
-					tool: 'CSS',
-					description: 'CSS',
-					experience: 100
-				},
-				{
-					tool: 'Svelte',
-					description: 'Svelte',
-					experience: 100
-				},
-				{
-					tool: 'Sveltekit',
-					description: 'Sveltekit',
-					experience: 100
-				},
-				{
-					tool: 'React.js',
-					description: 'React.js',
-					experience: 100
-				},
-				{
-					tool: 'React Native',
-					description: 'React Native',
-					experience: 100
-				}
-			]
-		},
-		{
-			title: 'Back-end',
-			experience: 80,
-			hype: 70,
-			details: false,
-			skills: [
-				{
-					tool: 'Node.js',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'GraphQL',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Nest.js',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'TypeORM',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Elixir',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Elixir/Phoenix Framework',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Rust',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'PostgreSQL',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'SQLite',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'MySQL',
-					description: '',
-					experience: 100
-				}
-			]
-		},
-		{
-			title: 'Devops',
-			experience: 55,
-			hype: 55,
-			details: false,
-			skills: [
-				{
-					tool: 'Linux',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Ngnix',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Docker',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'Digital Ocean',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'AWS Elastic Bean Stalk',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'AWS EC2',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'AWS Cognito',
-					description: '',
-					experience: 100
-				}
-			]
-		},
-		{
-			title: 'Management',
-			experience: 34,
-			hype: 34,
-			details: false,
-			skills: [
-				{
-					tool: 'SCRUM',
-					description: '',
-					experience: 100
-				},
-				{
-					tool: 'JIRA',
-					description: '',
-					experience: 100
-				}
-			]
-		}
-	];
-
-	let perks = [
-		{
-			img: '/cv/images/about/Higher-Power.png',
-			title: 'There is only One',
-			subTitle: 'Christianity',
-			description: ''
-		},
-		{
-			img: '/cv/images/about/Groovy.png',
-			title: 'No comment',
-			subTitle: '',
-			description: ''
-		},
-		{
-			img: '/cv/images/about/Night-Bird.png',
-			title: 'Night person',
-			subTitle: '',
-			description: ''
-		},
-		{
-			img: '/cv/images/about/Grit.png',
-			title: 'Martial Artist',
-			subTitle: 'Taekwondo',
-			description: ''
-		},
-		{
-			img: '/cv/images/about/Physical.png',
-			title: 'General Physical Culture',
-			subTitle: 'Weight lifting, kettlebells, biking',
-			description: ''
-		},
-		{
-			img: '/cv/images/about/VitaminD.png',
-			title: 'Sun lover',
-			subTitle: '',
-			description: ''
-		}
-	];
+	import { onMount } from 'svelte';
+	import { sineOut, bounceIn, bounceOut, bounceInOut, quintOut, elasticInOut } from 'svelte/easing';
+	import { fade, blur, fly, slide, scale } from 'svelte/transition';
+	import { stats } from './home.data';
 
 	function toggleDetails(stat: any, i: number) {
 		return (details: boolean) => {
 			stats[i].details = !details;
 		};
 	}
+
+	function animateProgressBar() {
+		jQuery('.progress-bar').each(function () {
+			let finalWidth = parseInt(jQuery(this).attr('aria-valuenow'));
+			jQuery(this)
+				.css('width', '0px')
+				.animate({ width: `${finalWidth}%` }, 1500);
+		});
+	}
+
+	onMount(() => {
+		animateProgressBar();
+	});
 </script>
 
-<div>
-	<div class="border-1 mt-5 border-solid bg-gray-50 px-6 py-10 text-center text-gray-800">
-		<h1 class="mb-10 text-center text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">Marko Rendulić</h1>
-		<h5 class="page-subtitle mt-3 mb-4 text-center">Webz Enginner</h5>
+<div transition:customTransition>
+	<div class="mt-10" transition:scale={{ delay: 250, duration: 650, easing: quintOut }}>
+		<div class="card mt-5 bg-gray-50 px-6 py-10 text-center text-gray-800">
+			<h1 class="mb-10 text-center text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">Marko Rendulić</h1>
+			<h5 class="page-subtitle mt-3 mb-4 text-center">Webz Enginner</h5>
 
-		<p class="mt-4 text-center">
-			I'm a Full Stack Web Developer based in Croatia. <br />
-			Welcome to my personal custom built website. Also a personal sandbox platform containing multiple applications and
-			various experiments.<br />
-			Enjoy!
-		</p>
+			<p class="mt-4 text-center">
+				I'm a Full Stack Web Developer based in Croatia. <br />
+				Welcome to my personal custom built website. Also a personal sandbox platform containing multiple applications and
+				various experiments.<br />
+				Enjoy!
+			</p>
+		</div>
 	</div>
-
-	<div class="mt-5">
-		<h2 class="text-center font-bold text-gray-900 dark:text-gray-900">Stats</h2>
-		<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
+	<hr class="mt-20" />
+	<div class="mt-12">
+		<h1 class="text-center font-bold text-gray-900 dark:text-gray-900">STATS</h1>
+		<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-1">
 			<div class="card mx-auto w-full rounded-lg p-6">
 				<div class="mb-3">
 					{#each stats as stat, i}
@@ -230,9 +51,9 @@
 						<div class="col-md-11 mt-2">
 							<div class="dark:bg-white-700 h-4 w-full bg-gray-200">
 								<div
-									class="h-4 rounded-r-full bg-gray-700"
+									class="progress-bar h-4 rounded-r-full bg-gray-600"
 									role="progressbar"
-									style="width: {stat.experience}%"
+									style="width: {`${stat.experience}%`}"
 									aria-valuenow={stat.experience}
 									aria-valuemin={0}
 									aria-valuemax={100}
@@ -240,7 +61,7 @@
 							</div>
 							<div class="dark:bg-white-700 h-4 w-full bg-gray-200">
 								<div
-									class="h-4 rounded-r-full bg-blue-400"
+									class="progress-bar h-4 rounded-r-full bg-blue-400"
 									role="progressbar"
 									style="width: {stat.hype}%"
 									aria-valuenow={stat.hype}
@@ -252,30 +73,32 @@
 						<div class="cmt-2 text-center" style="cursor: pointer">
 							<Button toggle={toggleDetails(stat, i)} details={stat.details} />
 						</div>
-						<div
-							class="m-3 border p-3"
-							class:details-visible={stat.details}
-							class:details-hidden={!stat.details}
-							style="border-radius: 5px; border-top: none !important;"
-						>
-							<div class="grid gap-3 sm:grid-cols-3 md:grid-cols-3">
-								{#each stat.skills as skill}
-									<div class="mb-5 mt-5">
-										<div class="h-4 w-full rounded-full bg-gray-200 dark:bg-gray-700">
-											<div
-												class="h-4 rounded-full bg-green-600"
-												role="progressbar"
-												style="width: {skill.experience}%"
-												aria-valuenow={skill.experience}
-												aria-valuemin={0}
-												aria-valuemax={100}
-											/>
+						{#if stat.details}
+							<div
+								class="m-3 border p-3"
+								class:details-visible={stat.details}
+								class:details-hidden={!stat.details}
+								style="border-radius: 5px; border-top: none !important;"
+							>
+								<div class="grid gap-3 sm:grid-cols-3 md:grid-cols-3">
+									{#each stat.skills as skill}
+										<div class="mb-5 mt-5">
+											<div class="h-4 w-full rounded-full bg-gray-200 dark:bg-gray-700">
+												<div
+													class="h-4 rounded-full bg-green-600"
+													role="progressbar"
+													style="width: {`${skill.experience}%`}"
+													aria-valuenow={skill.experience}
+													aria-valuemin={0}
+													aria-valuemax={100}
+												/>
+											</div>
+											<h6 class="mt-2 text-center">{skill.tool}</h6>
 										</div>
-										<h6 class="mt-2 text-center">{skill.tool}</h6>
-									</div>
-								{/each}
+									{/each}
+								</div>
 							</div>
-						</div>
+						{/if}
 					{/each}
 				</div>
 				<hr class="mt-10 pb-5" />
@@ -299,43 +122,11 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="card rounded-lg p-6">
-				<div class="mb-10 grid gap-3 sm:grid-cols-12 md:grid-cols-3 lg:grid-cols-3">
-					{#each perks as perk}
-						<div class="flip-card">
-							<div class="flip-card-inner">
-								<div class="flip-card-front">
-									<img
-										class="img-perk"
-										src={perk.img}
-										alt=""
-										style="
-									height:200px;
-									object-position: center;
-									object-fit: cover;"
-									/>
-								</div>
-								<div class="flip-card-back bg-gray-700">
-									<h3 class="mt-5">{perk.title}</h3>
-									<p>{perk.subTitle}</p>
-									<p>{perk.description}</p>
-								</div>
-							</div>
-						</div>
-					{/each}
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
 
 <style>
-	.img-perk {
-		border-radius: 5px;
-		width: 100%;
-		box-shadow: 1px 3px 5px #444;
-	}
 	.grey {
 		color: #777;
 	}
