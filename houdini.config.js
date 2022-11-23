@@ -4,6 +4,7 @@ const SCHEMA_PATH = "./src/graphql/schema.json";
 /** @type {import('houdini').ConfigFile} */
 const config = {
     client: CLIENT,
+	// apiUrl: API_URL,
 	schemaPath: SCHEMA_PATH,
     include: "./src/**/*.{svelte,gql,graphql}",
 	scalars: {

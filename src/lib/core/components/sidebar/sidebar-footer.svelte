@@ -8,7 +8,7 @@
 	{#if $store.meta.app === App.MUSIC_CODE}
 		{#if $store.isAuthenticated}
 			<a
-				href="/apps/music-code/artists/new"
+				href="/apps/music-code/dashboard/artists/new"
 				class="btn btn-sm btn-block btn-primary btn-air btn-bold mb-2"
 				on:click={() => {
 					if (outerWidth <= 650) closeSidebarHandler();
@@ -17,7 +17,7 @@
 				<div><span class="mr-2">Artist</span><i class="fa fa-plus" /></div>
 			</a>
 			<a
-				href="/apps/music-code/albums/new"
+				href="/apps/music-code/dashboard/albums/new"
 				class="btn btn-sm btn-block btn-primary btn-air btn-bold mb-2"
 				on:click={() => {
 					if (outerWidth <= 650) closeSidebarHandler();
@@ -26,7 +26,7 @@
 				<div><span class="mr-2">Album</span><i class="fa fa-plus" /></div>
 			</a>
 			<a
-				href="/apps/music-code/tracks/new"
+				href="/apps/music-code/dashboard/tracks/new"
 				class="btn btn-sm btn-block btn-primary btn-air btn-bold mb-2"
 				on:click={() => {
 					if (outerWidth <= 650) closeSidebarHandler();

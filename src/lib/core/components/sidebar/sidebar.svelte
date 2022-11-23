@@ -89,7 +89,7 @@
 	}
 
 	.fa {
-		color: #555;
+		color: #777;
 	}
 
 	.list-group-item {
@@ -98,8 +98,8 @@
 
 	.active-sidebar-item {
 		background-color: #ddd;
-		color: #333;
+		color: #777;
 		font-weight: 400;
-		border-right: 3px solid #333;
+		border-right: 3px solid #777;
 	}
 </style>

@@ -254,7 +254,7 @@
 							</a>
 
 							<ul class="dropdown-menu auth" style="width: 100%;">
-								{#if $store.isAuthenticated && $store.auth}
+								{#if $store.isAuthenticated}
 									{#each loggedInAccountItems as item}
 										{#if item.name.toLowerCase() !== 'logout'}
 											<li data-bs-dismiss="offcanvas">

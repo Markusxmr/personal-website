@@ -39,6 +39,7 @@ export function setStorageAuth(data: AuthToken | void | null) {
 export function clearStorageAuth() {
     if (!browser) return;
     localStorage.removeItem('auth');
+    localStorage.removeItem('auth_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('access_token');
     localStorage.removeItem('expires_in');

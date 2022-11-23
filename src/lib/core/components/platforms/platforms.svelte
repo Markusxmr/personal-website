@@ -96,7 +96,7 @@
 </script>
 
 <div class="page page-content container sm:px-10">
-	<h1 class="ml-5 mt-10">Platforms</h1>
+	<h1 class="text-secondary ml-5 mt-10">Platforms</h1>
 
 	<div class="m-5 mb-10">
 		<div>

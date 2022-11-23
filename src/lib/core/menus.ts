@@ -139,7 +139,7 @@ export const menus = {
         {
             url: `/${BASE_ROUTE}/music-code/albums`,
             name: 'Albums',
-            icon: 'fa fa-file-audio-o',
+            icon: 'fa fa-cc-discover',
             id: `${BASE_ROUTE}/music-code/albums`,
             detailPage: {
                 id: `${BASE_ROUTE}/music-code/albums/[id]`

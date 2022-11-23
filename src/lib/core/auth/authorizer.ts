@@ -21,6 +21,10 @@ export function authorizer(): Authorizer {
     });
 }
 
+function clearUserData() {
+    store.update((state) => ({ ...state, auth: null, isAuthenticated: false }));
+}
+
 async function handleProfile(data: any) {
     const userId = data?.user?.id;
     const profiles = await GQL_UserProfile.fetch({
@@ -69,7 +73,7 @@ export async function signin(signinData: any, cb: any = null) {
         .catch(async (error) => {
             if (cb) cb(error);
             await errorHandler(error);
-            store.update((state) => ({ ...state, auth: null }));
+            clearUserData();
             clearStorageAuth();
         });
 }
@@ -83,12 +87,12 @@ export async function getProfile(token: any) {
         .getProfile({
             ...(access_token ? { authorization: `Bearer ${access_token}` } : null)
         })
-        .then((profile) => {
-            store.update((state) => ({ ...state, auth: { user: profile } }));
+        .then((profile: any) => {
+            store.update((state) => ({ ...state, auth: { ...state.auth, user: profile, } }));
             localStorage.setItem('access_token', access_token ?? '')
         })
         .catch((error) => {
-            store.update((state) => ({ ...state, auth: null }));
+            clearUserData();
             clearStorageAuth();
         });
 }
@@ -104,7 +108,7 @@ export async function logout() {
     await authorizerRef.logout({
         authorization: `Bearer ${access_token}`
     }).then(data => {
-        store.update((state) => ({ ...state, auth: null }));
+        clearUserData();
         clearStorageAuth();
 
     }).catch(error => {
@@ -128,6 +132,5 @@ export async function validateToken() {
         })
         .then((data) => {
             return data;
-        })
-        .catch(errorHandler);
+        });
 }

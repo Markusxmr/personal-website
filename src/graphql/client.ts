@@ -14,6 +14,7 @@ async function fetchQuery({
 	const result = await fetch(url, {
 		method: 'POST',
 		headers: {
+			...(browser ? { 'Authorization': `${localStorage?.getItem("access_token") ?? ""}` } : null),
 			'Access-Control-Allow-Origin': '*',
 			'Content-Type': 'application/json',
 			'x-hasura-admin-secret': import.meta.env.VITE_HASURA_ADMIN_SECRET,

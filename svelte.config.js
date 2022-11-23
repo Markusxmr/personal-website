@@ -24,6 +24,12 @@ const config = {
   			$lib: './src/lib',
   			$stores: './src/stores',
 		},
+    	files: {
+      		hooks: {
+				client: 'src/hooks.client',
+				server: 'src/hooks.server'
+			},
+		},
 		prerender: {
 			enabled: false
 		},
