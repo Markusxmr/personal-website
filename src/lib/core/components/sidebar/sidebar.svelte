@@ -49,7 +49,7 @@
 
 <div class="border-end" id="sidebar" style="height: 100vh;">
 	<div class="sidebar-heading border-bottom text-center">
-		<a href={`/${BASE_URI}`} style="color: inherit; text-decoration: inherit;">
+		<a class="text-center" href={`/${BASE_URI}`} style="color: inherit; text-decoration: inherit;">
 			<AppName />
 		</a>
 	</div>

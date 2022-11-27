@@ -9,7 +9,7 @@ export function authorizer(): Authorizer {
     return new Authorizer({
         authorizerURL: AUTHORIZER_URL,
         redirectURL: VITE_AUTHORIZER_REDIRECT_URL,
-        clientID: AUTHORIZER_CLIENT_ID // obtain your client id from authorizer dashboard
+        clientID: AUTHORIZER_CLIENT_ID
     });
 }
 

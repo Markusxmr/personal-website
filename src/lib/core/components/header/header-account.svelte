@@ -125,7 +125,7 @@
 						}}
 						href={`/${$store.meta.baseUri}/profile`}
 						class="md:dark:hover: block rounded py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-800 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent"
-						aria-current="page">{$store.auth?.user?.email}</a
+						aria-current="page">{$store.auth?.user?.email ?? 'Account'}</a
 					>
 				</li>
 				<li class="nav-item mb-2">

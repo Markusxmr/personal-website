@@ -3,6 +3,10 @@ import { store } from "$stores/core";
 import type { AuthToken } from "@authorizerdev/authorizer-js";
 import { validateToken } from "../auth/authorizer";
 
+export function clearUserData() {
+    store.update((state) => ({ ...state, auth: null, isAuthenticated: false }));
+}
+
 export function getLocalAuth() {
     let auth: any;
     if (browser) {

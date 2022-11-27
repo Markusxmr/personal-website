@@ -159,11 +159,10 @@
 														<input type="text" id="displayName" class="form-control" bind:value={user.nickname} />
 													</div>
 													<div class="col-xl-6 form-group">
-														<label for="userType" class="form-label">User Type</label>
-														<select name="userType" id="userType" class="form-control">
-															<option value="0">Admin</option><option value="1">Artist</option>
-															<option value="2">Producer </option>
-															<option value="3">User</option>
+														<label for="userType" class="form-label">Gender</label>
+														<select name="userType" id="userType" class="form-control" value={user.gender}>
+															<option value="Male">Male</option>
+															<option value="Female">Female </option>
 														</select>
 													</div>
 													<div class="col-12 form-group">

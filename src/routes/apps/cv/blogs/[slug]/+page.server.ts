@@ -2,7 +2,6 @@ import { CachePolicy, GQL_AllBlogArticles, GQL_BlogArticle } from '$houdini';
 import { errorHandler } from '$lib/core/error';
 import type { LoadEvent } from '@sveltejs/kit';
 
-export const prerender = true;
 export async function load(event: LoadEvent) {
     const { slug = "" } = event.params
     const article = await GQL_BlogArticle.fetch({

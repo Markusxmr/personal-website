@@ -1,5 +1,9 @@
 import axios from "axios";
 import { CMS_URL } from "$lib/core/config";
+import { jwtApiKey } from "$lib/core/auth/auth.utils";
+import { store } from "$stores/core";
+import { get } from "svelte/store";
+import { App } from "./enums";
 
 function requestInterceptor(instance: any) {
     instance.interceptors.request.use((config: any) => {
@@ -28,7 +32,7 @@ const baseHeaders = {
 
 export const strapi = {
     axiosClient() {
-        const JWT_API_KEY = "jwtApiKey()";
+        const JWT_API_KEY = jwtApiKey();
         const instance = axios.create({
             baseURL: `${CMS_URL}/api/`,
             headers: {
@@ -60,7 +64,7 @@ export const strapi = {
     },
 
     axiosClientUpload() {
-        const JWT_API_KEY = "jwtApiKey()";
+        const JWT_API_KEY = get(store).meta.app === App.ART_CODE ? jwtApiKey() : "";
         const instance = axios.create({
             baseURL: `${CMS_URL}/api/`,
             headers: {
@@ -75,4 +79,23 @@ export const strapi = {
         responseInterceptor(instance);
         return instance
     }
+}
+
+export const host = {
+    axiosClient() {
+        const JWT_API_KEY = get(store).meta.app === App.ART_CODE ? jwtApiKey() : "";
+        const instance = axios.create({
+            baseURL: `/`,
+            headers: {
+                ...baseHeaders,
+                ...(JWT_API_KEY ? { authorization: `Bearer ${JWT_API_KEY}` } : null)
+            },
+            timeout: 15000,
+        })
+
+        requestInterceptor(instance);
+        responseInterceptor(instance);
+
+        return instance;
+    },
 }

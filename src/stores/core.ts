@@ -11,7 +11,7 @@ export const store: Writable<Store> = writable({
         scrollTop: false,
     },
     meta: {
-        appName: 'APP_NAME',
+        appName: (APPLICATION() ?? App.MUSIC_CODE).replace("_", ""),
         app: APPLICATION() ?? App.MUSIC_CODE,
         baseUri: BASE_URI,
         gqlClient: null,

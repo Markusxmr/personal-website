@@ -14,7 +14,7 @@
 		console.log(error);
 	}
 
-	async function handleLogin(event: any) {
+	async function handleSignin(event: any) {
 		event.preventDefault();
 		await signin(user, handleError).then((data) => {
 			goto(`/${$store.meta.baseUri}`);
@@ -22,77 +22,78 @@
 	}
 </script>
 
-<div
-	class="
+<div class="row w-auto">
+	<div
+		class="
 		mx-auto
 		mt-5
 		grid
-		grid-cols-2
 		gap-4
 		p-5
 		sm:w-[100%]
-		md:w-[75%]"
->
-	<div class="relative h-full rounded-md bg-gray-200">
-		<span />
-	</div>
-
-	<div>
-		<div id="login" />
-		<h2 class="mb-4">Login</h2>
-
-		<div class="mb-3 w-[100%]">
-			Login using an existing account or create a new account
-			<a href={`/${$store.meta.baseUri}/auth/signup`}>
-				<strong>here</strong>.
-			</a>
+		md:w-[75%]
+		md:grid-cols-1
+		md:grid-cols-2"
+	>
+		<div class="col-sm-12 col-md-6 relative h-full w-auto rounded-md bg-gray-200">
+			<span />
 		</div>
-		<form on:submit|preventDefault={handleLogin}>
-			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
-				<input
-					name="email"
-					class="
-					form-control
-					h-10
-					w-full
-					rounded
-					rounded-lg
-					border
-					border-gray-300
-					px-2
-					py-1
-					text-sm
-					outline-none"
-					type="email"
-					bind:value={user.email}
-					placeholder="Email"
-				/>
-			</div>
-			<div class="mb-3">
-				<label for="password" class="form-label">Password</label>
-				<input
-					name="password"
-					class="
-					form-control
-					h-10
-					w-full
-					rounded
-					rounded-lg
-					border
-					border-gray-300
-					px-2
-					py-1
-					text-sm
-					outline-none"
-					type="password"
-					bind:value={user.password}
-					placeholder="Password"
-				/>
-			</div>
 
-			<button
-				class="
+		<div class="col-sm-12 col-md-6 w-auto">
+			<h2 class="mb-4">Login</h2>
+
+			<div class="mb-3 w-[100%]">
+				Login using an existing account or create a new account
+				<a href={`/${$store.meta.baseUri}/auth/signup`}>
+					<strong>here</strong>.
+				</a>
+			</div>
+			<form on:submit|preventDefault={handleSignin}>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label>
+					<input
+						name="email"
+						class="
+					form-control
+					h-10
+					w-full
+					rounded
+					rounded-lg
+					border
+					border-gray-300
+					px-2
+					py-1
+					text-sm
+					outline-none"
+						type="email"
+						bind:value={user.email}
+						placeholder="Email"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label">Password</label>
+					<input
+						name="password"
+						class="
+					form-control
+					h-10
+					w-full
+					rounded
+					rounded-lg
+					border
+					border-gray-300
+					px-2
+					py-1
+					text-sm
+					outline-none"
+						type="password"
+						bind:value={user.password}
+						placeholder="Password"
+					/>
+				</div>
+
+				<button
+					class="
 				btn
 				btn-secondary
 				mt-3
@@ -104,12 +105,13 @@
 				text-white
 				hover:bg-gray-500
 		"
-				type="submit">Submit</button
-			>
-		</form>
+					type="submit">Submit</button
+				>
+			</form>
 
-		<div>
-			{error}
+			<div>
+				{error}
+			</div>
 		</div>
 	</div>
 </div>

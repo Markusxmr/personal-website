@@ -1,6 +1,6 @@
 import { waitLocale } from 'svelte-i18n';
 import { DEFAULT_LOCALE } from '$lib/core/constants';
-import { startClient } from '../../../../lib/i18n/i18n';
+import { startClient } from '$lib/i18n/i18n';
 import type { LoadEvent } from '@sveltejs/kit';
 
 startClient();

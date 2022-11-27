@@ -22,7 +22,7 @@
 		gender: '',
 		birthdate: '',
 		// phone_number: '',
-		redirect_uri: ''
+		redirect_uri: `${window.location.origin}/${$store.meta?.baseUri}`
 	};
 	let errors: any;
 
@@ -44,31 +44,33 @@
 	});
 </script>
 
-<div
-	class="
+<div class="row w-auto">
+	<div
+		class="
 		mx-auto
 		mt-5
 		grid
-		grid-cols-2
 		gap-4
 		p-5
 		sm:w-[100%]
-		md:w-[75%]"
->
-	<div class="relative h-full rounded-md bg-gray-200">
-		<span />
-	</div>
+		sm:grid-cols-1
+		md:w-[75%]
+		md:grid-cols-2"
+	>
+		<div class="relative h-full rounded-md bg-gray-200">
+			<span />
+		</div>
 
-	<div>
-		<div id="signup" />
-		<h2 class="mb-4">Signup</h2>
+		<div>
+			<div id="signup" />
+			<h2 class="mb-4">Signup</h2>
 
-		<form on:submit|preventDefault={handleSignup}>
-			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
-				<input
-					name="email"
-					class="
+			<form on:submit|preventDefault={handleSignup}>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label>
+					<input
+						name="email"
+						class="
 					form-control
 					h-10
 					w-full
@@ -80,16 +82,16 @@
 					py-1
 					text-sm
 					outline-none"
-					type="email"
-					bind:value={user.email}
-					placeholder="Email"
-				/>
-			</div>
-			<div class="mb-3">
-				<label for="password" class="form-label">Password</label>
-				<input
-					name="password"
-					class="
+						type="email"
+						bind:value={user.email}
+						placeholder="Email"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label">Password</label>
+					<input
+						name="password"
+						class="
 					form-control
 					h-10
 					w-full
@@ -101,16 +103,16 @@
 					py-1
 					text-sm
 					outline-none"
-					type="password"
-					bind:value={user.password}
-					placeholder="Password"
-				/>
-			</div>
-			<div class="mb-3">
-				<label for="confirm-password" class="form-label">Confirm Password</label>
-				<input
-					name="confirm-password"
-					class="
+						type="password"
+						bind:value={user.password}
+						placeholder="Password"
+					/>
+				</div>
+				<div class="mb-3">
+					<label for="confirm-password" class="form-label">Confirm Password</label>
+					<input
+						name="confirm-password"
+						class="
 					form-control
 					h-10
 					w-full
@@ -122,14 +124,14 @@
 					py-1
 					text-sm
 					outline-none"
-					type="password"
-					bind:value={user.confirm_password}
-					placeholder="Repeat password"
-				/>
-			</div>
-			<div style="position: relative">
-				<button
-					class="
+						type="password"
+						bind:value={user.confirm_password}
+						placeholder="Repeat password"
+					/>
+				</div>
+				<div style="position: relative">
+					<button
+						class="
 				btn
 				btn-secondary
 				mt-3
@@ -140,24 +142,25 @@
 				py-2
 				text-white
 				hover:bg-gray-500"
-					type="submit"
-				>
-					Submit
-				</button>
-				<span class="ml-3" style="position: absolute; top: 23px">
-					Or <a href={`/${$store.meta.baseUri}/auth/signin`}><strong>login</strong></a>
-				</span>
-			</div>
-		</form>
+						type="submit"
+					>
+						Submit
+					</button>
+					<span class="ml-3" style="position: absolute; top: 23px">
+						Or <a href={`/${$store.meta.baseUri}/auth/signin`}><strong>login</strong></a>
+					</span>
+				</div>
+			</form>
 
-		<div>
-			{message}
+			<div>
+				{message}
+			</div>
+
+			{#if errors}
+				<div class="mt-4" style="color: red">
+					{errors?.message}
+				</div>
+			{/if}
 		</div>
-
-		{#if errors}
-			<div class="mt-4" style="color: red">
-				{errors?.message}
-			</div>
-		{/if}
 	</div>
 </div>

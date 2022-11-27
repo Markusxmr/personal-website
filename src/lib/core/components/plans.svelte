@@ -1,12 +1,13 @@
 <script lang="ts">
+	import { store } from '$stores/core';
 	import { getProfile } from '$lib/core/auth/authorizer';
 	import Payment from '$lib/core/components/payment.svelte';
-	import { getMembership } from '$lib/core/services/membership.service';
+	import { getStrapiCMSMembership } from '$lib/core/services/membership.service';
 	import { formatPrice } from '$lib/core/utils/format-price.util';
-	import { choosePlan } from '$lib/stripe/utils';
+	import { choosePlan } from '$lib/stripe/plan-selector';
 	import { getContext, onMount } from 'svelte';
 
-	export let plans = [];
+	export let plans: any[] = [];
 	export let membershipDomain = '';
 
 	const { getStripe } = getContext('stripe');
@@ -19,7 +20,7 @@
 	onMount(async () => {
 		try {
 			user = await getProfile();
-			membership = await getMembership({
+			membership = await getStrapiCMSMembership({
 				filters: {
 					code: { $eq: membershipDomain }
 				}
@@ -53,7 +54,14 @@
 			{:else if !membership}
 				<div class="action mb-5">
 					<button
-						on:click={() => choosePlan({ user, plan, stripe })}
+						on:click={() =>
+							choosePlan({
+								user,
+								plan,
+								stripe,
+								platform: $store.meta?.app,
+								url: `${$store.meta?.baseUri}`
+							})}
 						class="btn btn-pill btn-air btn-success px-3 py-2"
 					>
 						Get now

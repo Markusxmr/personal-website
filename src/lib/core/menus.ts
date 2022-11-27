@@ -139,7 +139,7 @@ export const menus = {
         {
             url: `/${BASE_ROUTE}/music-code/albums`,
             name: 'Albums',
-            icon: 'fa fa-cc-discover',
+            icon: 'fa fa-folder',
             id: `${BASE_ROUTE}/music-code/albums`,
             detailPage: {
                 id: `${BASE_ROUTE}/music-code/albums/[id]`
@@ -148,7 +148,7 @@ export const menus = {
         {
             url: `/${BASE_ROUTE}/music-code/artists`,
             name: 'Artists',
-            icon: 'fa fa-user',
+            icon: 'fa fa-users',
             id: `${BASE_ROUTE}/music-code/artists`,
             detailPage: {
                 id: `${BASE_ROUTE}/music-code/artists/[id]`
@@ -166,7 +166,7 @@ export const menus = {
         {
             url: `/${BASE_ROUTE}/music-code/festivals`,
             name: 'Festivals',
-            icon: 'fa fa-user',
+            icon: 'fa fa-hand-o-up',
             id: `${BASE_ROUTE}/music-code/festivals`,
             detailPage: {
                 id: `${BASE_ROUTE}/music-code/festivals/[id]`
@@ -175,7 +175,7 @@ export const menus = {
         {
             url: `/${BASE_ROUTE}/music-code/about`,
             name: 'About',
-            icon: 'fa fa-user',
+            icon: 'fa fa-fort-awesome',
             id: `${BASE_ROUTE}/music-code/about`,
             detailPage: {
                 id: `${BASE_ROUTE}/music-code/about`

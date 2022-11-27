@@ -1,49 +1,75 @@
-import { error, json } from '@sveltejs/kit';
-import stripe from '../stripe';
-import { getUsers } from '$lib/apps/art-code/services/user.service';
-import { addMembership, deleteMembership } from '$lib/core/services/membership.service';
-import { ART_CODE_PRICING_PLAN } from '$lib/apps/art-code/constants';
-import { updateUser } from '../../user.service';
 import type Stripe from 'stripe';
+import {
+    deleteApiMembership,
+    deleteStrapiCMSMembership,
+    insertApiMembership,
+    insertStrapiCMSMembership
+} from '$lib/core/services/membership.service';
+import { getStrapiCMSUsers } from '$lib/core/services/user.service';
+import { error, json } from '@sveltejs/kit';
+import { updateApiStripeUserMetadata, updateStrapiCMSStripeUserMetadata } from '../../user-stripe-metadata.service';
+import stripe from '../stripe';
 
 const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET ?? "";
 
-export async function POST({ request }) {
+async function getUsers() {
+    const users = await getStrapiCMSUsers();
+    return users;
+}
+
+async function insertMembership(event: any, membership: any) {
+    await insertApiMembership(event, membership);
+    // await insertStrapiCMSMembership(membership);
+    return "OK";
+}
+
+async function deleteMembership(data: any) {
+    await deleteApiMembership(data);
+    // await deleteStrapiCMSMembership(data);
+    return "OK";
+}
+
+async function handleUserMetadata({ ctx, customer }: { ctx: any, customer: any }) {
+    const users = await getUsers();
+    const user = users?.find((user: { metadata: { stripe_id: any; }; }) => user?.metadata?.stripe_id === customer?.id);
+    const data = { customer, metadata: { stripe_id: customer?.id, ...customer?.metadata } };
+    await updateApiStripeUserMetadata(user, { event: ctx, ...data });
+    // await updateStrapiCMSStripeUserMetadata(user, data);
+    return "OK";
+}
+
+export async function POST(ctx: { request: any; }) {
+    const request = ctx?.request;
+
     try {
         let event;
-        // SvelteKit may sometimes modify the incoming request body
-        // However, Stripe requires the exact body it sends to construct an Event
-        // To avoid unintended SvelteKit modifications, we can use this workaround:
-
-        // const rawBody = await request.arrayBuffer();
-        const rawBody = await request.buffer();
-        // const body = JSON.parse(rawBody?.toString());
+        const rawBody = Buffer.from(await request.arrayBuffer());
         const signature = request.headers.get('stripe-signature');
 
         if (STRIPE_ENDPOINT_SECRET) {
             try {
                 event = stripe.webhooks.constructEvent(rawBody, signature, STRIPE_ENDPOINT_SECRET);
-            } catch (err) {
-                console.error(`Webhook Error: ${err.message}`);
-
+            } catch (err: any) {
+                console.error(`Webhook Error: ${err?.message}`);
                 throw error(500, err);
             }
         }
 
-        let status;
-        let checkout;
-        let invoicePayment;
-        let customerId: any;
-        let account;
-
-        let externalAccount, configuration, balance, capability, cashBalance, charge, dispute, session, coupon, creditNote, customer, discount, source,
-            subscription: Stripe.Event.Data.Object, taxId, file, verificationSession, invoice, invoiceitem, issuingAuthorization, issuingCard, issuingCardholder, issuingDispute,
-            issuingTransaction, order, orderReturn, paymentIntent, paymentLink, paymentMethod, payout, person, plan, price, product, promotionCode, quote, earlyFraudWarning, recipient, reportRun, review, setupIntent,
-            sku, taxRate, transaction, subscriptionSchedule, reader, testClock, topup, transfer, refund, scheduledQueryRun, mandate;
+        let status,
+            checkout,
+            invoicePayment,
+            customerId: any,
+            account, users, user,
+            externalAccount, configuration, balance, capability, cashBalance, charge,
+            dispute, session, coupon, creditNote, customer: any,
+            discount, source, subscription: any, taxId, file, verificationSession,
+            invoice, invoiceitem, issuingAuthorization, issuingCard, issuingCardholder, issuingDispute,
+            issuingTransaction, order, orderReturn, paymentIntent, paymentLink, paymentMethod, payout,
+            person, plan: Stripe.Event.Data.Object, price: any, product: any, promotionCode, quote, earlyFraudWarning, recipient, reportRun,
+            review, setupIntent, sku, taxRate, transaction, subscriptionSchedule, reader, testClock,
+            topup, transfer, refund, scheduledQueryRun, mandate, userId, metadata: { code: any; plan: any; };
 
         console.log(event?.type);
-        let userId, metadata;
-
         // Handle the event
         switch (event?.type) {
             case 'account.updated':
@@ -176,33 +202,15 @@ export async function POST({ request }) {
                 break;
             case 'customer.created':
                 customer = event.data.object;
-                await updateUser(customer?.metadata?.id,
-                    {
-                        metadata: {
-                            stripe_id: customer?.id,
-                            ...customer?.metadata
-                        }
-                    });
+                handleUserMetadata({ ctx, customer });
                 break;
             case 'customer.updated':
                 customer = event.data.object;
-                await updateUser(customer?.metadata?.id,
-                    {
-                        metadata: {
-                            stripe_id: customer?.id,
-                            ...customer?.metadata
-                        }
-                    });
+                handleUserMetadata({ ctx, customer });
                 break;
             case 'customer.deleted':
                 customer = event.data.object;
-                await updateUser(customer?.metadata?.id,
-                    {
-                        metadata: {
-                            stripe_id: null,
-                            ...customer?.metadata
-                        }
-                    });
+                handleUserMetadata({ ctx, customer });
                 break;
             case 'customer.discount.created':
                 discount = event.data.object;
@@ -234,30 +242,28 @@ export async function POST({ request }) {
                 break;
             case 'customer.subscription.created':
                 subscription = event.data.object;
-                customerId = subscription?.customer;
+                customer = await stripe.customers.retrieve(subscription?.customer);
+                metadata = customer?.metadata;
+                plan = subscription?.plan;
+                price = await stripe.prices.retrieve(plan?.id)
+                product = await stripe.products.retrieve(plan?.product)
+                users = await getUsers().catch(error => { console.log("customer.subscription.created error", error.message) });
+                user = users?.find((user: { metadata: { stripe_id: any; }; }) => user?.metadata?.stripe_id === customer?.id);
 
-                await getUsers()
-                    .then(async (data) => {
-                        const user = data?.find((user: { metadata: { stripe_id: any; }; }) => user?.metadata?.stripe_id === customerId);
-                        const plan = subscription?.plan;
-                        const price = await stripe.prices.retrieve(plan?.id);
-                        const product = await stripe.products.retrieve(plan?.product);
-
-                        if (!user) return;
-
-                        await addMembership({
-                            user,
-                            code: ART_CODE_PRICING_PLAN,
-                            name: product?.name,
-                            price: price?.unit_amount,
-                            subscription,
-                            status: "COMPLETED"
-                        }).catch(error => {
-                            console.log(error.message);
-                        });
+                if (user) {
+                    await insertMembership(ctx, {
+                        user,
+                        metadata,
+                        name: product?.name,
+                        price: price?.unit_amount,
+                        subscription,
+                        status: "COMPLETED"
+                    }).then(res => {
+                        console.log("Membership inserted");
                     }).catch(error => {
-                        console.log(error.message);
+                        console.log(error?.message);
                     });
+                }
 
                 status = subscription.status;
                 console.log(`Subscription status is ${status}.`);
@@ -266,28 +272,27 @@ export async function POST({ request }) {
                 break;
             case 'customer.subscription.deleted':
                 subscription = event.data.object;
-                customerId = subscription?.customer;
-                let plan = subscription?.plan;
-                let price = await stripe.prices.retrieve(plan?.id);
-                let product = await stripe.products.retrieve(plan?.product);
+                customer = await stripe.customers.retrieve(subscription?.customer);
+                metadata = subscription?.metadata;
+                plan = subscription?.plan;
+                price = await stripe.prices.retrieve(plan?.id)
+                product = await stripe.products.retrieve(plan?.product)
+                users = await getUsers().catch(error => { console.log("customer.subscription.deleted error", error.message) });
+                user = users?.find((user: { metadata: { stripe_id: any; }; }) => user?.metadata?.stripe_id === customer?.id);
 
-                await getUsers()
-                    .then(async (data) => {
-                        const user = data?.find((user: { metadata: { stripe_id: any; }; }) => user?.metadata?.stripe_id === customerId);
+                if (user) {
+                    await deleteMembership({
+                        user,
+                        metadata,
+                        name: product?.name,
+                        price: price?.unit_amount,
+                        subscription,
+                        status: "COMPLETED"
+                    }).catch(error => {
+                        console.log(error?.message);
+                    });
+                }
 
-                        if (user) {
-                            await deleteMembership({
-                                user,
-                                code: ART_CODE_PRICING_PLAN,
-                                name: product?.name,
-                                price: price?.unit_amount,
-                                subscription,
-                                status: "COMPLETED"
-                            }).catch(error => {
-                                console.log(error.message);
-                            });
-                        }
-                    })
                 // Then define and call a function to handle the event customer.subscription.deleted
                 break;
             case 'customer.subscription.pending_update_applied':
@@ -836,16 +841,11 @@ export async function POST({ request }) {
                 break;
             // ... handle other event types
             default:
-                console.log(`Unhandled event type ${event.type}`);
+                console.log(`Unhandled event type ${event?.type}`);
         }
 
         // Return a 200 response to acknowledge receipt of the event
-        return json({ event: event.type }, { status: 200 });
-        return {
-            body: {
-                event: event.type
-            }
-        }
+        return json({ event: event?.type }, { status: 200 });
     } catch (err: any) {
         throw error(500, err);
     }

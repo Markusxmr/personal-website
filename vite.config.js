@@ -30,7 +30,7 @@ export default {
 				watch: path.resolve('houdini.config.js'),
 				run: 'npm run gen',
 				delay: 100,
-			}, 
+			}
 		])
 	],
 	resolve: {

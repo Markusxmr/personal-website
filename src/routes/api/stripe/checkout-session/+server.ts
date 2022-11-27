@@ -1,26 +1,34 @@
 import { error, json } from '@sveltejs/kit';
-import { getCustomer } from "../customer";
+import { getOrCreateStripeCustomerViaStrapiCMS, getOrCreateStripeCustomerViaApi } from "../stripe-customer";
 import stripe from '../stripe';
 
-export async function POST({ request, url }) {
+export async function POST(ctx) {
     try {
-        const body = await request.json();
+        const body = await ctx?.request.json();
         const user = body?.user;
         const plan = body?.plan;
-        const customer = await getCustomer({ request, user });
+        const platform = body?.platform;
+        const url = body?.url;
+        // const customerStrapiCMS = await getOrCreateStripeCustomerViaStrapiCMS({ user, platform });
+        const customerApiResponse = await getOrCreateStripeCustomerViaApi({ event: ctx, user, platform });
+        const metadata = {
+            authorizer_id: user?.id,
+            code: platform,
+            platform,
+        }
 
         if (typeof plan.price.id !== 'string') {
             throw error(400, 'priceId is required');
         }
-
         const priceId = plan.price.id;
         const session = await stripe.checkout.sessions.create({
+            metadata,
             mode: 'subscription',
             payment_method_types: ['card'],
             line_items: [{ price: priceId, quantity: 1 }],
-            customer: customer?.id,
-            success_url: `http://${url.host}/checkout/success?sessionId={CHECKOUT_SESSION_ID}`,
-            cancel_url: `http://${url.host}/`
+            customer: customerApiResponse?.id,
+            success_url: `http://${ctx?.url.host}/${url}/checkout/success?sessionId={CHECKOUT_SESSION_ID}`,
+            cancel_url: `http://${ctx?.url.host}/${url}/`
         });
 
         return json({ sessionId: session.id }, { status: 200 });

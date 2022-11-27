@@ -3,7 +3,7 @@
 	import { store } from '$stores/core';
 </script>
 
-<div style="margin-top: 10px;">
+<div class="mx-auto text-center" style="margin-top: 10px;">
 	{#if $store.meta.app === App.ADMIN}
 		Admin
 	{:else if $store.meta.app === App.CV}

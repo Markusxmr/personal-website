@@ -1,5 +1,4 @@
 import {
-    CachePolicy,
     GQL_InsertUserProfileOne,
     GQL_UpdateUserProfileByPk,
     GQL_UserProfile
@@ -9,41 +8,62 @@ import { Authorizer } from '$lib/core/auth/authorizer.lib';
 import { browser } from '$app/environment';
 import { errorHandler } from '$lib/core/error';
 import { store } from '$stores/core';
-import { clearStorageAuth, setStorageAuth } from '$lib/core/utils/auth.utils';
+import { clearStorageAuth, clearUserData, setStorageAuth } from '$lib/core/utils/auth.utils';
 import { AUTHORIZER_CLIENT_ID, AUTHORIZER_URL } from '../config';
-import { App } from '../enums';
+import { get } from 'svelte/store';
 
 export function authorizer(): Authorizer {
     return new Authorizer({
         authorizerURL: AUTHORIZER_URL,
-        redirectURL: window.location.origin,
-        clientID: AUTHORIZER_CLIENT_ID // obtain your client id from authorizer dashboard
+        redirectURL: `${window.location.origin}/${get(store)?.meta?.baseUri}`,
+        clientID: AUTHORIZER_CLIENT_ID
     });
 }
 
-function clearUserData() {
-    store.update((state) => ({ ...state, auth: null, isAuthenticated: false }));
-}
-
-async function handleProfile(data: any) {
+async function linkUserProfile(data: AuthToken | void | null) {
     const userId = data?.user?.id;
-    const profiles = await GQL_UserProfile.fetch({
+    const platform = get(store)?.meta?.app;
+    const userProfilesResponse = await GQL_UserProfile.fetch({
         variables: {
             where: {
-                authorizer_id: { _eq: userId }
+                authorizer_id: { _eq: userId },
+                platform: {
+                    _eq: platform,
+                }
             }
         }
     })
+    const userProfiles = userProfilesResponse?.data?.user_profile;
+    const userProfile = userProfiles?.[0];
 
-    if (!profiles?.data?.user_profile) {
-        const response = await GQL_InsertUserProfileOne.mutate({
+    if (!userProfile) {
+        await GQL_InsertUserProfileOne.mutate({
             object: {
                 authorizer_id: userId,
                 domain: {
-                    name: App.MUSIC_CODE
-                }
+                    name: platform,
+                },
+                platform: platform,
+                email: data?.user?.email
             }
         })
+            .catch(error => {
+                console.log("error - linkUserProfile, insert: ", error);
+
+            })
+    } else {
+        GQL_UpdateUserProfileByPk.mutate({
+            pk_columns: {
+                profile_id: userProfile?.profile_id
+            },
+            _set: {
+                email: data?.user?.email
+            }
+        })
+            .catch(error => {
+                console.log("error - linkUserProfile, update: ", error);
+
+            })
     }
 }
 
@@ -54,7 +74,7 @@ export async function signup(data: any) {
     return await authorizerRef
         .signup(data)
         .then(async (response) => {
-            await handleProfile(data);
+            await linkUserProfile(data);
             return response;
         })
 }
@@ -66,7 +86,7 @@ export async function signin(signinData: any, cb: any = null) {
     await authorizerRef
         .login(signinData)
         .then(async (data: AuthToken | void | null) => {
-            await handleProfile(data);
+            await linkUserProfile(data);
             store.update((state) => ({ ...state, auth: data }));
             setStorageAuth(data);
         })
@@ -78,18 +98,19 @@ export async function signin(signinData: any, cb: any = null) {
         });
 }
 
-export async function getProfile(token: any) {
+export async function getProfile(token: any = null) {
     if (!browser) return;
     const authorizerRef = authorizer();
     const access_token = token ? token : localStorage.getItem('access_token') ?? null;
 
-    await authorizerRef
+    return await authorizerRef
         .getProfile({
             ...(access_token ? { authorization: `Bearer ${access_token}` } : null)
         })
         .then((profile: any) => {
             store.update((state) => ({ ...state, auth: { ...state.auth, user: profile, } }));
-            localStorage.setItem('access_token', access_token ?? '')
+            localStorage.setItem('access_token', access_token ?? '');
+            return profile;
         })
         .catch((error) => {
             clearUserData();
@@ -99,10 +120,8 @@ export async function getProfile(token: any) {
 
 export async function logout() {
     if (!browser) return;
-
     const access_token = localStorage.getItem('access_token') ?? null;
     if (!access_token) return;
-
     const authorizerRef = authorizer();
 
     await authorizerRef.logout({
@@ -111,12 +130,13 @@ export async function logout() {
         clearUserData();
         clearStorageAuth();
 
-    }).catch(error => {
-        console.log(error.message);
-        if (error.message === 'http: named cookie not present') {
-            return;
-        }
-    });
+    })
+        .catch(error => {
+            console.log(error.message);
+            if (error.message === 'http: named cookie not present') {
+                return;
+            }
+        });
 
     return new Promise((resolve, reject) => {
         resolve(true);
@@ -132,5 +152,6 @@ export async function validateToken() {
         })
         .then((data) => {
             return data;
-        });
+        })
+        .catch(errorHandler);
 }

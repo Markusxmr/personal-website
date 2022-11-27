@@ -27,7 +27,6 @@
 
 	let loggedInAccountItems = [
 		{ name: 'Profile', url: `/profile`, icon: 'fa fa-user' },
-		{ name: 'Plans', url: `/plans`, icon: 'fa fa-map' },
 		{ name: 'Dashboard', url: `/dashboard`, icon: 'fa fa-map' },
 		{ name: 'Logout', url: `/`, icon: 'fa fa-signout' }
 	];
@@ -100,8 +99,8 @@
 		>
 		<HeaderOffCanvasButton />
 		<div class="offcanvas offcanvas-top h-50" tabindex="-1" id="offcanvasHeader" aria-labelledby="offcanvasHeader">
-			<div class="offcanvas-header">
-				<h5 class="offcanvas-title" id="offcanvasHeader">{$store.meta.appName}</h5>
+			<div class="offcanvas-header text-center">
+				<h5 class="offcanvas-title text-center" id="offcanvasHeader">{$store.meta.appName}</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
 			</div>
 			<div class="offcanvas-body">
@@ -242,42 +241,64 @@
 								{/each}
 							</ul>
 						</li>
-						<li class="nav-item dropdown" style="z-index: 1003 !important">
-							<a
-								class="nav-link dropdown-toggle"
-								href={HREF_VOID}
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								{$store.auth?.user?.email ?? 'Account'}
-							</a>
 
-							<ul class="dropdown-menu auth" style="width: 100%;">
-								{#if $store.isAuthenticated}
-									{#each loggedInAccountItems as item}
-										{#if item.name.toLowerCase() !== 'logout'}
-											<li data-bs-dismiss="offcanvas">
-												<a class="dropdown-item" href={`/${BASE_URI}${item.url}`}>{item.name}</a>
-											</li>
-										{:else}
-											<li>
-												<hr class="dropdown-divider" />
-											</li>
-											<li data-bs-dismiss="offcanvas">
-												<a class="dropdown-item" on:click={signout} href={`/${BASE_URI}${item.url}`}>{item.name}</a>
-											</li>
-										{/if}
-									{/each}
-								{:else}
-									{#each accountItems as item}
-										<li data-bs-dismiss="offcanvas">
-											<a class="dropdown-item" href={`/${BASE_URI}${item.url}`}>{item.name}</a>
-										</li>
-									{/each}
-								{/if}
-							</ul>
+						<li
+							class="nav-item "
+							style="z-index: 1004 !important"
+							on:keydown={() => {
+								goto(`/${BASE_URI}/plans`);
+							}}
+							on:click={() => {
+								goto(`/${BASE_URI}/plans`);
+							}}
+						>
+							<a class="nav-link" data-bs-dismiss="offcanvas" href={HREF_VOID} aria-expanded="false"> Plans </a>
 						</li>
+						{#if $store.isAuthenticated}
+							<li class="nav-item dropdown" style="z-index: 1003 !important">
+								<a
+									class="nav-link dropdown-toggle"
+									href={HREF_VOID}
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									{$store.auth?.user?.email ?? 'Account'}
+								</a>
+
+								<ul class="dropdown-menu auth" style="width: 100%;">
+									{#if $store.isAuthenticated}
+										{#each loggedInAccountItems as item}
+											{#if item.name.toLowerCase() !== 'logout'}
+												<li data-bs-dismiss="offcanvas">
+													<a class="dropdown-item" href={`/${BASE_URI}${item.url}`}>{item.name}</a>
+												</li>
+											{:else}
+												<li>
+													<hr class="dropdown-divider" />
+												</li>
+												<li data-bs-dismiss="offcanvas">
+													<a class="dropdown-item" on:click={signout} href={`/${BASE_URI}${item.url}`}>{item.name}</a>
+												</li>
+											{/if}
+										{/each}
+									{/if}
+								</ul>
+							</li>
+						{:else}
+							<li
+								class="nav-item "
+								style="z-index: 1004 !important"
+								on:keydown={() => {
+									goto(`/${BASE_URI}/auth/signin`);
+								}}
+								on:click={() => {
+									goto(`/${BASE_URI}/auth/signin`);
+								}}
+							>
+								<a class="nav-link" data-bs-dismiss="offcanvas" href={HREF_VOID} aria-expanded="false"> Signin </a>
+							</li>
+						{/if}
 					{/if}
 				</ul>
 			</div>

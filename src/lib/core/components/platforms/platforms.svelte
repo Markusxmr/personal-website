@@ -60,10 +60,10 @@
 			active: true
 		},
 		{
-			title: 'ProductCode',
-			url: 'false://productcode.city',
+			title: 'SpaceCode',
+			url: 'false://spacecode.city',
 			description: platformDescription,
-			active: true
+			active: false
 		},
 		{
 			title: 'Terra Core',
@@ -95,7 +95,7 @@
 	}
 </script>
 
-<div class="page page-content container sm:px-10">
+<div class="page page-content sm:px-10">
 	<h1 class="text-secondary ml-5 mt-10">Platforms</h1>
 
 	<div class="m-5 mb-10">
@@ -106,7 +106,7 @@
 						<div class="card-item flip-card">
 							<div class="flip-card-inner">
 								<div class="flip-card-front mdc-card mdc-card--outlined smui-card--padded bg-gray-200">
-									<strong>{platform?.title}</strong>
+									{platform?.title}
 									{#if !platform.active}
 										<br />
 										<span class="coming-soon">Coming soon</span>

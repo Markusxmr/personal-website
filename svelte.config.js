@@ -29,10 +29,7 @@ const config = {
 				client: 'src/hooks.client',
 				server: 'src/hooks.server'
 			},
-		},
-		prerender: {
-			enabled: false
-		},
+		}
 	}
 };
 

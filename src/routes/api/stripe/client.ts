@@ -1,5 +1,5 @@
 import { BASE_API_URL } from "$lib/apps/art-code/config";
-import API from "$lib/apps/art-code/enums/api.enum";
+import API from "$lib/core/enums/api.enum";
 import axios from "axios";
 
 export function client({ authorization }: { authorization: string; }) {
