@@ -1,83 +1,8 @@
 <script lang="ts">
 	import { HREF_VOID } from '$lib/apps/art-code/constants';
+	import { platformsData } from './platforms-data';
 
-	const platformDescription =
-		'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.';
-
-	const platforms = [
-		{
-			title: 'Kajbu',
-			url: 'https://www.kajbu.org',
-			description: platformDescription,
-			active: true
-		},
-		{
-			title: 'ArtCode',
-			url: 'https://artcode.city',
-			description: platformDescription,
-			active: true
-		},
-		{
-			title: 'SpiritualityCode',
-			url: 'https://spiritualityCode.city',
-			description: platformDescription,
-			active: false
-		},
-		{
-			title: 'FilmographyCode',
-			url: 'https://filmographyCode.city',
-			description: platformDescription,
-			active: false
-		},
-		{
-			title: 'FinanceCode',
-			url: 'https://financeCode.city',
-			description: platformDescription,
-			active: false
-		},
-		{
-			title: 'MusicCode',
-			url: 'https://musiccode.city',
-			description: platformDescription,
-			active: true
-		},
-		{
-			title: 'InnovationCode',
-			url: 'https://innovationcode.city',
-			description: platformDescription,
-			active: false
-		},
-		{
-			title: 'LiteratureCode',
-			url: 'https://literaturecode.city',
-			description: platformDescription,
-			active: false
-		},
-		{
-			title: 'WineCode',
-			url: 'https://winecode.city',
-			description: platformDescription,
-			active: true
-		},
-		{
-			title: 'SpaceCode',
-			url: 'false://spacecode.city',
-			description: platformDescription,
-			active: false
-		},
-		{
-			title: 'Terra Core',
-			url: 'https://terracore.city',
-			description: platformDescription,
-			active: true
-		},
-		{
-			title: 'Conjuctio',
-			url: 'https://www.conjuctio.com',
-			description: platformDescription,
-			active: true
-		}
-	];
+	const platforms = platformsData;
 
 	function sortByTitle(array: any[]) {
 		return array.sort((a, b) => {
@@ -117,7 +42,13 @@
 									<div class="px-4 text-justify text-[0.9rem]">{platform.description}</div>
 
 									{#if platform.active}
-										<a class="btn mt-3 text-blue-300" target="_blank" rel="noreferrer" href={platform?.url}>Explore</a>
+										<a
+											class="btn mt-3 text-blue-300"
+											target="_blank"
+											rel="noreferrer"
+											href={platform?.url}
+											style="color: white; text-decoration: underline">Explore</a
+										>
 									{/if}
 								</div>
 							</div>

@@ -1,17 +1,16 @@
 <script lang="ts">
+	import { connect, StringCodec } from 'nats.ws';
 	import { customTransition } from '$lib/core/animations';
 	import About from '$lib/apps/cv/components/about.svelte';
 	import { post } from '$lib/core/utils/http.utils';
+	import { getNotificationsContext } from 'svelte-notifications';
+
+	const { addNotification } = getNotificationsContext();
 
 	let contactInfo = {
 		phone: '+385976300757',
 		address: 'Croatia',
 		email: 'marko.rendulic@gmail.com'
-	};
-	let contactFull = {
-		name: 'Marko',
-		email: 'marko.rendulic@gmail.com',
-		message: 'Test message'
 	};
 	let contact = {
 		name: '',
@@ -27,8 +26,39 @@
 			subject: contact.name,
 			content: contact.message
 		};
+		// sendEmailViaNats(data);
 
-		const response = await post(`/apps/cv/about`, data);
+		// contact = {
+		// 	name: '',
+		// 	email: '',
+		// 	message: ''
+		// };
+		// return;
+		await post(`/apps/cv/about`, data).then((res) => {
+			addNotification({
+				text: 'Your message is sent',
+				type: 'success',
+				position: 'top-center',
+				removeAfter: 5000
+			});
+		});
+
+		async function sendEmailViaNats(data) {
+			const nc = await connect({
+				servers: [`${import.meta.env.VITE_NATS_WEBSOCKET}:9222`]
+			});
+			// create a codec
+			const sc = StringCodec();
+			nc.publish('email.cv', sc.encode(JSON.stringify(data)));
+
+			// we want to insure that messages that are in flight
+			// get processed, so we are going to drain the
+			// connection. Drain is the same as close, but makes
+			// sure that all messages in flight get seen
+			// by the iterator. After calling drain on the connection
+			// the connection closes.
+			await nc.drain();
+		}
 	}
 </script>
 
@@ -114,7 +144,7 @@
 
 			<div class="text-center">
 				<button
-					type="button"
+					type="submit"
 					class="
 					mx-auto
 					mr-2

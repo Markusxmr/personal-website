@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { connect, StringCodec } from 'nats.ws';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { navigating } from '$app/stores';
@@ -12,7 +13,7 @@
 	import { getAppCtxByUrl, setApplication, app } from '$lib/core/utils/app-context.utils';
 	import 'svelte-material-ui/bare.css';
 	import { App } from '$lib/core/enums';
-	import { startNatsClient } from '$lib/core/nats';
+	import { initNatsClient } from '$lib/core/nats';
 	import { getLocalAuth } from '$lib/core/utils/auth.utils';
 	import PreloadingIndicator from '$lib/core/components/preloading-indicator.svelte';
 	import StripeProvider from '$lib/stripe/stripe-provider.svelte';
@@ -58,8 +59,7 @@
 		modalStyleWindow = modalStyleLight;
 	}
 
-	onMount(() => {
-		// startNatsClient();
+	onMount(async () => {
 		getLocalAuth();
 
 		const href = window.location.href;
@@ -86,6 +86,22 @@
 			const appCtx = getAppCtxByUrl();
 			setApplication(appCtx);
 		}
+
+		await initNatsClient();
+		const nc = window?.nc;
+		// create a codec
+		const sc = StringCodec();
+		// create a simple subscriber and iterate over messages
+		// matching the subscription
+		const sub = nc.subscribe('email.>');
+		async () => {
+			for await (const m of sub) {
+				const decoded = sc.decode(m.data);
+				// console.log(`[${sub.getProcessed()}]: ${decoded}`);
+				store.update((state) => ({ ...state, notification: { text: 'Your message is sent', type: 'success' } }));
+				console.log('subscription closed');
+			}
+		};
 	});
 </script>
 

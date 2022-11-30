@@ -1,14 +1,14 @@
 <div class="my-8 border-4 border-teal-700 p-5 text-center">
 	<p class="mt-0 mb-4"><b>If you liked this post, share it:</b></p>
 	<a
-		href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkushatvan.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer"
+		href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmarkorendulic.com.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="inline-flex text-teal-700 hover:text-teal-900"
 		title="Share on Facebook"
 		><svg
 			version="1.1"
-			class="fa-icon mr-3 svelte-1b2zbdf"
+			class="fa-icon svelte-1b2zbdf mr-3"
 			width="24"
 			height="24"
 			role="presentation"
@@ -22,14 +22,14 @@
 		</svg></a
 	>
 	<a
-		href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmarkushatvan.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer&amp;title=10%20Reasons%20Why%20I%20Recommend%20Svelte%20To%20Every%20New%20Web%20Developer&amp;summary=Although%20the%20initial%20release%20of%20Svelte%20was%20back%20in%20November%202016%2C%20it's%20still%20more%20of%20an%20underdog%20amongst%20the%20JavaScript%20front%20end%20frameworks%20and%20just%20recently%20started%20to%20get%20its%20well%20deserved%20attention%20by%20the%20community.&amp;source=LinkedIn"
+		href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fmarkorendulic.com.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer&amp;title=10%20Reasons%20Why%20I%20Recommend%20Svelte%20To%20Every%20New%20Web%20Developer&amp;summary=Although%20the%20initial%20release%20of%20Svelte%20was%20back%20in%20November%202016%2C%20it's%20still%20more%20of%20an%20underdog%20amongst%20the%20JavaScript%20front%20end%20frameworks%20and%20just%20recently%20started%20to%20get%20its%20well%20deserved%20attention%20by%20the%20community.&amp;source=LinkedIn"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="inline-flex text-teal-700 hover:text-teal-900"
 		title="Share on LinkedIn"
 		><svg
 			version="1.1"
-			class="fa-icon mx-3 svelte-1b2zbdf"
+			class="fa-icon svelte-1b2zbdf mx-3"
 			width="21"
 			height="24"
 			role="presentation"
@@ -43,14 +43,14 @@
 		</svg></a
 	>
 	<a
-		href="https://twitter.com/intent/tweet?text=10%20Reasons%20Why%20I%20Recommend%20Svelte%20To%20Every%20New%20Web%20Developer&amp;url=https%3A%2F%2Fmarkushatvan.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer"
+		href="https://twitter.com/intent/tweet?text=10%20Reasons%20Why%20I%20Recommend%20Svelte%20To%20Every%20New%20Web%20Developer&amp;url=https%3A%2F%2Fmarkorendulic.com.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="inline-flex text-teal-700 hover:text-teal-900"
 		title="Share on Twitter"
 		><svg
 			version="1.1"
-			class="fa-icon mx-3 svelte-1b2zbdf"
+			class="fa-icon svelte-1b2zbdf mx-3"
 			width="24"
 			height="24"
 			role="presentation"
@@ -64,14 +64,14 @@
 		</svg></a
 	>
 	<a
-		href="https://www.reddit.com/submit?url=https%3A%2F%2Fmarkushatvan.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer&amp;title=10%20Reasons%20Why%20I%20Recommend%20Svelte%20To%20Every%20New%20Web%20Developer"
+		href="https://www.reddit.com/submit?url=https%3A%2F%2Fmarkorendulic.com.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer&amp;title=10%20Reasons%20Why%20I%20Recommend%20Svelte%20To%20Every%20New%20Web%20Developer"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="inline-flex text-teal-700 hover:text-teal-900"
 		title="Share on Reddit"
 		><svg
 			version="1.1"
-			class="fa-icon mx-3 svelte-1b2zbdf"
+			class="fa-icon svelte-1b2zbdf mx-3"
 			width="24"
 			height="24"
 			role="presentation"
@@ -85,14 +85,14 @@
 		</svg></a
 	>
 	<a
-		href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmarkushatvan.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer"
+		href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmarkorendulic.com.com%2Fblog%2F10-reasons-why-i-recommend-svelte-to-every-new-web-developer"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="inline-flex text-teal-700 hover:text-teal-900"
 		title="Share on Pinterest"
 		><svg
 			version="1.1"
-			class="fa-icon mx-3 svelte-1b2zbdf"
+			class="fa-icon svelte-1b2zbdf mx-3"
 			width="23.25"
 			height="24"
 			role="presentation"

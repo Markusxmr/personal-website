@@ -108,14 +108,24 @@ export const menus = {
             }
         },
         {
-            url: `/${BASE_ROUTE}/cv/diagrams`,
-            name: 'Diagrams',
+            url: `/${BASE_ROUTE}/cv/projects`,
+            name: 'Projects',
             icon: 'fa fa-briefcase',
-            id: `${BASE_ROUTE}/cv/diagrams`,
+            id: `${BASE_ROUTE}/cv/projects`,
             detailPage: {
-                id: `${BASE_ROUTE}/cv/diagrams`
+                id: `${BASE_ROUTE}/cv/projects`
             }
         },
+        // },
+        // {
+        //     url: `/${BASE_ROUTE}/cv/diagrams`,
+        //     name: 'Diagrams',
+        //     icon: 'fa fa-briefcase',
+        //     id: `${BASE_ROUTE}/cv/diagrams`,
+        //     detailPage: {
+        //         id: `${BASE_ROUTE}/cv/diagrams`
+        //     }
+        // },
         {
             url: `/${BASE_ROUTE}/cv/blogs`,
             name: 'Blogs',

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { StringCodec } from 'nats.ws';
 	import { scale } from 'svelte/transition';
 	import { beforeNavigate } from '$app/navigation';
 	import { store } from '$stores/core';
@@ -119,12 +120,6 @@
 			<ul
 				class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium"
 			>
-				{#if $store.meta?.app === App.CV}
-					<li>
-						<HeaderApplicationSelection />
-					</li>
-				{/if}
-
 				{#each menus as menu}
 					<li class="nav-item">
 						<a

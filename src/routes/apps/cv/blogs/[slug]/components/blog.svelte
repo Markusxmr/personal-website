@@ -1,6 +1,6 @@
 <figure class="mb-10">
 	<img
-		src="https://markushatvan.com/4-kinds-of-freemium-software-products-your-small-business-needs.jpg"
+		src="https://markorendulic.com.com/4-kinds-of-freemium-software-products-your-small-business-needs.jpg"
 		alt="Tablet showing dashboard with visitors overview"
 		loading="lazy"
 	/>

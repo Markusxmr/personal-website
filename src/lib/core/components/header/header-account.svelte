@@ -137,6 +137,9 @@
 				<li class="nav-item pointer mb-2" style="cursor: pointer">
 					<a href={`/${$store.meta.baseUri}/membership`}>Membership</a>
 				</li>
+				<li class="nav-item pointer mb-2" style="cursor: pointer">
+					<a href={`/${$store.meta.baseUri}/dashboard`}>Dashboard</a>
+				</li>
 				<li class="nav-item pointer mb-2" style="cursor: pointer" on:click={() => logout()} on:keydown={() => logout()}>
 					Sign out
 				</li>

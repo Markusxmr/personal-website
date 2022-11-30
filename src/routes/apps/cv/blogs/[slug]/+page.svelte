@@ -3,7 +3,7 @@
 	import About from '$lib/apps/cv/components/about.svelte';
 	import { articleShortDescription } from './components/article';
 	import Blog from './components/blog.svelte';
-	import SharePost from './components/share-post.svelte';
+	import SharePost from './components/share-item.svelte';
 	import { store as coreStore } from '$stores/core';
 	import { scrollTop } from '$lib/core/utils/scroll.utils';
 

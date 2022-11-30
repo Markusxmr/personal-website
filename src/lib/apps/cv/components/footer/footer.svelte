@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<div class="p-6 text-center">
-		<span>© {new Date().getFullYear()} Copyright:</span>
+		<span>© {new Date().getFullYear()} Built by:</span>
 		<a class="font-semibold text-gray-400" href="https://markorendulic.com/">Marko Rendulić</a>
 	</div>
 </footer>

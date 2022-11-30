@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { StringCodec } from 'nats.ws';
 	import { customTransition } from '$lib/core/animations';
 	import Button from '$lib/apps/cv/components/button.svelte';
 	import { onMount } from 'svelte';
@@ -21,7 +22,7 @@
 		});
 	}
 
-	onMount(() => {
+	onMount(async () => {
 		animateProgressBar();
 	});
 </script>
@@ -40,9 +41,8 @@
 			</p>
 		</div>
 	</div>
-	<hr class="mt-20" />
-	<div class="mt-12">
-		<h1 class="text-center font-bold text-gray-900 dark:text-gray-900">STATS</h1>
+	<div class="mt-10">
+		<h1 class="text-center font-bold text-gray-900 dark:text-gray-900">Stats</h1>
 		<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-1">
 			<div class="card mx-auto w-full rounded-lg p-6">
 				<div class="mb-3">

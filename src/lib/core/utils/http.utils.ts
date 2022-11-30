@@ -22,3 +22,15 @@ export function get(endpoint: any) {
         }
     }).then((r) => r.json());
 }
+
+export function put(endpoint: any, data: any) {
+    return fetch(endpoint, {
+        method: 'PUT',
+        credentials: 'include',
+        body: JSON.stringify(data || {}),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${localStorage.getItem("access_token") ?? ""}`
+        }
+    }).then((r) => r.json());
+}

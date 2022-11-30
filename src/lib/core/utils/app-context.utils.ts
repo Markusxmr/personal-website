@@ -24,7 +24,6 @@ export function setApplication(app: any) {
 export function getAppCtxByUrl() {
     if (browser) {
         const localhostHelper = (path: string) => host.includes(`localhost`) && href.includes(path);
-        const pathname = window.location.pathname;
         const host = window.location.host;
         const href = window.location.href;
 
