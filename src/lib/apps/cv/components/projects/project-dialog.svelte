@@ -28,6 +28,7 @@
 		modal.classList.remove('fadeIn');
 		modal.classList.add('fadeOut');
 		setTimeout(() => (modal.style.display = 'none'), 500);
+		cvStore.update(state => ({ ...state, dialog: null }))
 	}
 
 	onMount(() => {

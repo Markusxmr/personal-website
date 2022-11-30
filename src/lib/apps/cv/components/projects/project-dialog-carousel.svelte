@@ -12,18 +12,19 @@
 </svelte:head>
 
 <div bind:clientWidth={x}>
-	{#if item?.images}
-		<Splide options={{ width: '100%', rewind: false, perPage: x > 600 ? 3 : 1, autoplay: true }} aria-label="Images">
-			{#each item?.images ?? [] as image}
-				<SplideSlide>
-					<img src={image} class="lazy featured-item-img w-full" alt={item?.title} />
-				</SplideSlide>
-			{/each}
-		</Splide>
-	{/if}
+	<Splide options={{ width: '100%', rewind: false, perPage: x > 600 ? 3 : 1, autoplay: true }} aria-label="Images">
+		{#each item?.images ?? [] as image}
+			<SplideSlide>
+				<img src={image} class="lazy featured-item-img w-full" alt={item?.title} />
+			</SplideSlide>
+		{/each}
+	</Splide>
 </div>
 
 <style>
+	:global(li.splide__slide) {
+		width: calc(100%) !important;
+	}
 	.featured-item-img {
 		object-fit: cover;
 		background-color: #fff;
