@@ -3,7 +3,7 @@ import { CMS_URL } from "$lib/core/config";
 import { jwtApiKey } from "$lib/core/auth/auth.utils";
 import { store } from "$stores/core";
 import { get } from "svelte/store";
-import { App } from "./enums";
+import { App } from "../enums";
 
 function requestInterceptor(instance: any) {
     instance.interceptors.request.use((config: any) => {

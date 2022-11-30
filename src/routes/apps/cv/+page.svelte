@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { StringCodec } from 'nats.ws';
-	import { customTransition } from '$lib/core/animations';
 	import Button from '$lib/apps/cv/components/button.svelte';
 	import { onMount } from 'svelte';
-	import { sineOut, bounceIn, bounceOut, bounceInOut, quintOut, elasticInOut } from 'svelte/easing';
 	import { fade, blur, fly, slide, scale } from 'svelte/transition';
 	import { stats } from './home.data';
 	import Projects from '$lib/apps/cv/components/projects/projects.svelte';
+	import LandingPageNavigator from '$lib/apps/cv/components/landing-page-navigator.svelte';
 
 	function toggleDetails(stat: any, i: number) {
 		return (details: boolean) => {
@@ -28,25 +27,38 @@
 	});
 </script>
 
-<div transition:customTransition>
-	<div transition:scale={{ delay: 250, duration: 650, easing: quintOut }} class="relative mb-10">
-		<div
-			class="card mt-5 w-full rounded-lg bg-gradient-to-r from-gray-50 to-gray-50 px-6 py-10 text-center text-gray-800"
-		>
-			<h1 class="mb-10 text-center text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">Marko Rendulić</h1>
-			<h5 class="page-subtitle mt-3 mb-4 text-center">Webz Enginner</h5>
+<LandingPageNavigator />
 
-			<p class="mt-4 text-center">
-				I'm a Full Stack Web Developer based in Croatia. <br />
-				Welcome to my personal custom built website. Also a personal sandbox platform containing multiple applications and
-				various experiments.<br />
-				Enjoy!
-			</p>
+<div in:scale={{ duration: 650, start: 0.95 }} out:scale={{ duration: 275, start: 0.95 }}>
+	<div class="relative mb-10">
+		<div
+			class="card mt-5 grid w-full gap-5 rounded-lg bg-gradient-to-r from-gray-50 to-gray-50 px-6
+			py-10
+			text-center
+			text-gray-800
+			md:grid-cols-4"
+		>
+			<div class="col-span-1 mb-3 rounded-full text-center md:shadow-lg">
+				<img class="mx-auto rounded-full" src="/cv/user/Marko.jpeg" />
+			</div>
+			<div class="md:col-span-3">
+				<h1 id="section-0" class="mb-10 text-center text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">
+					Marko Rendulić
+				</h1>
+				<h5 class="page-subtitle mt-3 mb-4 text-center">Webz Enginner</h5>
+
+				<p class="mt-4 text-center">
+					I'm a Full Stack Web Developer based in Croatia. <br />
+					Welcome to my personal custom built website. Also a personal sandbox platform containing multiple applications
+					and various experiments.<br />
+					Enjoy!
+				</p>
+			</div>
 		</div>
 	</div>
 	<div class="grid gap-3 sm:grid-cols-1 md:grid-cols-1">
 		<div class="mt-2">
-			<h1 class="text-center font-bold text-gray-900 dark:text-gray-900">Stats</h1>
+			<h1 id="section-1" class="text-center font-bold text-gray-900 dark:text-gray-900">Stats</h1>
 			<div class="grid gap-4 sm:grid-cols-1 md:grid-cols-1">
 				<div class="card mx-auto w-full rounded-lg p-6">
 					<div class="mb-3">
@@ -128,7 +140,7 @@
 			</div>
 		</div>
 		<div class="mt-10">
-			<h1 class="text-center font-bold text-gray-900 dark:text-gray-900">Recent Projects</h1>
+			<h1 id="section-2" class="text-center font-bold text-gray-900 dark:text-gray-900">Recent Projects</h1>
 			<Projects cols={'sm:grid-cols-1 md:grid-cols-3'} />
 		</div>
 	</div>

@@ -9,7 +9,7 @@
 	$: item = $cvStore.dialog;
 	let urlClipboard = '';
 
-	function copyTextToClipboard(text) {
+	function copyTextToClipboard(text: string) {
 		urlClipboard = text;
 		navigator.clipboard.writeText(text).then(
 			function () {
@@ -45,9 +45,16 @@
 			}
 		}
 	});
+
+	function handleCloseModalOnEscape(event) {
+		if (event?.key === 'Escape') {
+			modalClose();
+		}
+	}
 </script>
 
 <div
+	on:keyup={handleCloseModalOnEscape}
 	transition:fade
 	class="
 	main-modal

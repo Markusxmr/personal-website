@@ -1,5 +1,5 @@
 import { goto } from "$app/navigation";
-import { host } from "$lib/core/axios.client";
+import { host } from "$lib/core/clients/axios.client";
 import type { App } from "$lib/core/enums";
 import { store } from "$stores/core";
 import { get } from "svelte/store";

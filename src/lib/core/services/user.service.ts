@@ -1,4 +1,4 @@
-import { strapi } from "$lib/core/axios.client";
+import { strapi } from "$lib/core/clients/axios.client";
 import API from "$lib/core/enums/api.enum";
 import { errorHandler } from "$lib/core/error";
 import { queryParams } from "$lib/core/utils/query.utils";

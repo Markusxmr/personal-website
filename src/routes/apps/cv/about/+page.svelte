@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { scale } from 'svelte/transition';
 	import { connect, StringCodec } from 'nats.ws';
-	import { customTransition } from '$lib/core/animations';
 	import About from '$lib/apps/cv/components/about.svelte';
 	import { post } from '$lib/core/utils/http.utils';
 	import { getNotificationsContext } from 'svelte-notifications';
@@ -87,7 +87,7 @@
 	});
 </script>
 
-<section transition:customTransition>
+<section in:scale={{ duration: 650, start: 0.95 }} out:scale={{ duration: 275, start: 0.95 }}>
 	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">About</h1>
 
 	<div
@@ -131,7 +131,7 @@
 						type="text"
 						name="name"
 						id="name"
-						class="w-full rounded border border-gray-300 px-2 py-1 text-sm outline-none"
+						class="h-10 w-full rounded border border-gray-200 px-2 py-1 text-sm outline-none"
 						placeholder="Name"
 						aria-required="true"
 						required
@@ -144,7 +144,7 @@
 						type="email"
 						name="email"
 						id="email"
-						class="w-full rounded border border-gray-300 px-2 py-1 text-sm outline-none"
+						class="h-10 w-full rounded border border-gray-200 px-2 py-1 text-sm outline-none"
 						placeholder="Email"
 						aria-required="true"
 						required
@@ -158,8 +158,7 @@
 					<textarea
 						name="message"
 						id="message"
-						class="w-full rounded border border-gray-300 px-2 py-1 text-sm outline-none"
-						style="height: 88px;"
+						class="h-24 w-full rounded border border-gray-200 px-2 py-1 text-sm outline-none"
 						placeholder="Message"
 						required
 						bind:value={contact.message}
@@ -174,7 +173,6 @@
 					class="
 					mx-auto
 					mr-2
-					mb-2
 					rounded-lg
 					border
 					border-gray-200
@@ -192,7 +190,7 @@
 					focus:ring-gray-200
 					dark:border-gray-600
 					dark:bg-gray-800
-					dark:text-gray-400
+					dark:text-gray-200
 					dark:hover:bg-gray-700
 					dark:hover:text-white
 					dark:focus:ring-gray-700"
@@ -206,7 +204,9 @@
 		</form>
 	</div>
 	<div class="p-6">
-		<h1>Miscellaneous</h1>
+		<div class="mb-10 border-b-4 border-indigo-500">
+			<h1>Miscellaneous</h1>
+		</div>
 		<div class="mb-10 grid gap-3 sm:grid-cols-12 md:grid-cols-4 lg:grid-cols-4">
 			{#each perks as perk}
 				<div class="flip-card">

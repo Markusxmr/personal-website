@@ -1,3 +1,7 @@
+<script lang="ts">
+	export let searchArticles: () => void, search: string;
+</script>
+
 <div style="opacity: 1;">
 	<div
 		class="dark:bg-darkSecondary dark:highlight-white/5 dark:hover:bg-darkSecondary/90 group relative mx-auto flex w-full items-center rounded-md bg-white px-2 py-1.5 text-sm leading-6 text-slate-400 shadow-sm ring-1 ring-slate-900/10 hover:ring-slate-400 lg:flex"
@@ -22,7 +26,8 @@
 			class="font-inter w-full bg-transparent px-3 py-2 font-medium text-slate-400 outline-none transition duration-200"
 			type="text"
 			placeholder="Search articles..."
-			value=""
+			on:input={searchArticles}
+			bind:value={search}
 		/><button type="button" class="hidden group-hover:inline-flex"
 			><svg
 				stroke="currentColor"

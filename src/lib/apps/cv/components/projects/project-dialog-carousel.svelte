@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { cvStore } from '$stores/cv.store';
-	import { HREF_VOID } from '$lib/apps/art-code/constants';
 	import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 	$: item = $cvStore.dialog;
@@ -13,13 +12,15 @@
 </svelte:head>
 
 <div bind:clientWidth={x}>
-	<Splide options={{ rewind: false, perPage: x > 600 ? 3 : 1, autoplay: true }} aria-label="Images">
-		{#each item?.images ?? [] as image}
-			<SplideSlide>
-				<img src={image} class="lazy img-fluid featured-item-img" alt="" />
-			</SplideSlide>
-		{/each}
-	</Splide>
+	{#if item?.images}
+		<Splide options={{ width: '100%', rewind: false, perPage: x > 600 ? 3 : 1, autoplay: true }} aria-label="Images">
+			{#each item?.images ?? [] as image}
+				<SplideSlide>
+					<img src={image} class="lazy featured-item-img w-full" alt={item?.title} />
+				</SplideSlide>
+			{/each}
+		</Splide>
+	{/if}
 </div>
 
 <style>
@@ -29,8 +30,6 @@
 	}
 	@media screen and (max-width: 600px) {
 		.featured-item-img {
-			height: 300px;
-			width: 100%;
 			object-fit: cover;
 			background-color: #fff;
 		}

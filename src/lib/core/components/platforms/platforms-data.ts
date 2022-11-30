@@ -9,7 +9,7 @@ export const platformsData = [
         url: 'https://www.kajbu.org',
         description: "KAJBU (“what will it be?”) Is a platform designed to create interconnections between people, coming from all parts of the world.",
         layout: "Responsive",
-        tags: ["GraphQL", "Postgresql", "Svelte", "TailwindCSS", "HASURA", "Strapi CMS"],
+        tags: ["Wordpress"],
         active: true
     },
     {
@@ -119,7 +119,7 @@ export const platformsData = [
         url: 'https://www.conjuctio.com',
         description: "Conjuctio is a space open to intellectual, spiritual, artistic, technological research, in which each person, idea, project can find their own way of definition and expression, their own modalities of implementation and accomplishment. Conjuctio is an international laboratory for multicultural exchange, a catalyst for the creation of new realities, thanks to the interactions and interconnections among each element that is a contributing part.",
         layout: "Responsive",
-        tags: ["GraphQL", "Postgresql", "Svelte", "TailwindCSS", "HASURA", "Strapi CMS"],
+        tags: ["Wordpress", "Buddyboss"],
         active: true
     }
 ];

@@ -13,7 +13,7 @@
 	import { getAppCtxByUrl, setApplication, app } from '$lib/core/utils/app-context.utils';
 	import 'svelte-material-ui/bare.css';
 	import { App } from '$lib/core/enums';
-	import { initNatsClient } from '$lib/core/nats';
+	import { initNatsClient } from '$lib/core/clients/nats';
 	import { getLocalAuth } from '$lib/core/utils/auth.utils';
 	import PreloadingIndicator from '$lib/core/components/preloading-indicator.svelte';
 	import StripeProvider from '$lib/stripe/stripe-provider.svelte';

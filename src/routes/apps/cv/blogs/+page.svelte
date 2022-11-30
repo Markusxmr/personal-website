@@ -1,31 +1,26 @@
 <script lang="ts">
-	import { customTransition } from '$lib/core/animations';
+	import { scale } from 'svelte/transition';
 	import SearchComponent from '$lib/apps/cv/components/search-component.svelte';
 	import { articleShortDescription } from './[slug]/components/utils';
 	import { store } from '$stores/core';
+	import { GQL_AllBlogArticles } from '$houdini';
+	import debounce from 'lodash/debounce';
 
 	export let data: any;
 	$: BASE_URI = $store.meta.baseUri;
 	$: ({ articles } = data);
 	let innerWidth = 0;
 	$: characters = characterNum(innerWidth);
+	let search = '';
+
+	articles = $GQL_AllBlogArticles.data?.blog_article;
 
 	function characterNum(innerWidth: number) {
-		if (innerWidth <= 640) {
-			return 55;
-		}
-		if (innerWidth <= 768) {
-			return 100;
-		}
-		if (innerWidth <= 1024) {
-			return 125;
-		}
-		if (innerWidth <= 1280) {
-			return 175;
-		}
-		if (innerWidth > 1280) {
-			return 300;
-		}
+		if (innerWidth <= 640) return 55;
+		if (innerWidth <= 768) return 100;
+		if (innerWidth <= 1024) return 125;
+		if (innerWidth <= 1280) return 175;
+		if (innerWidth > 1280) return 300;
 
 		return 500;
 	}
@@ -33,21 +28,35 @@
 	$: getArticleShortDescription = (attributes: any, characters: any) => {
 		return articleShortDescription(attributes, characters);
 	};
+
+	const searchArticles = debounce(async () => {
+		GQL_AllBlogArticles.fetch({
+			variables: {
+				where: {
+					title: {
+						_iregex: search
+					}
+				}
+			}
+		}).then((response) => {
+			articles = response.data?.blog_article;
+		});
+	}, 750);
 </script>
 
 <svelte:window bind:innerWidth />
 
-<div transition:customTransition>
+<div in:scale={{ duration: 650, start: 0.95 }} out:scale={{ duration: 275, start: 0.95 }}>
 	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">Blogs</h1>
 	<div class="mt-16">
-		<SearchComponent />
+		<SearchComponent {searchArticles} bind:search />
 	</div>
 
 	<section>
 		<div class="flex items-center justify-between" style="opacity: 1;">
 			<div class="border-b-2 border-indigo-500">
 				<h3 class="my-10 text-left text-2xl font-bold sm:text-3xl" style="opacity: 1; transform: none;">
-					All Posts ({articles?.data?.cms?.cvArticles?.data?.length})
+					All Posts ({articles?.length})
 				</h3>
 			</div>
 			<div class="flex items-center gap-2 border-b-2 border-gray-500 pb-2">
@@ -86,7 +95,7 @@
 			</div>
 		</div>
 		<div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
-			{#each articles?.data?.cms?.cvArticles?.data ?? [] as { id, attributes }}
+			{#each articles ?? [] as attributes}
 				<div
 					class="
 					card

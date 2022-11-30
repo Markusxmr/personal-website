@@ -1,6 +1,6 @@
 import { browser } from "$app/environment";
 import { connect } from "nats.ws";
-import { errorHandler } from "./error";
+import { errorHandler } from "../error";
 
 export async function client() {
     const conn = await connect(
