@@ -10,8 +10,8 @@
 	}}
 >
 	{#if details}
-		Hide
+		<slot /> - <i class="fa fa-eye-slash" /> <span class="ml-2 underline">Hide</span>
 	{:else}
-		More
+		<slot /> - <i class="fa fa-eye" /><span class="ml-2 underline">View</span>
 	{/if}
 </button>

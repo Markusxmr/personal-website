@@ -176,12 +176,6 @@ export const perks = [
         description: ''
     },
     {
-        img: '/cv/images/about/Groovy.png',
-        title: 'No comment',
-        subTitle: '',
-        description: ''
-    },
-    {
         img: '/cv/images/about/Night-Bird.png',
         title: 'Night person',
         subTitle: '',
@@ -197,6 +191,12 @@ export const perks = [
         img: '/cv/images/about/Physical.png',
         title: 'General Physical Culture',
         subTitle: 'Weight lifting, kettlebells, biking',
+        description: ''
+    },
+    {
+        img: '/cv/images/about/Groovy.png',
+        title: 'No comment',
+        subTitle: '',
         description: ''
     },
     {

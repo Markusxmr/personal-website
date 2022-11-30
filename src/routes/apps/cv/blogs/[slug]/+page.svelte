@@ -1,35 +1,48 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import About from '$lib/apps/cv/components/about.svelte';
-	import { articleShortDescription } from './components/article';
+	import { articleShortDescription, readingTime } from './components/utils';
 	import Blog from './components/blog.svelte';
 	import SharePost from './components/share-item.svelte';
 	import { store as coreStore } from '$stores/core';
 	import { scrollTop } from '$lib/core/utils/scroll.utils';
+	import { onMount } from 'svelte';
 
 	$: BASE_URI = $coreStore.meta.baseUri;
 
 	export let data: any;
 	$: ({ article, articles } = data);
+	let timeToRead = 0,
+		articleContent: HTMLElement,
+		date = new Date();
 
 	function navigateToArticle(article: any) {
 		goto(`/${BASE_URI}/blogs/${article?.slug}`);
 	}
+
+	onMount(() => {
+		timeToRead = readingTime(articleContent);
+	});
 </script>
 
 <main>
 	{#if article}
-		<div class="p-15 text-bg-dark mt-10 mb-4 rounded p-4">
+		<div class="p-15 text-bg-dark mt-10 mb-4 rounded bg-gray-100 p-10">
 			<div class="col-md-6 mx-auto px-0">
 				<h1 class="text-center">{article?.attributes?.title}</h1>
-				<p class="lead my-3 text-center">August 31, 2020 · 12 min read · Programming</p>
+				<p class="lead my-3 text-center">
+					{date?.toLocaleString('en-US', { month: 'long' })}
+					{date?.getDate()}, {date.getFullYear()} · {timeToRead} min read · Programming
+				</p>
 			</div>
 		</div>
 
 		<div class="grid grid-cols-9 gap-6">
 			<div class="col-span-6">
 				{#if article?.attributes?.content}
-					{@html article.attributes?.content}
+					<div bind:this={articleContent}>
+						{@html article.attributes?.content}
+					</div>
 				{:else}
 					<Blog />
 				{/if}

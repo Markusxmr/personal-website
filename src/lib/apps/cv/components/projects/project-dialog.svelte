@@ -1,9 +1,10 @@
-<script>
-	import { customTransition } from '$lib/core/animations';
+<script lang="ts">
+	import { fade } from 'svelte/transition';
 	import EyeIcon from '$lib/core/components/icons/eye.svelte';
 	import LinkIcon from '$lib/core/components/icons/link.svelte';
 	import { cvStore } from '$stores/cv.store';
-	import DialogCarousel from './dialog-carousel.svelte';
+	import DialogCarousel from './project-dialog-carousel.svelte';
+	import { onMount } from 'svelte';
 
 	$: item = $cvStore.dialog;
 	let urlClipboard = '';
@@ -19,12 +20,41 @@
 			}
 		);
 	}
+	let modal: HTMLElement | null;
+	let closeButton: HTMLElement | null;
+
+	function modalClose() {
+		if (!modal) return;
+		modal.classList.remove('fadeIn');
+		modal.classList.add('fadeOut');
+		setTimeout(() => (modal.style.display = 'none'), 500);
+	}
+
+	onMount(() => {
+		modal = document.querySelector('.main-modal');
+		closeButton = document.querySelectorAll('.modal-close');
+
+		if (modal && closeButton) {
+			for (let i = 0; i < closeButton?.length; i++) {
+				const elements = closeButton?.[i] as HTMLElement;
+				elements.onclick = (e) => modalClose();
+				modal.style.display = 'none';
+				window.onclick = function (event) {
+					if (event.target == modal) modalClose();
+				};
+			}
+		}
+	});
 </script>
 
 <div
-	transition:customTransition
-	class="modal
-    fade
+	transition:fade
+	class="
+	main-modal
+	modal
+    animated
+    fadeIn
+    faster
     fixed
     top-0
     left-0
@@ -35,10 +65,7 @@
     w-full
     overflow-y-auto
     overflow-x-hidden
-    bg-black/30
-    outline-none
-    backdrop-blur-sm
-    transition-opacity"
+	bg-black/30 outline-none backdrop-blur-sm"
 	id="detailModal"
 	tabindex="-1"
 	aria-labelledby="detailModalLabel"
@@ -48,7 +75,7 @@
 	aria-modal="true"
 	role="dialog"
 >
-	<div class="modal-dialog pointer-events-none relative">
+	<div class="modal-dialog pointer-events-none relative mx-auto">
 		<div
 			class="modal-content pointer-events-auto relative mx-auto flex flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none"
 		>
@@ -61,8 +88,9 @@
 					</strong>
 				</h1>
 				<button
+					on:click={modalClose}
 					aria-label="Close panel"
-					class="text-dark-900 hover:text-dark dark:text-dark-800 hover:dark:text-light-200 absolute right-10 top-5 z-10 outline-none transition-all focus-visible:outline-none"
+					class="modal-close text-dark-900 hover:text-dark dark:text-dark-800 hover:dark:text-light-200 absolute right-10 top-5 z-10 outline-none transition-all focus-visible:outline-none"
 					tabindex="0"
 					data-bs-dismiss="modal"
 				>
@@ -240,9 +268,10 @@
 			</div>
 			<div class="modal-footer mx-auto mb-4 flex flex-shrink-0 items-center justify-between p-4">
 				<button
+					on:click={modalClose}
 					type="button"
 					data-bs-dismiss="modal"
-					class="mt-5 rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+					class="modal-close mt-5 rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
 				>
 					Close
 				</button>
@@ -250,3 +279,47 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.animated {
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+	.animated.faster {
+		-webkit-animation-duration: 300ms;
+		animation-duration: 300ms;
+	}
+
+	.fadeIn {
+		-webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+	}
+
+	.fadeOut {
+		-webkit-animation-name: fadeOut;
+		animation-name: fadeOut;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes fadeOut {
+		from {
+			opacity: 1;
+		}
+
+		to {
+			opacity: 0;
+		}
+	}
+</style>

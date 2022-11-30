@@ -118,7 +118,7 @@
 			out:scale={{ duration: 75, start: 0.95 }}
 		>
 			<ul
-				class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium"
+				class="mt-4 flex flex-col rounded-lg p-4 text-center md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium"
 			>
 				{#each menus as menu}
 					<li class="nav-item">
@@ -128,9 +128,9 @@
 							}}
 							href={menu.url}
 							class={active(menu)
-								? 'block font-bold rounded bg-gray-100 py-2 pr-4 pl-3 text-gray-900 dark:text-gray-900 md:bg-transparent md:p-0 md:text-blue-700'
-								: 'block rounded py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-800 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover: dark:text-gray-800'}
-							aria-current={active(menu) ? 'page' : 'false'}>{menu.name}</a
+								? 'block rounded bg-gray-100 py-2 pr-4 pl-3 font-bold text-gray-900 dark:text-gray-900 md:bg-transparent md:p-0 md:text-blue-700'
+								: 'md:dark:hover: block rounded py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-800 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent'}
+							aria-current={active(menu) ? 'page' : 'false'}>{menu.name?.toUpperCase()}</a
 						>
 					</li>
 				{/each}

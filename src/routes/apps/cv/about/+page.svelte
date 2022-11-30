@@ -4,6 +4,9 @@
 	import About from '$lib/apps/cv/components/about.svelte';
 	import { post } from '$lib/core/utils/http.utils';
 	import { getNotificationsContext } from 'svelte-notifications';
+	import { perks } from '../home.data';
+	import { onMount } from 'svelte';
+	import { store } from '$stores/core';
 
 	const { addNotification } = getNotificationsContext();
 
@@ -26,22 +29,24 @@
 			subject: contact.name,
 			content: contact.message
 		};
-		// sendEmailViaNats(data);
+		sendEmailViaNats(data);
 
-		// contact = {
-		// 	name: '',
-		// 	email: '',
-		// 	message: ''
-		// };
-		// return;
-		await post(`/apps/cv/about`, data).then((res) => {
-			addNotification({
-				text: 'Your message is sent',
-				type: 'success',
-				position: 'top-center',
-				removeAfter: 5000
+		contact = {
+			name: '',
+			email: '',
+			message: ''
+		};
+
+		async function sendEmailViaRest(data) {
+			await post(`/apps/cv/about`, data).then((res) => {
+				addNotification({
+					text: 'Your message is sent',
+					type: 'success',
+					position: 'top-center',
+					removeAfter: 5000
+				});
 			});
-		});
+		}
 
 		async function sendEmailViaNats(data) {
 			const nc = await connect({
@@ -60,19 +65,40 @@
 			await nc.drain();
 		}
 	}
+
+	onMount(async () => {
+		const nc = await connect({
+			servers: [`${import.meta.env.VITE_NATS_WEBSOCKET}`]
+		});
+
+		// create a codec
+		const sc = StringCodec();
+		// create a simple subscriber and iterate over messages
+		// matching the subscription
+		const sub = nc.subscribe('test.>');
+		async () => {
+			for await (const m of sub) {
+				const decoded = sc.decode(m.data);
+				// console.log(`[${sub.getProcessed()}]: ${decoded}`);
+				store.update((state) => ({ ...state, notification: { text: 'Your message is sent', type: 'success' } }));
+				console.log('subscription closed');
+			}
+		};
+	});
 </script>
 
 <section transition:customTransition>
 	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">About</h1>
+
 	<div
-		class="mb-20 grid gap-4 sm:grid-cols-1 md:grid-cols-2"
+		class="grid gap-4 px-10 shadow-md sm:grid-cols-1 md:grid-cols-2"
 		style="border-top: 1px solid #eee; border-bottom: 1px solid #eee;"
 	>
 		<div class="py-10">
 			<About />
 		</div>
 
-		<form class="p-10" on:submit|preventDefault={handleSubmit} style="border-left: 1px solid #eee;">
+		<form class="p-10" on:submit|preventDefault={handleSubmit} style="border-left: 2px solid #eee;">
 			<div class="mx-auto text-center">
 				<div class="mb-3 text-gray-500">
 					<h5>Get in Touch</h5>
@@ -179,4 +205,39 @@
 			<div id="result" role="region" aria-live="polite" aria-atomic="true" />
 		</form>
 	</div>
+	<div class="p-6">
+		<h1>Miscellaneous</h1>
+		<div class="mb-10 grid gap-3 sm:grid-cols-12 md:grid-cols-4 lg:grid-cols-4">
+			{#each perks as perk}
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+							<img
+								class="img-perk"
+								src={perk.img}
+								alt=""
+								style="
+									height:200px;
+									object-position: center;
+									object-fit: cover;"
+							/>
+						</div>
+						<div class="flip-card-back bg-gray-700">
+							<h3 class="mt-5">{perk.title}</h3>
+							<p>{perk.subTitle}</p>
+							<p>{perk.description}</p>
+						</div>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
 </section>
+
+<style>
+	.img-perk {
+		border-radius: 5px;
+		width: 100%;
+		box-shadow: 1px 3px 5px #444;
+	}
+</style>
