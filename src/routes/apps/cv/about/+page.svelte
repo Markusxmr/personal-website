@@ -88,17 +88,14 @@
 </script>
 
 <section in:scale={{ duration: 650, start: 0.95 }} out:scale={{ duration: 275, start: 0.95 }}>
-	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">About</h1>
+	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900  md:text-5xl">About</h1>
 
-	<div
-		class="grid gap-4 px-10 shadow-md sm:grid-cols-1 md:grid-cols-2"
-		style="border-top: 1px solid #eee; border-bottom: 1px solid #eee;"
-	>
+	<div class="grid gap-4 px-10 shadow-sm drop-shadow-md sm:grid-cols-1 md:grid-cols-2">
 		<div class="py-10">
 			<About />
 		</div>
 
-		<form class="p-10" on:submit|preventDefault={handleSubmit} style="border-left: 2px solid #eee;">
+		<form class="p-10" on:submit|preventDefault={handleSubmit} style="border-left: 1px solid #eee;">
 			<div class="mx-auto text-center">
 				<div class="mb-3 text-gray-500">
 					<h5>Get in Touch</h5>
@@ -204,12 +201,13 @@
 		</form>
 	</div>
 	<div class="p-6">
-		<div class="mb-10 border-b-4 border-indigo-500">
+		<div class="mb-5 border-b-2 border-gray-200">
 			<h1>Miscellaneous</h1>
 		</div>
-		<div class="mb-10 grid gap-3 sm:grid-cols-12 md:grid-cols-4 lg:grid-cols-4">
+		<div class="mb-10 grid gap-3 sm:grid-cols-6 md:grid-cols-5 lg:grid-cols-6">
 			{#each perks as perk}
 				<div class="flip-card">
+					<h6 class="mt-5 font-medium">{perk.title}</h6>
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 							<img
@@ -217,14 +215,13 @@
 								src={perk.img}
 								alt=""
 								style="
-									height:200px;
+									height:185px;
 									object-position: center;
 									object-fit: cover;"
 							/>
 						</div>
 						<div class="flip-card-back bg-gray-700">
-							<h3 class="mt-5">{perk.title}</h3>
-							<p>{perk.subTitle}</p>
+							<p class="mt-5">{perk.subTitle}</p>
 							<p>{perk.description}</p>
 						</div>
 					</div>
@@ -236,8 +233,53 @@
 
 <style>
 	.img-perk {
-		border-radius: 5px;
+		border-radius: 3px;
 		width: 100%;
-		box-shadow: 1px 3px 5px #444;
+	}
+
+	/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+	.flip-card {
+		background-color: transparent;
+		width: 100%;
+		min-height: 185px;
+		perspective: 1000px;
+		/* Remove this if you don't want the 3D effect */
+		cursor: pointer;
+	}
+
+	/* This container is needed to position the front and back side */
+	.flip-card-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		transition: transform 0.8s;
+		transform-style: preserve-3d;
+	}
+	.flip-card:hover .flip-card-inner {
+		transform: rotateY(180deg);
+	}
+
+	.flip-card-front,
+	.flip-card-back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-webkit-backface-visibility: hidden;
+		/* Safari */
+		backface-visibility: hidden;
+	}
+
+	/* Style the front side (fallback if image is missing) */
+	.flip-card-front {
+		background-color: #bbb;
+		color: black;
+	}
+	.flip-card-back {
+		background-color: dodgerblue;
+		border-radius: 3px;
+		color: white;
+		transform: rotateY(180deg);
+		height: 185px;
 	}
 </style>

@@ -67,9 +67,9 @@
 								<Button toggle={toggleDetails(stat, i)} details={stat.details}>{stat?.title?.toUpperCase()}</Button>
 							</div>
 							<div class="col-md-11 mt-2">
-								<div class="dark:bg-white-700 h-4 w-full bg-gray-200">
+								<div class="dark:bg-white-700 h-3 w-full bg-gray-200">
 									<div
-										class="progress-bar h-4 rounded-r-sm bg-gradient-to-r from-gray-500 to-gray-700"
+										class="progress-bar h-3 rounded-r-md bg-gradient-to-r from-gray-500 to-gray-700"
 										role="progressbar"
 										style="width: {`${stat.experience}%`}"
 										aria-valuenow={stat.experience}
@@ -77,9 +77,9 @@
 										aria-valuemax={100}
 									/>
 								</div>
-								<div class="dark:bg-white-700 h-4 w-full bg-gray-200">
+								<div class="dark:bg-white-700 h-3 w-full bg-gray-200">
 									<div
-										class="progress-bar h-4 rounded-r-sm bg-gradient-to-r from-cyan-500 to-blue-500"
+										class="progress-bar h-3 rounded-r-md bg-gradient-to-r from-cyan-500 to-blue-500"
 										role="progressbar"
 										style="width: {stat.hype}%"
 										aria-valuenow={stat.hype}
