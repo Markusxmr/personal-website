@@ -34,6 +34,7 @@
 
 		if (scrollY >= section3) activeSection = 2;
 		else if (scrollY >= section2) activeSection = 1;
+		else if (scrollY <= section1) activeSection = 0;
 		else activeSection = 0;
 	}
 
