@@ -18,6 +18,7 @@
 	import PreloadingIndicator from '$lib/core/components/preloading-indicator.svelte';
 	import StripeProvider from '$lib/stripe/stripe-provider.svelte';
 	import ScrollTopButton from '$lib/core/components/scroll-top-button.svelte';
+	import Whatsapp from '$lib/core/components/whatsapp.svelte';
 
 	let nc: any;
 	let outerWidth = 0;
@@ -122,6 +123,7 @@
 {/if}
 
 <ScrollTopButton />
+<Whatsapp />
 
 <a id="top" />
 
