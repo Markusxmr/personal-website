@@ -1,32 +1,27 @@
 import type Stripe from 'stripe';
 import {
     deleteApiMembership,
-    deleteStrapiCMSMembership,
     insertApiMembership,
-    insertStrapiCMSMembership
 } from '$lib/core/services/membership.service';
-import { getApiUserProfiles, getStrapiCMSUsers } from '$lib/core/services/user.service';
+import { getApiUserProfiles } from '$lib/core/services/user.service';
 import { error, json } from '@sveltejs/kit';
-import { updateApiStripeUserMetadata, updateStrapiCMSStripeUserMetadata } from '../../user-stripe-metadata.service';
+import { updateApiStripeUserMetadata } from '../../user-stripe-metadata.service';
 import stripe from '../stripe';
 
 const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET ?? "";
 
 async function getUsers({ event }: { event: any }) {
-    // const users = await getStrapiCMSUsers();
     const users = await getApiUserProfiles({ event });
     return users;
 }
 
 async function insertMembership(event: any, membership: any) {
     await insertApiMembership(event, membership);
-    // await insertStrapiCMSMembership(membership);
     return "OK";
 }
 
 async function deleteMembership(data: any) {
     await deleteApiMembership(data);
-    // await deleteStrapiCMSMembership(data);
     return "OK";
 }
 
@@ -35,7 +30,6 @@ async function handleUserMetadata({ ctx, customer }: { ctx: any, customer: any }
     const userProfile = users?.find((user) => user?.payment_profile?.stripe_metadata?.stripe_id === customer?.id);
     const data = { customer, metadata: { stripe_id: customer?.id, ...customer?.metadata } };
     await updateApiStripeUserMetadata(userProfile, { event: ctx, ...data });
-    // await updateStrapiCMSStripeUserMetadata(user, data);
     return "OK";
 }
 

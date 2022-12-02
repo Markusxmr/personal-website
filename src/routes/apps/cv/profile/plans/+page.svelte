@@ -1,8 +1,7 @@
 <script lang="ts">
-	import Plan from '$lib/apps/music-code/components/plans.svelte';
-	let plans = [];
+	import Plans from '$lib/core/components/plans.svelte';
+
+	let plans: any[] = [];
 </script>
 
-{#each plans as plan}
-	<Plan {plan} />
-{/each}
+<Plans {plans} />
