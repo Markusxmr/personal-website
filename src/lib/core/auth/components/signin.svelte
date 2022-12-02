@@ -40,10 +40,10 @@
 		</div>
 
 		<div class="col-sm-12 col-md-6 w-auto">
-			<h2 class="mb-4">Login</h2>
+			<h2 class="mb-4">Signin</h2>
 
 			<div class="mb-3 w-[100%]">
-				Login using an existing account or create a new account
+				Signin using an existing account or create a new account
 				<a href={`/${$store.meta.baseUri}/auth/signup`}>
 					<strong>here</strong>.
 				</a>

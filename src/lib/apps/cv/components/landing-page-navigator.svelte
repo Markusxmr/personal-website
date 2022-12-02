@@ -55,7 +55,7 @@
 	out:scale={{ duration: 275, start: 0.95 }}
 	id="page-navigator"
 	style="background: rgba(0,0,0,0.75)"
-	class="grid-cols-auto grid h-auto w-auto rounded-md bg-gray-800 bg-white py-7 px-4 text-white shadow-lg"
+	class="grid-cols-auto grid h-auto w-auto rounded-sm bg-gray-800 bg-white py-7 px-4 text-white shadow-lg"
 >
 	{#each sections as section, i}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->

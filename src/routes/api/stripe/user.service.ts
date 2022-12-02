@@ -5,7 +5,7 @@ import fetch from "node-fetch";
 
 const ACCESS_TOKEN_READ_WRITE = process.env.ACCESS_TOKEN_READ_WRITE ?? "";
 
-export async function updateUser(userId, data = null) {
+export async function updateUser(userId: any, data = null) {
     await axios(`${BASE_API_URL}/api/profiles/me/payment/${userId}`, {
         method: "PUT",
         headers: {

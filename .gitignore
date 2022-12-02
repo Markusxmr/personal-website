@@ -23,3 +23,7 @@ $houdini
 !/src/lib/apps/cv
 !/src/routes/apps/cv
 !/src/routes/api/cv
+
+/src/stores/*
+!/src/stores/core.ts
+!/src/stores/store.types.ts

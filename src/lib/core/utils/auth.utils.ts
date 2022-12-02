@@ -4,7 +4,14 @@ import type { AuthToken } from "@authorizerdev/authorizer-js";
 import { validateToken } from "../auth/authorizer";
 
 export function clearUserData() {
-    store.update((state) => ({ ...state, auth: null, isAuthenticated: false }));
+    store.update((state) => ({
+        ...state,
+        auth: null,
+        isAuthenticated: false,
+        profile: {
+            ...state?.profile, membership: null
+        }
+    }));
 }
 
 export function getLocalAuth() {
@@ -42,6 +49,7 @@ export function setStorageAuth(data: AuthToken | void | null) {
 
 export function clearStorageAuth() {
     if (!browser) return;
+    localStorage.removeItem('API_KEY');
     localStorage.removeItem('auth');
     localStorage.removeItem('auth_token');
     localStorage.removeItem('id_token');

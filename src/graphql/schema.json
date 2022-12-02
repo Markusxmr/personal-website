@@ -46135,6 +46135,56 @@
               "deprecationReason": null
             },
             {
+              "name": "delete_user_payment_profile",
+              "description": "delete data from the table: \"user.payment_profile\"",
+              "args": [{
+                "name": "where",
+                "description": "filter the rows which have to be deleted",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_mutation_response",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "delete_user_payment_profile_by_pk",
+              "description": "delete single row from the table: \"user.payment_profile\"",
+              "args": [{
+                "name": "payment_profile_id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "delete_user_profile",
               "description": "delete data from the table: \"user.profile\"",
               "args": [{
@@ -46179,56 +46229,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "user_profile",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "delete_user_user_payment",
-              "description": "delete data from the table: \"user.user_payment\"",
-              "args": [{
-                "name": "where",
-                "description": "filter the rows which have to be deleted",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_mutation_response",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "delete_user_user_payment_by_pk",
-              "description": "delete single row from the table: \"user.user_payment\"",
-              "args": [{
-                "name": "user_payment_id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -47245,6 +47245,86 @@
               "deprecationReason": null
             },
             {
+              "name": "insert_user_payment_profile",
+              "description": "insert data into the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "objects",
+                  "description": "the rows to be inserted",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "INPUT_OBJECT",
+                          "name": "user_payment_profile_insert_input",
+                          "ofType": null
+                        }
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "on_conflict",
+                  "description": "upsert condition",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_on_conflict",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_mutation_response",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "insert_user_payment_profile_one",
+              "description": "insert a single row into the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "object",
+                  "description": "the row to be inserted",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "user_payment_profile_insert_input",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "on_conflict",
+                  "description": "upsert condition",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_on_conflict",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "insert_user_profile",
               "description": "insert data into the table: \"user.profile\"",
               "args": [{
@@ -47319,86 +47399,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "user_profile",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "insert_user_user_payment",
-              "description": "insert data into the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "objects",
-                  "description": "the rows to be inserted",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "LIST",
-                      "name": null,
-                      "ofType": {
-                        "kind": "NON_NULL",
-                        "name": null,
-                        "ofType": {
-                          "kind": "INPUT_OBJECT",
-                          "name": "user_user_payment_insert_input",
-                          "ofType": null
-                        }
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "on_conflict",
-                  "description": "upsert condition",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_on_conflict",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_mutation_response",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "insert_user_user_payment_one",
-              "description": "insert a single row into the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "object",
-                  "description": "the row to be inserted",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "user_user_payment_insert_input",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "on_conflict",
-                  "description": "upsert condition",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_on_conflict",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -49174,6 +49174,235 @@
               "deprecationReason": null
             },
             {
+              "name": "update_user_payment_profile",
+              "description": "update data of the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "_append",
+                  "description": "append existing jsonb value of filtered columns with new jsonb value",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_append_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_delete_at_path",
+                  "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_delete_at_path_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_delete_elem",
+                  "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_delete_elem_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_delete_key",
+                  "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_delete_key_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_inc",
+                  "description": "increments the numeric columns with given value of the filtered values",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_inc_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_prepend",
+                  "description": "prepend existing jsonb value of filtered columns with new jsonb value",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_prepend_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_set",
+                  "description": "sets the columns of the filtered rows to the given values",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_set_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "where",
+                  "description": "filter the rows which have to be updated",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "user_payment_profile_bool_exp",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_mutation_response",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "update_user_payment_profile_by_pk",
+              "description": "update single row of the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "_append",
+                  "description": "append existing jsonb value of filtered columns with new jsonb value",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_append_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_delete_at_path",
+                  "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_delete_at_path_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_delete_elem",
+                  "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_delete_elem_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_delete_key",
+                  "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_delete_key_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_inc",
+                  "description": "increments the numeric columns with given value of the filtered values",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_inc_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_prepend",
+                  "description": "prepend existing jsonb value of filtered columns with new jsonb value",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_prepend_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "_set",
+                  "description": "sets the columns of the filtered rows to the given values",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_set_input",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "pk_columns",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "user_payment_profile_pk_columns_input",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "update_user_payment_profile_many",
+              "description": "update multiples rows of table: \"user.payment_profile\"",
+              "args": [{
+                "name": "updates",
+                "description": "updates to execute, in order",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "user_payment_profile_updates",
+                        "ofType": null
+                      }
+                    }
+                  }
+                },
+                "defaultValue": null
+              }],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "user_payment_profile_mutation_response",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "update_user_profile",
               "description": "update data of the table: \"user.profile\"",
               "args": [{
@@ -49396,235 +49625,6 @@
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "user_profile_mutation_response",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "update_user_user_payment",
-              "description": "update data of the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "_append",
-                  "description": "append existing jsonb value of filtered columns with new jsonb value",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_append_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_delete_at_path",
-                  "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_delete_at_path_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_delete_elem",
-                  "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_delete_elem_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_delete_key",
-                  "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_delete_key_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_inc",
-                  "description": "increments the numeric columns with given value of the filtered values",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_inc_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_prepend",
-                  "description": "prepend existing jsonb value of filtered columns with new jsonb value",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_prepend_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_set",
-                  "description": "sets the columns of the filtered rows to the given values",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_set_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "where",
-                  "description": "filter the rows which have to be updated",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "user_user_payment_bool_exp",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_mutation_response",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "update_user_user_payment_by_pk",
-              "description": "update single row of the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "_append",
-                  "description": "append existing jsonb value of filtered columns with new jsonb value",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_append_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_delete_at_path",
-                  "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_delete_at_path_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_delete_elem",
-                  "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_delete_elem_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_delete_key",
-                  "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_delete_key_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_inc",
-                  "description": "increments the numeric columns with given value of the filtered values",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_inc_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_prepend",
-                  "description": "prepend existing jsonb value of filtered columns with new jsonb value",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_prepend_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "_set",
-                  "description": "sets the columns of the filtered rows to the given values",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_set_input",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "pk_columns",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "user_user_payment_pk_columns_input",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "update_user_user_payment_many",
-              "description": "update multiples rows of table: \"user.user_payment\"",
-              "args": [{
-                "name": "updates",
-                "description": "updates to execute, in order",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "INPUT_OBJECT",
-                        "name": "user_user_payment_updates",
-                        "ofType": null
-                      }
-                    }
-                  }
-                },
-                "defaultValue": null
-              }],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "user_user_payment_mutation_response",
                   "ofType": null
                 }
               },
@@ -52685,6 +52685,203 @@
               "deprecationReason": null
             },
             {
+              "name": "user_payment_profile",
+              "description": "fetch data from the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "distinct_on",
+                  "description": "distinct select on columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "ENUM",
+                        "name": "user_payment_profile_select_column",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": "limit the number of rows returned",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "skip the first n rows. Use only with order_by",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "order_by",
+                  "description": "sort the rows by one or more columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "user_payment_profile_order_by",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "where",
+                  "description": "filter the rows returned",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "user_payment_profile",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user_payment_profile_aggregate",
+              "description": "fetch aggregated fields from the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "distinct_on",
+                  "description": "distinct select on columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "ENUM",
+                        "name": "user_payment_profile_select_column",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": "limit the number of rows returned",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "skip the first n rows. Use only with order_by",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "order_by",
+                  "description": "sort the rows by one or more columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "user_payment_profile_order_by",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "where",
+                  "description": "filter the rows returned",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "user_payment_profile_aggregate",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user_payment_profile_by_pk",
+              "description": "fetch data from the table: \"user.payment_profile\" using primary key columns",
+              "args": [{
+                "name": "payment_profile_id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "user_profile",
               "description": "fetch data from the table: \"user.profile\"",
               "args": [{
@@ -52876,203 +53073,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "user_profile",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment",
-              "description": "fetch data from the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "distinct_on",
-                  "description": "distinct select on columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "ENUM",
-                        "name": "user_user_payment_select_column",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "limit",
-                  "description": "limit the number of rows returned",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "offset",
-                  "description": "skip the first n rows. Use only with order_by",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "order_by",
-                  "description": "sort the rows by one or more columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "INPUT_OBJECT",
-                        "name": "user_user_payment_order_by",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "where",
-                  "description": "filter the rows returned",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "user_user_payment",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment_aggregate",
-              "description": "fetch aggregated fields from the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "distinct_on",
-                  "description": "distinct select on columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "ENUM",
-                        "name": "user_user_payment_select_column",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "limit",
-                  "description": "limit the number of rows returned",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "offset",
-                  "description": "skip the first n rows. Use only with order_by",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "order_by",
-                  "description": "sort the rows by one or more columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "INPUT_OBJECT",
-                        "name": "user_user_payment_order_by",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "where",
-                  "description": "filter the rows returned",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "user_user_payment_aggregate",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment_by_pk",
-              "description": "fetch data from the table: \"user.user_payment\" using primary key columns",
-              "args": [{
-                "name": "user_payment_id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -76075,6 +76075,269 @@
               "deprecationReason": null
             },
             {
+              "name": "user_payment_profile",
+              "description": "fetch data from the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "distinct_on",
+                  "description": "distinct select on columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "ENUM",
+                        "name": "user_payment_profile_select_column",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": "limit the number of rows returned",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "skip the first n rows. Use only with order_by",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "order_by",
+                  "description": "sort the rows by one or more columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "user_payment_profile_order_by",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "where",
+                  "description": "filter the rows returned",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "user_payment_profile",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user_payment_profile_aggregate",
+              "description": "fetch aggregated fields from the table: \"user.payment_profile\"",
+              "args": [{
+                  "name": "distinct_on",
+                  "description": "distinct select on columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "ENUM",
+                        "name": "user_payment_profile_select_column",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": "limit the number of rows returned",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "offset",
+                  "description": "skip the first n rows. Use only with order_by",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "order_by",
+                  "description": "sort the rows by one or more columns",
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "user_payment_profile_order_by",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "where",
+                  "description": "filter the rows returned",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "user_payment_profile_aggregate",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user_payment_profile_by_pk",
+              "description": "fetch data from the table: \"user.payment_profile\" using primary key columns",
+              "args": [{
+                "name": "payment_profile_id",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user_payment_profile_stream",
+              "description": "fetch data from the table in a streaming manner: \"user.payment_profile\"",
+              "args": [{
+                  "name": "batch_size",
+                  "description": "maximum number of rows returned in a single batch",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "cursor",
+                  "description": "cursor to stream the results returned by the query",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "INPUT_OBJECT",
+                        "name": "user_payment_profile_stream_cursor_input",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "where",
+                  "description": "filter the rows returned",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "user_payment_profile",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "user_profile",
               "description": "fetch data from the table: \"user.profile\"",
               "args": [{
@@ -76329,269 +76592,6 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "user_profile",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment",
-              "description": "fetch data from the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "distinct_on",
-                  "description": "distinct select on columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "ENUM",
-                        "name": "user_user_payment_select_column",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "limit",
-                  "description": "limit the number of rows returned",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "offset",
-                  "description": "skip the first n rows. Use only with order_by",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "order_by",
-                  "description": "sort the rows by one or more columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "INPUT_OBJECT",
-                        "name": "user_user_payment_order_by",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "where",
-                  "description": "filter the rows returned",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "user_user_payment",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment_aggregate",
-              "description": "fetch aggregated fields from the table: \"user.user_payment\"",
-              "args": [{
-                  "name": "distinct_on",
-                  "description": "distinct select on columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "ENUM",
-                        "name": "user_user_payment_select_column",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "limit",
-                  "description": "limit the number of rows returned",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "offset",
-                  "description": "skip the first n rows. Use only with order_by",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "order_by",
-                  "description": "sort the rows by one or more columns",
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "INPUT_OBJECT",
-                        "name": "user_user_payment_order_by",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "where",
-                  "description": "filter the rows returned",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "user_user_payment_aggregate",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment_by_pk",
-              "description": "fetch data from the table: \"user.user_payment\" using primary key columns",
-              "args": [{
-                "name": "user_payment_id",
-                "description": null,
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_user_payment_stream",
-              "description": "fetch data from the table in a streaming manner: \"user.user_payment\"",
-              "args": [{
-                  "name": "batch_size",
-                  "description": "maximum number of rows returned in a single batch",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Int",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "cursor",
-                  "description": "cursor to stream the results returned by the query",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "LIST",
-                      "name": null,
-                      "ofType": {
-                        "kind": "INPUT_OBJECT",
-                        "name": "user_user_payment_stream_cursor_input",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "where",
-                  "description": "filter the rows returned",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "user_user_payment",
                       "ofType": null
                     }
                   }
@@ -78985,6 +78985,1416 @@
         },
         {
           "kind": "OBJECT",
+          "name": "user_payment_profile",
+          "description": "columns and relationships of \"user.payment_profile\"",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile",
+              "description": "An object relationship",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": null,
+              "args": [{
+                "name": "path",
+                "description": "JSON select path",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "jsonb",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_aggregate",
+          "description": "aggregated selection of \"user.payment_profile\"",
+          "fields": [{
+              "name": "aggregate",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_aggregate_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodes",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "user_payment_profile",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_aggregate_fields",
+          "description": "aggregate fields of \"user.payment_profile\"",
+          "fields": [{
+              "name": "avg",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_avg_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "count",
+              "description": null,
+              "args": [{
+                  "name": "columns",
+                  "description": null,
+                  "type": {
+                    "kind": "LIST",
+                    "name": null,
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "name": null,
+                      "ofType": {
+                        "kind": "ENUM",
+                        "name": "user_payment_profile_select_column",
+                        "ofType": null
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "distinct",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "max",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_max_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "min",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_min_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stddev",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_stddev_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stddev_pop",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_stddev_pop_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stddev_samp",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_stddev_samp_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "sum",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_sum_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "var_pop",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_var_pop_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "var_samp",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_var_samp_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "variance",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile_variance_fields",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_append_input",
+          "description": "append existing jsonb value of filtered columns with new jsonb value",
+          "fields": null,
+          "inputFields": [{
+            "name": "stripe_metadata",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "jsonb",
+              "ofType": null
+            },
+            "defaultValue": null
+          }],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_avg_fields",
+          "description": "aggregate avg on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_bool_exp",
+          "description": "Boolean expression to filter rows from the table \"user.payment_profile\". All fields are combined with a logical 'AND'.",
+          "fields": null,
+          "inputFields": [{
+              "name": "_and",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_not",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_bool_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_or",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "user_payment_profile_bool_exp",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_bool_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "jsonb_comparison_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "user_payment_profile_constraint",
+          "description": "unique or primary key constraints on table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [{
+            "name": "user_payment_pkey",
+            "description": "unique or primary key constraint on columns \"payment_profile_id\"",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_delete_at_path_input",
+          "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
+          "fields": null,
+          "inputFields": [{
+            "name": "stripe_metadata",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          }],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_delete_elem_input",
+          "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
+          "fields": null,
+          "inputFields": [{
+            "name": "stripe_metadata",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "defaultValue": null
+          }],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_delete_key_input",
+          "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
+          "fields": null,
+          "inputFields": [{
+            "name": "stripe_metadata",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_inc_input",
+          "description": "input type for incrementing numeric columns in table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_insert_input",
+          "description": "input type for inserting data into table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_obj_rel_insert_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_max_fields",
+          "description": "aggregate max on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_min_fields",
+          "description": "aggregate min on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_mutation_response",
+          "description": "response of any mutation on the table \"user.payment_profile\"",
+          "fields": [{
+              "name": "affected_rows",
+              "description": "number of rows affected by the mutation",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "returning",
+              "description": "data from the rows affected by the mutation",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "user_payment_profile",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_obj_rel_insert_input",
+          "description": "input type for inserting object relation for remote table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": [{
+              "name": "data",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "user_payment_profile_insert_input",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "on_conflict",
+              "description": "upsert condition",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_on_conflict",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_on_conflict",
+          "description": "on_conflict condition type for table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": [{
+              "name": "constraint",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "user_payment_profile_constraint",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "update_columns",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "user_payment_profile_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_bool_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_order_by",
+          "description": "Ordering options when selecting data from \"user.payment_profile\".",
+          "fields": null,
+          "inputFields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_order_by",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_pk_columns_input",
+          "description": "primary key columns input for table: user.payment_profile",
+          "fields": null,
+          "inputFields": [{
+            "name": "payment_profile_id",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_prepend_input",
+          "description": "prepend existing jsonb value of filtered columns with new jsonb value",
+          "fields": null,
+          "inputFields": [{
+            "name": "stripe_metadata",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "jsonb",
+              "ofType": null
+            },
+            "defaultValue": null
+          }],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "user_payment_profile_select_column",
+          "description": "select columns of table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [{
+              "name": "payment_profile_id",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_set_input",
+          "description": "input type for updating data in table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_stddev_fields",
+          "description": "aggregate stddev on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_stddev_pop_fields",
+          "description": "aggregate stddev_pop on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_stddev_samp_fields",
+          "description": "aggregate stddev_samp on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_stream_cursor_input",
+          "description": "Streaming cursor of the table \"user_payment_profile\"",
+          "fields": null,
+          "inputFields": [{
+              "name": "initial_value",
+              "description": "Stream column input with initial value",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "user_payment_profile_stream_cursor_value_input",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ordering",
+              "description": "cursor ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_stream_cursor_value_input",
+          "description": "Initial value of the column from where the streaming should start",
+          "fields": null,
+          "inputFields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_sum_fields",
+          "description": "aggregate sum on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "user_payment_profile_update_column",
+          "description": "update columns of table \"user.payment_profile\"",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [{
+              "name": "payment_profile_id",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stripe_metadata",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "user_payment_profile_updates",
+          "description": null,
+          "fields": null,
+          "inputFields": [{
+              "name": "_append",
+              "description": "append existing jsonb value of filtered columns with new jsonb value",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_append_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_delete_at_path",
+              "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_delete_at_path_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_delete_elem",
+              "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_delete_elem_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_delete_key",
+              "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_delete_key_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_inc",
+              "description": "increments the numeric columns with given value of the filtered values",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_inc_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_prepend",
+              "description": "prepend existing jsonb value of filtered columns with new jsonb value",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_prepend_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_set",
+              "description": "sets the columns of the filtered rows to the given values",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_set_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "where",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "user_payment_profile_bool_exp",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_var_pop_fields",
+          "description": "aggregate var_pop on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_var_samp_fields",
+          "description": "aggregate var_samp on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user_payment_profile_variance_fields",
+          "description": "aggregate variance on columns",
+          "fields": [{
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "user_profile",
           "description": "columns and relationships of \"user.profile\"",
           "fields": [{
@@ -79035,6 +80445,30 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "payment_profile",
+              "description": "An object relationship",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user_payment_profile",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -79318,17 +80752,30 @@
           "name": "user_profile_avg_fields",
           "description": "aggregate avg on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -79411,6 +80858,26 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "String_comparison_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "payment_profile",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_bool_exp",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
                 "ofType": null
               },
               "defaultValue": null
@@ -79526,15 +80993,26 @@
           "description": "input type for incrementing numeric columns in table \"user.profile\"",
           "fields": null,
           "inputFields": [{
-            "name": "profile_id",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "bigint",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
             },
-            "defaultValue": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
           "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
@@ -79570,6 +81048,26 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "payment_profile",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_obj_rel_insert_input",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "defaultValue": null
@@ -79628,6 +81126,18 @@
               "deprecationReason": null
             },
             {
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "platform",
               "description": null,
               "args": [],
@@ -79680,6 +81190,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -79891,6 +81413,26 @@
               "defaultValue": null
             },
             {
+              "name": "payment_profile",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "user_payment_profile_order_by",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "platform",
               "description": null,
               "type": {
@@ -79983,6 +81525,12 @@
               "deprecationReason": null
             },
             {
+              "name": "payment_profile_id",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "platform",
               "description": "column name",
               "isDeprecated": false,
@@ -80033,6 +81581,16 @@
               "defaultValue": null
             },
             {
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "platform",
               "description": null,
               "type": {
@@ -80062,17 +81620,30 @@
           "name": "user_profile_stddev_fields",
           "description": "aggregate stddev on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -80083,17 +81654,30 @@
           "name": "user_profile_stddev_pop_fields",
           "description": "aggregate stddev_pop on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -80104,17 +81688,30 @@
           "name": "user_profile_stddev_samp_fields",
           "description": "aggregate stddev_samp on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -80190,6 +81787,16 @@
               "defaultValue": null
             },
             {
+              "name": "payment_profile_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "platform",
               "description": null,
               "type": {
@@ -80219,17 +81826,30 @@
           "name": "user_profile_sum_fields",
           "description": "aggregate sum on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "bigint",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -80256,6 +81876,12 @@
             },
             {
               "name": "email",
+              "description": "column name",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "payment_profile_id",
               "description": "column name",
               "isDeprecated": false,
               "deprecationReason": null
@@ -80374,17 +82000,30 @@
           "name": "user_profile_var_pop_fields",
           "description": "aggregate var_pop on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -80395,17 +82034,30 @@
           "name": "user_profile_var_samp_fields",
           "description": "aggregate var_samp on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
+              "name": "payment_profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
+            {
+              "name": "profile_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "inputFields": null,
           "interfaces": [],
           "enumValues": null,
@@ -80416,346 +82068,7 @@
           "name": "user_profile_variance_fields",
           "description": "aggregate variance on columns",
           "fields": [{
-            "name": "profile_id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment",
-          "description": "columns and relationships of \"user.user_payment\"",
-          "fields": [{
-              "name": "profile",
-              "description": "An object relationship",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": null,
-              "args": [{
-                "name": "path",
-                "description": "JSON select path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "jsonb",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_aggregate",
-          "description": "aggregated selection of \"user.user_payment\"",
-          "fields": [{
-              "name": "aggregate",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_aggregate_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "nodes",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "user_user_payment",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_aggregate_fields",
-          "description": "aggregate fields of \"user.user_payment\"",
-          "fields": [{
-              "name": "avg",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_avg_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "count",
-              "description": null,
-              "args": [{
-                  "name": "columns",
-                  "description": null,
-                  "type": {
-                    "kind": "LIST",
-                    "name": null,
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "name": null,
-                      "ofType": {
-                        "kind": "ENUM",
-                        "name": "user_user_payment_select_column",
-                        "ofType": null
-                      }
-                    }
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "distinct",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "max",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_max_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "min",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_min_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "stddev",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_stddev_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "stddev_pop",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_stddev_pop_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "stddev_samp",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_stddev_samp_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "sum",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_sum_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "var_pop",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_var_pop_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "var_samp",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_var_samp_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "variance",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "user_user_payment_variance_fields",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_append_input",
-          "description": "append existing jsonb value of filtered columns with new jsonb value",
-          "fields": null,
-          "inputFields": [{
-            "name": "stripe_metadata",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "jsonb",
-              "ofType": null
-            },
-            "defaultValue": null
-          }],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_avg_fields",
-          "description": "aggregate avg on columns",
-          "fields": [{
-              "name": "profile_id",
+              "name": "payment_profile_id",
               "description": null,
               "args": [],
               "type": {
@@ -80767,1065 +82080,7 @@
               "deprecationReason": null
             },
             {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_bool_exp",
-          "description": "Boolean expression to filter rows from the table \"user.user_payment\". All fields are combined with a logical 'AND'.",
-          "fields": null,
-          "inputFields": [{
-              "name": "_and",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  }
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_not",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_bool_exp",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_or",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "user_user_payment_bool_exp",
-                    "ofType": null
-                  }
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "profile",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_bool_exp",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "profile_id",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "Int_comparison_exp",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "jsonb_comparison_exp",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "Int_comparison_exp",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "user_user_payment_constraint",
-          "description": "unique or primary key constraints on table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [{
-            "name": "user_payment_pkey",
-            "description": "unique or primary key constraint on columns \"user_payment_id\"",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_delete_at_path_input",
-          "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
-          "fields": null,
-          "inputFields": [{
-            "name": "stripe_metadata",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            "defaultValue": null
-          }],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_delete_elem_input",
-          "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
-          "fields": null,
-          "inputFields": [{
-            "name": "stripe_metadata",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null
-          }],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_delete_key_input",
-          "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
-          "fields": null,
-          "inputFields": [{
-            "name": "stripe_metadata",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null
-          }],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_inc_input",
-          "description": "input type for incrementing numeric columns in table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": [{
-              "name": "profile_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_insert_input",
-          "description": "input type for inserting data into table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": [{
-              "name": "profile",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_obj_rel_insert_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "profile_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "jsonb",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_max_fields",
-          "description": "aggregate max on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_min_fields",
-          "description": "aggregate min on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_mutation_response",
-          "description": "response of any mutation on the table \"user.user_payment\"",
-          "fields": [{
-              "name": "affected_rows",
-              "description": "number of rows affected by the mutation",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "returning",
-              "description": "data from the rows affected by the mutation",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "user_user_payment",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_obj_rel_insert_input",
-          "description": "input type for inserting object relation for remote table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": [{
-              "name": "data",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "user_user_payment_insert_input",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "on_conflict",
-              "description": "upsert condition",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_on_conflict",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_on_conflict",
-          "description": "on_conflict condition type for table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": [{
-              "name": "constraint",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "user_user_payment_constraint",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "update_columns",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "ENUM",
-                      "name": "user_user_payment_update_column",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "defaultValue": "[]"
-            },
-            {
-              "name": "where",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_bool_exp",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_order_by",
-          "description": "Ordering options when selecting data from \"user.user_payment\".",
-          "fields": null,
-          "inputFields": [{
-              "name": "profile",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_order_by",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "profile_id",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "order_by",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "order_by",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "order_by",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_pk_columns_input",
-          "description": "primary key columns input for table: user.user_payment",
-          "fields": null,
-          "inputFields": [{
-            "name": "user_payment_id",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_prepend_input",
-          "description": "prepend existing jsonb value of filtered columns with new jsonb value",
-          "fields": null,
-          "inputFields": [{
-            "name": "stripe_metadata",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "jsonb",
-              "ofType": null
-            },
-            "defaultValue": null
-          }],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "user_user_payment_select_column",
-          "description": "select columns of table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [{
-              "name": "profile_id",
-              "description": "column name",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": "column name",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": "column name",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_set_input",
-          "description": "input type for updating data in table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": [{
-              "name": "profile_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "jsonb",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_stddev_fields",
-          "description": "aggregate stddev on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_stddev_pop_fields",
-          "description": "aggregate stddev_pop on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_stddev_samp_fields",
-          "description": "aggregate stddev_samp on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_stream_cursor_input",
-          "description": "Streaming cursor of the table \"user_user_payment\"",
-          "fields": null,
-          "inputFields": [{
-              "name": "initial_value",
-              "description": "Stream column input with initial value",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "user_user_payment_stream_cursor_value_input",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "ordering",
-              "description": "cursor ordering",
-              "type": {
-                "kind": "ENUM",
-                "name": "cursor_ordering",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_stream_cursor_value_input",
-          "description": "Initial value of the column from where the streaming should start",
-          "fields": null,
-          "inputFields": [{
-              "name": "profile_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "jsonb",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_sum_fields",
-          "description": "aggregate sum on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "user_user_payment_update_column",
-          "description": "update columns of table \"user.user_payment\"",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [{
-              "name": "profile_id",
-              "description": "column name",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "stripe_metadata",
-              "description": "column name",
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": "column name",
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "user_user_payment_updates",
-          "description": null,
-          "fields": null,
-          "inputFields": [{
-              "name": "_append",
-              "description": "append existing jsonb value of filtered columns with new jsonb value",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_append_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_delete_at_path",
-              "description": "delete the field or element with specified path (for JSON arrays, negative integers count from the end)",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_delete_at_path_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_delete_elem",
-              "description": "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_delete_elem_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_delete_key",
-              "description": "delete key/value pair or string element. key/value pairs are matched based on their key value",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_delete_key_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_inc",
-              "description": "increments the numeric columns with given value of the filtered values",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_inc_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_prepend",
-              "description": "prepend existing jsonb value of filtered columns with new jsonb value",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_prepend_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_set",
-              "description": "sets the columns of the filtered rows to the given values",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "user_user_payment_set_input",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "where",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "user_user_payment_bool_exp",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_var_pop_fields",
-          "description": "aggregate var_pop on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_var_samp_fields",
-          "description": "aggregate var_samp on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "user_user_payment_variance_fields",
-          "description": "aggregate variance on columns",
-          "fields": [{
-              "name": "profile_id",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_payment_id",
               "description": null,
               "args": [],
               "type": {

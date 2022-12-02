@@ -8,12 +8,20 @@ export type Profile = {
     theme: {
         nightMode: boolean
     },
+    membership: any
 }
 
 type SideBarItem = { id: number, url: string, name: string, icon: string }
 
+type PlatformSpecificMeta = {
+    brandImage: string,
+    siteName: string,
+    siteUrl: string
+}
 export interface Store {
     meta: {
+        [App.CV]: PlatformSpecificMeta,
+        [App.WINE_CODE]: PlatformSpecificMeta,
         appName: string,
         app: App,
         baseUri: string,

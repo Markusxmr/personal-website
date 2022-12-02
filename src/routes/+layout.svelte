@@ -19,6 +19,7 @@
 	import StripeProvider from '$lib/stripe/stripe-provider.svelte';
 	import ScrollTopButton from '$lib/core/components/scroll-top-button.svelte';
 	import Whatsapp from '$lib/core/components/whatsapp.svelte';
+	import Membership from '$lib/core/components/membership.svelte';
 
 	let nc: any;
 	let outerWidth = 0;
@@ -130,17 +131,19 @@
 <span class="screen-darken" on:click={closeMobileOffCanvas} />
 
 <Auth>
-	<Notifications>
-		{#if nc}
-			<GlobalSubscription {nc} />
-		{/if}
-		<Logger />
-		<Modal styleWindow={modalStyleWindow}>
-			<StripeProvider>
-				<slot />
-			</StripeProvider>
-		</Modal>
-	</Notifications>
+	<Membership>
+		<Notifications>
+			{#if nc}
+				<GlobalSubscription {nc} />
+			{/if}
+			<Logger />
+			<Modal styleWindow={modalStyleWindow}>
+				<StripeProvider>
+					<slot />
+				</StripeProvider>
+			</Modal>
+		</Notifications>
+	</Membership>
 </Auth>
 
 <style>

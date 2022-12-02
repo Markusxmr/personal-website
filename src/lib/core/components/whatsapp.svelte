@@ -16,12 +16,7 @@
 	}
 </script>
 
-<span
-	id="whatsapp"
-	class="cursor-pointer rounded-full bg-white"
-	on:keydown={toggleWhatsappForm}
-	on:click={toggleWhatsappForm}
->
+<span id="whatsapp" class="cursor-pointer rounded-full" on:keydown={toggleWhatsappForm} on:click={toggleWhatsappForm}>
 	<svg
 		version="1.1"
 		id="Capa_1"

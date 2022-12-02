@@ -6,18 +6,10 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { getAppCtxByUrl } from '$lib/core/utils/app-context.utils';
-	import HeaderApplicationSelection from './header-app-selection.svelte';
 	import { App } from '$lib/core/enums';
 	import HeaderAccount from './header-account.svelte';
 
-	export let meta = {
-		brandImage: '/cv/user/Marko.jpeg',
-		siteName: 'Marko Rendulić',
-		siteUrl: 'https://markorendulic.com/apps/cv'
-	};
-	export let brandImage = '/cv/user/Marko.jpeg';
-	export let siteName = 'Marko Rendulić';
-	export let siteUrl = 'https://markorendulic.com/';
+	export let meta;
 	let show = false; // menu state
 	let menu: HTMLElement; // menu wrapper DOM reference
 	$: menus = $store.sidebar.apps.menus[$store.meta.app];
