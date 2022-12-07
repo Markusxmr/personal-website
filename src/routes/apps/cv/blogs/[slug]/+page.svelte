@@ -37,8 +37,8 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-9 gap-6">
-			<div class="col-span-6">
+		<div class="grid sm:grid-cols-1 md:grid-cols-9 md:gap-6">
+			<div class="md:col-span-6">
 				{#if article?.attributes?.content}
 					<div bind:this={articleContent}>
 						{@html article.attributes?.content}

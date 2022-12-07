@@ -116,16 +116,15 @@ export const menus = {
                 id: `${BASE_ROUTE}/cv/projects`
             }
         },
-        // },
-        // {
-        //     url: `/${BASE_ROUTE}/cv/diagrams`,
-        //     name: 'Diagrams',
-        //     icon: 'fa fa-briefcase',
-        //     id: `${BASE_ROUTE}/cv/diagrams`,
-        //     detailPage: {
-        //         id: `${BASE_ROUTE}/cv/diagrams`
-        //     }
-        // },
+        {
+            url: `/${BASE_ROUTE}/cv/playground`,
+            name: 'Playground',
+            icon: 'fa fa-briefcase',
+            id: `${BASE_ROUTE}/cv/playground`,
+            detailPage: {
+                id: `${BASE_ROUTE}/cv/playground`
+            }
+        },
         {
             url: `/${BASE_ROUTE}/cv/blogs`,
             name: 'Blogs',
@@ -162,15 +161,6 @@ export const menus = {
             id: `${BASE_ROUTE}/music-code/artists`,
             detailPage: {
                 id: `${BASE_ROUTE}/music-code/artists/[id]`
-            }
-        },
-        {
-            url: `/${BASE_ROUTE}/music-code/studio`,
-            name: 'Studio',
-            icon: 'fa fa-volume-up',
-            id: `${BASE_ROUTE}/music-codecv/studio`,
-            detailPage: {
-                id: `${BASE_ROUTE}/music-code/studio`
             }
         },
         {

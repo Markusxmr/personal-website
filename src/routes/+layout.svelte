@@ -89,23 +89,18 @@
 			setApplication(appCtx);
 		}
 
-		await initNatsClient().then((conn) => {
-			const nc = conn;
-			// create a codec
-			const sc = StringCodec();
-			// create a simple subscriber and iterate over messages
-			// matching the subscription
-			const sub = nc.subscribe('email.>');
-			async () => {
-				for await (const m of sub) {
-					const decoded = sc.decode(m.data);
-					console.log(decoded);
-					// console.log(`[${sub.getProcessed()}]: ${decoded}`);
-					store.update((state) => ({ ...state, notification: { text: 'Your message is sent', type: 'success' } }));
-					console.log('subscription closed');
-				}
-			};
-		});
+		nc = await initNatsClient();
+		window.nc = nc;
+		// create a codec
+		const sc = StringCodec();
+		// create a simple subscriber and iterate over messages
+		// matching the subscription
+		const sub = window.nc.subscribe('logs.>');
+		for await (const m of sub) {
+			const decoded = sc.decode(m.data);
+			// console.log(`[${sub.getProcessed()}]: ${decoded}`);
+			console.log('subscription closed');
+		}
 	});
 </script>
 

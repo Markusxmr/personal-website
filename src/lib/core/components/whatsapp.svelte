@@ -176,4 +176,11 @@
 		height: 40px;
 		width: 400px;
 	}
+
+	@media all and (max-width: 650px) {
+		#whatsappInput {
+			width: 100%;
+			right: 0px;
+		}
+	}
 </style>

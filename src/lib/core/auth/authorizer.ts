@@ -11,6 +11,7 @@ import { store } from '$stores/core';
 import { clearStorageAuth, clearUserData, setStorageAuth } from '$lib/core/utils/auth.utils';
 import { AUTHORIZER_CLIENT_ID, AUTHORIZER_URL } from '../config';
 import { get } from 'svelte/store';
+import { findMembership } from '../services/membership.service';
 
 export function authorizer(): Authorizer {
     return new Authorizer({
@@ -87,8 +88,19 @@ export async function signin(signinData: any, cb: any = null) {
         .login(signinData)
         .then(async (data: AuthToken | void | null) => {
             await linkUserProfile(data);
-            store.update((state) => ({ ...state, auth: data }));
             setStorageAuth(data);
+            const user = await getProfile();
+            const membership = await findMembership({
+                variables: {
+                    authorizer_id: user?.id,
+                    platform: get(store)?.meta?.app
+                }
+            });
+            store.update((state) => ({
+                ...state,
+                auth: data,
+                profile: { ...state.profile, membership }
+            }));
         })
         .catch(async (error) => {
             if (cb) cb(error);

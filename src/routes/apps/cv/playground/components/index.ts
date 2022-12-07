@@ -7,12 +7,12 @@ const handleClick = (e: any) => {
 export const portfolio = [
     {
         name: 'Undisclosed',
-        type: 'Fintech',
+        type: 'Example',
         initialNodes: [
             {
                 id: 0,
                 position: { x: x + 250, y: y + 50 },
-                data: { label: 'Client (React, Svelte)' },
+                data: { label: 'Client' },
                 width: 175,
                 height: 40,
                 bgColor: 'white',
@@ -49,7 +49,7 @@ export const portfolio = [
             {
                 id: 4,
                 position: { x: x + 500, y: y + 275 },
-                data: { label: 'Third party banking API 1' },
+                data: { label: 'External API 1' },
                 width: 175,
                 height: 40,
                 bgColor: 'white',
@@ -59,7 +59,7 @@ export const portfolio = [
             {
                 id: 5,
                 position: { x: x + 500, y: y + 375 },
-                data: { label: 'Third party API 2' },
+                data: { label: 'External API 2' },
                 width: 175,
                 height: 40,
                 bgColor: 'white',
@@ -75,51 +75,5 @@ export const portfolio = [
             { id: 'e4-5', source: 2, target: 5 }
         ]
     },
-    {
-        name: 'Undisclosed',
-        type: 'Tourism',
-        initialNodes: [
-            {
-                id: 1,
-                position: { x: x + 250, y: y + 50 },
-                data: { label: 'Input Node' },
-                width: 175,
-                height: 40,
-                bgColor: 'white',
-                clickCallback: handleClick
-            },
-            {
-                id: 2,
-                position: { x: x + 250, y: y + 150 },
-                data: { label: 'Default Node' },
-                width: 175,
-                height: 40,
-                bgColor: 'white',
-                clickCallback: handleClick
-            },
-            {
-                id: 3,
-                position: { x: x + 250, y: y + 250 },
-                data: { label: 'Output Node' },
-                width: 175,
-                height: 40,
-                bgColor: 'white',
-                clickCallback: handleClick
-            },
-            {
-                id: 4,
-                position: { x: x + 450, y: y + 150 },
-                data: { label: 'Output Node' },
-                width: 175,
-                height: 40,
-                bgColor: 'white',
-                clickCallback: handleClick
-            }
-        ],
-        initialEdges: [
-            { id: 'e1-2', source: 1, target: 2, label: 'edge label' },
-            { id: 'e2-3', source: 2, target: 3, label: 'edge label' },
-            { id: 'e3-4', source: 2, target: 4 }
-        ]
-    }
+
 ];

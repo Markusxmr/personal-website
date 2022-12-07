@@ -5,7 +5,7 @@
 </script>
 
 <div class="sidebar-footer mx-2 mt-2">
-	{#if $store.meta.app === App.MUSIC_CODE}
+	{#if $store.meta.app === App.MUSIC_CODE && $store?.profile?.membership}
 		{#if $store.isAuthenticated}
 			<a
 				href="/apps/music-code/dashboard/artists/new"

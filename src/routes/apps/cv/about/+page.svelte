@@ -54,7 +54,15 @@
 			});
 			// create a codec
 			const sc = StringCodec();
-			nc.publish('email.cv', sc.encode(JSON.stringify(data)));
+			nc.request('email.cv', sc.encode(JSON.stringify(data))).then((response) => {
+				const result = sc.decode(response?.data);
+				addNotification({
+					text: result,
+					type: 'success',
+					position: 'top-center',
+					removeAfter: 5000
+				});
+			});
 
 			// we want to insure that messages that are in flight
 			// get processed, so we are going to drain the
@@ -65,37 +73,17 @@
 			await nc.drain();
 		}
 	}
-
-	onMount(async () => {
-		const nc = await connect({
-			servers: [`${import.meta.env.VITE_NATS_WEBSOCKET}`]
-		});
-
-		// create a codec
-		const sc = StringCodec();
-		// create a simple subscriber and iterate over messages
-		// matching the subscription
-		const sub = nc.subscribe('test.>');
-		async () => {
-			for await (const m of sub) {
-				const decoded = sc.decode(m.data);
-				// console.log(`[${sub.getProcessed()}]: ${decoded}`);
-				store.update((state) => ({ ...state, notification: { text: 'Your message is sent', type: 'success' } }));
-				console.log('subscription closed');
-			}
-		};
-	});
 </script>
 
 <section in:scale={{ duration: 650, start: 0.95 }} out:scale={{ duration: 275, start: 0.95 }}>
-	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900  md:text-5xl">About</h1>
+	<h1 class="text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">About</h1>
 
-	<div class="grid gap-4 px-10 shadow-sm drop-shadow-md sm:grid-cols-1 md:grid-cols-2">
+	<div class="grid gap-4 shadow-sm drop-shadow-md sm:grid-cols-1 md:grid-cols-2 md:px-10">
 		<div class="py-10">
 			<About />
 		</div>
 
-		<form class="p-10" on:submit|preventDefault={handleSubmit} style="border-left: 1px solid #eee;">
+		<form class="sm:p-2 md:p-10" on:submit|preventDefault={handleSubmit} style="border-left: 1px solid #eee;">
 			<div class="mx-auto text-center">
 				<div class="mb-3 text-gray-500">
 					<h5>Get in Touch</h5>
@@ -204,21 +192,13 @@
 		<div class="mb-5 border-b-2 border-gray-200">
 			<h1>Miscellaneous</h1>
 		</div>
-		<div class="mb-10 grid gap-3 sm:grid-cols-6 md:grid-cols-5 lg:grid-cols-6">
+		<div class="mb-10 grid gap-3 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-6">
 			{#each perks as perk}
 				<div class="flip-card">
 					<h6 class="mt-5 font-medium">{perk.title}</h6>
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
-							<img
-								class="img-perk"
-								src={perk.img}
-								alt=""
-								style="
-									height:185px;
-									object-position: center;
-									object-fit: cover;"
-							/>
+							<img class="img-perk" src={perk.img} alt="" />
 						</div>
 						<div class="flip-card-back bg-gray-700">
 							<p class="mt-5">{perk.subTitle}</p>
@@ -235,6 +215,9 @@
 	.img-perk {
 		border-radius: 3px;
 		width: 100%;
+		height: 185px;
+		object-position: center;
+		object-fit: cover;
 	}
 
 	/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */

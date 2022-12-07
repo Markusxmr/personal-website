@@ -5,7 +5,7 @@
 	import Icon from '@smui/select/icon';
 	import { portfolio } from './index';
 
-	let value = 'Fintech';
+	let value = 'Example';
 	let valueHelperText = '';
 	let valueLeadingIcon = '';
 	let valueInvalid = '';

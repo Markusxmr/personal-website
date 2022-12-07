@@ -5,6 +5,7 @@ import houdini from 'houdini/vite';
 import path from 'path';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
+import monacoEditorPlugin from 'vite-plugin-monaco-editor';
  
 const file = fileURLToPath(new URL('package.json', import.meta.url));
 const json = readFileSync(file, 'utf8');
@@ -31,7 +32,8 @@ export default {
 				run: 'npm run gen',
 				delay: 100,
 			}
-		])
+		]),
+		monacoEditorPlugin
 	],
 	resolve: {
 		alias: {

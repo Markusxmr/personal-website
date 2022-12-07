@@ -47,12 +47,20 @@
 				</h1>
 				<h5 class="page-subtitle mt-3 mb-4 text-center">Webz Enginner</h5>
 
-				<p class="mt-4 text-center">
-					I'm a Full Stack Web Developer based in Croatia. <br />
-					Welcome to my personal custom built website. Also a personal sandbox platform containing multiple applications
-					and various experiments.<br />
-					Enjoy!
-				</p>
+				<div class="mt-4 text-center">
+					<p class="mb-3">
+						I'm a Full Stack Web Developer based in Croatia.
+					</p>
+					<p class="mb-3">
+						Welcome to my personal custom built website.
+					</p>
+					<p class="mb-3">
+						Also a personal sandbox platform containing multiple applications and various experiments.
+					</p>
+					<p class="mb-3">
+						Enjoy!
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -87,7 +87,7 @@
 		position: fixed;
 		display: block;
 		z-index: 90;
-		bottom: 5px;
+		bottom: 30px;
 		left: 5px;
 	}
 </style>

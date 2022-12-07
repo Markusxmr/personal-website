@@ -15,9 +15,6 @@ export async function client() {
 export async function initNatsClient() {
     return client()
         .then(async (conn) => {
-            if (browser) {
-                window.nc = conn;
-            }
             return conn;
         })
 }
