@@ -75,13 +75,15 @@
 	function run() {
 		value = editor.getValue();
 		executeCode(value);
+		clearEditor();
 	}
 
 	function clearEditor() {
-		// editorContext = {
-		// 	name: '',
-		// 	code: ''
-		// };
+		editorContext = {
+			name: '',
+			code: ''
+		};
+		valueResult = '';
 	}
 
 	async function subscribePlaygroundContext() {
@@ -92,6 +94,7 @@
 			const decoded = sc.decode(m.data);
 			editorContext = JSON.parse(decoded);
 			value = editorContext?.code;
+			valueResult = '';
 			editor.getModel().setValue(editorContext?.code);
 			// console.log(`[${sub.getProcessed()}]: ${decoded}`);
 		}
@@ -136,7 +139,7 @@
 	<div class="playground-container" class:playground-container-two={!!value} class:playground-container-one={!value}>
 		<div id="playground" style="height: 600px" bind:this={container} />
 
-		<div class:editor-visible={!!value} use:clickOutside on:clickoutside={clearEditor}>
+		<div class:editor-visible={!!value} use:clickOutside>
 			<div class="form-group">
 				<input
 					type="text"
@@ -153,8 +156,6 @@
 				style="
 				width: 100%;
 				height: 40vh;
-				border: 1px solid #ccc;
-				border-radius: 5px;
 				"
 				bind:this={monacoContainer}
 			/>

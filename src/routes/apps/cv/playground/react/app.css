@@ -39,6 +39,8 @@
 .dndflow .reactflow-wrapper {
     flex-grow: 1;
     height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .dndflow .selectall {

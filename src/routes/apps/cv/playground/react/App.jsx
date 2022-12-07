@@ -3,7 +3,6 @@ import ReactFlow, { useNodesState, useEdgesState, addEdge, MiniMap, Controls, Re
 
 import 'reactflow/dist/base.css';
 
-import MonacoEditorNode from './components/node/MonacoEditorNode';
 import InputNode from './components/node/InputNode';
 import DefaultNode from './components/node/DefaultNode';
 import OutputNode from './components/node/OutputNode';
@@ -18,7 +17,6 @@ const nodeTypes = {
   input: InputNode,
   default: DefaultNode,
   output: OutputNode,
-  editor: MonacoEditorNode,
 };
 
 const initNodes = [
