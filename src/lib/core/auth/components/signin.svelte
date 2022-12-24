@@ -8,6 +8,7 @@
 		email: '',
 		password: ''
 	};
+	let signupUrl = `/${$store.meta.baseUri}/auth/signup`;
 
 	function handleError(err: any) {
 		error = err;
@@ -44,7 +45,7 @@
 
 			<div class="mb-3 w-[100%]">
 				Signin using an existing account or create a new account
-				<a href={`/${$store.meta.baseUri}/auth/signup`}>
+				<a href={signupUrl}>
 					<strong>here</strong>.
 				</a>
 			</div>
@@ -92,8 +93,9 @@
 					/>
 				</div>
 
-				<button
-					class="
+				<div style="position: relative">
+					<button
+						class="
 				btn
 				btn-secondary
 				mt-3
@@ -105,8 +107,12 @@
 				text-white
 				hover:bg-gray-500
 		"
-					type="submit">Submit</button
-				>
+						type="submit">Signin</button
+					>
+					<span class="ml-3" style="position: absolute; top: 23px">
+						<a href={signupUrl}>Or Register</a>
+					</span>
+				</div>
 			</form>
 
 			<div>

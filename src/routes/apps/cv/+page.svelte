@@ -45,21 +45,13 @@
 				<h1 id="section-0" class="mb-10 text-center text-4xl font-bold text-gray-900 dark:text-gray-900 md:text-5xl">
 					Marko Rendulić
 				</h1>
-				<h5 class="page-subtitle mt-3 mb-4 text-center">Webz Enginner</h5>
+				<h5 class="page-subtitle mt-3 mb-4 text-center">Web<strong class="text-gray-700">z</strong> Enginner</h5>
 
 				<div class="mt-4 text-center">
-					<p class="mb-3">
-						I'm a Full Stack Web Developer based in Croatia.
-					</p>
-					<p class="mb-3">
-						Welcome to my personal custom built website.
-					</p>
-					<p class="mb-3">
-						Also a personal sandbox platform containing multiple applications and various experiments.
-					</p>
-					<p class="mb-3">
-						Enjoy!
-					</p>
+					<p class="mb-3">I'm a Full Stack Web Developer based in Croatia.</p>
+					<p class="mb-3">Welcome to my personal custom built website.</p>
+					<p class="mb-3">Also a personal sandbox platform containing multiple applications and various experiments.</p>
+					<p class="mb-3">Enjoy!</p>
 				</div>
 			</div>
 		</div>

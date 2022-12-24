@@ -30,7 +30,10 @@ const config = {
     plugins: {
         "houdini-svelte": {
             client: CLIENT
-        }
+        },
+		'houdini-plugin-svelte-global-stores': {
+ 			prefix: "GQL_"
+		},
     },
 }
 

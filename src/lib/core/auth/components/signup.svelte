@@ -144,10 +144,10 @@
 				hover:bg-gray-500"
 						type="submit"
 					>
-						Submit
+						Signup
 					</button>
 					<span class="ml-3" style="position: absolute; top: 23px">
-						Or <a href={`/${$store.meta.baseUri}/auth/signin`}><strong>login</strong></a>
+						Or <a href={`/${$store.meta.baseUri}/auth/signin`}><strong>Signin</strong></a>
 					</span>
 				</div>
 			</form>

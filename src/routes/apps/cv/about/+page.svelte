@@ -5,8 +5,6 @@
 	import { post } from '$lib/core/utils/http.utils';
 	import { getNotificationsContext } from 'svelte-notifications';
 	import { perks } from '../home.data';
-	import { onMount } from 'svelte';
-	import { store } from '$stores/core';
 
 	const { addNotification } = getNotificationsContext();
 
@@ -195,7 +193,7 @@
 		<div class="mb-10 grid gap-3 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-6">
 			{#each perks as perk}
 				<div class="flip-card">
-					<h6 class="mt-5 font-medium">{perk.title}</h6>
+					<h6 class="mt-5 bg-white font-bold text-gray-700">{perk.title}</h6>
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 							<img class="img-perk" src={perk.img} alt="" />

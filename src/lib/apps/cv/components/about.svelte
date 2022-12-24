@@ -1,11 +1,11 @@
 <div class="pr-3">
 	<div class="mb-3 text-center">
-		<img class="mx-auto rounded-full" src="/cv/user/Marko.jpeg" width="200" />
+		<img class="mx-auto rounded-full" alt="Marko Rendulić" src="/cv/user/Marko.jpeg" width="200" />
 	</div>
-	<div class="mb-3 text-center">
-		<h4>Marko Rendulić</h4>
+	<div class="mb-6 text-center">
+		<h3>Marko Rendulić</h3>
 	</div>
-	<div class="eading-none text-justify">
+	<div class="eading-none">
 		<p>Senior Full Stack Engineer in Web Development.</p>
 		<p>
 			Proficient in building quality and reliable custom web applications, back-end systems, emphasizing security,

@@ -124,16 +124,7 @@ export const menus = {
             detailPage: {
                 id: `${BASE_ROUTE}/cv/playground`
             }
-        },
-        {
-            url: `/${BASE_ROUTE}/cv/blogs`,
-            name: 'Blogs',
-            icon: 'fa fa-briefcase',
-            id: `${BASE_ROUTE}/cv/blogs`,
-            detailPage: {
-                id: `${BASE_ROUTE}/cv/blogs/[slug]`
-            }
-        },
+        }
     ],
     MUSIC_CODE: [
         {

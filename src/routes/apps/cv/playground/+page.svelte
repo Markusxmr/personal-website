@@ -137,7 +137,7 @@
 	</div>
 
 	<div class="playground-container" class:playground-container-two={!!value} class:playground-container-one={!value}>
-		<div id="playground" style="height: 600px" bind:this={container} />
+		<div id="playground" bind:this={container} />
 
 		<div class:editor-visible={!!value} use:clickOutside>
 			<div class="form-group">
@@ -187,10 +187,6 @@
 <style>
 	.editor-visible {
 		visibility: visible;
-	}
-
-	.editor-hidden {
-		visibility: hidden;
 	}
 
 	.playground-container {

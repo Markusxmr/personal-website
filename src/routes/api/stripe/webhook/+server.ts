@@ -5,7 +5,7 @@ import {
 } from '$lib/core/services/membership.service';
 import { getApiUserProfiles } from '$lib/core/services/user.service';
 import { error, json } from '@sveltejs/kit';
-import { updateApiStripeUserMetadata } from '../../user-stripe-metadata.service';
+import { updateApiStripeUserMetadata } from '../user-stripe-metadata.service';
 import stripe from '../stripe';
 
 const STRIPE_ENDPOINT_SECRET = process.env.STRIPE_ENDPOINT_SECRET ?? "";
